@@ -18,7 +18,6 @@ end
 
 function love.draw()
 	drawObjects()
-	 love.graphics.print(text, 10, 10)
 	x, y = getMouse()
 	love.graphics.draw(placeable[cur], x - placeable[cur]:getWidth()/2, y - placeable[cur]:getHeight()/2)
 	if table.getn(objects) > 0 then

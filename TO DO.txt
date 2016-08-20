@@ -1,0 +1,8 @@
+The Engine
+ - Create unique object types
+ - Add controls
+ - Collision and movement (the actual game stuff)
+ - Saving levels
+ - Sprite animation
+ - Camera displacement
+ - Camera switching
