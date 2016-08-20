@@ -1,8 +1,7 @@
 require('mouse') -- Handles all mouse actions
 require('camera')
-require('draw')
+require('objects')
 
-objects = {}
 placeable = {}
 cur = 1
 
@@ -41,19 +40,3 @@ end
 
 
 
-function createObject(mousex, mousey)
-	num = table.getn(objects)+1
-	objects[num] = {
-		img = nil,
-		x = mousex,
-		y = mousey
-	}
-	
-	objects[num].img = placeable[cur]
-	
-	if cameraNum > 0 then
-		objects[num].x = x + cameras[cameraNum].x - objects[num].img:getWidth()/2
-		objects[num].y = y + cameras[cameraNum].y - objects[num].img:getHeight()/2
-	end
-	
-end
