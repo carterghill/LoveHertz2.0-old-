@@ -16,7 +16,7 @@ function createObject(mousex, mousey)
 		y = mousey
 	}
 	
-	objects[num].img = placeable[cur]
+	objects[num].img = placeable[placeableNum].img
 	
 	if cameraNum > 0 then
 		objects[num].x = x + cameras[cameraNum].x - objects[num].img:getWidth()/2

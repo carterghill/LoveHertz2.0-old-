@@ -1,4 +1,5 @@
 require('player')
+require('placeable')
 mouseDown = {false, false, false, false, false}
 
 function mouseCheck()
@@ -25,7 +26,11 @@ function onClick(button)
 	-- If LEFT mouse button is clicked
 	if button == 1 then
 		x, y = love.mouse.getPosition( )
-		createObject(x,y)
+		if placeable[placeableNum].class == "None" then
+			createObject(x,y)
+		elseif placeable[placeableNum].class == "Player" then
+			createPlayer(x,y)
+		end
 	end
 	if button == 2 then
 		x, y = love.mouse.getPosition( )
@@ -36,24 +41,23 @@ end
 function onRelease(button)
 	-- If LEFT mouse button is released
 	if button == 1 then
-		--mouseDown[count] = false
-		message = "Not Clicked :("
+
 	end
 	if button == 2 then
-		message2 = "Not Clicked :("
+
 	end
 end
  
 function love.wheelmoved(x, y)
     if y > 0 then
-        cur = cur + 1
-		if cur > table.getn(placeable) then
-			cur = 1
+        placeableNum = placeableNum + 1
+		if placeableNum > table.getn(placeable) then
+			placeableNum = 1
 		end
     elseif y < 0 then
-        cur = cur - 1
-		if cur < 1 then
-			cur = table.getn(placeable)
+        placeableNum = placeableNum - 1
+		if placeableNum < 1 then
+			placeableNum = table.getn(placeable)
 		end
     end
 end

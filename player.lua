@@ -19,7 +19,7 @@ function createPlayer(mousex, mousey)
 		right = 'd'
 	}
 	
-	objects[num].img = placeable[cur]
+	objects[num].img = placeable[placeableNum].img
 	
 	if cameraNum > 0 then
 		objects[num].x = mousex + cameras[cameraNum].x - objects[num].img:getWidth()/2
