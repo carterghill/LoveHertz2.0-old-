@@ -6,3 +6,5 @@ The Engine
  - Sprite animation
  - Camera displacement
  - Camera switching
+ - Switch to and from editor mode
+ - Algorithm to change an objects place in the objects list, and thus it's draw order (depth)

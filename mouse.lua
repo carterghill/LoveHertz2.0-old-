@@ -1,3 +1,4 @@
+require('player')
 mouseDown = {false, false, false, false, false}
 
 function mouseCheck()
@@ -23,12 +24,12 @@ end
 function onClick(button)
 	-- If LEFT mouse button is clicked
 	if button == 1 then
-		message = "Clicked! :D"
 		x, y = love.mouse.getPosition( )
 		createObject(x,y)
 	end
 	if button == 2 then
-		message2 = "Clicked! :D"
+		x, y = love.mouse.getPosition( )
+		createPlayer(x,y)
 	end
 end
 

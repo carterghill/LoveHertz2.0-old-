@@ -14,18 +14,14 @@ end
 
 function camera(dt)
 	if love.keyboard.isDown('d') then
-		cameras[cameraNum].x = cameras[cameraNum].x + 1
-		local count = 1
-		while count <= table.getn(objects) do
-			objects[count].relativeX = objects[count].relativeX - 1
-			count = count + 1
-		end
+		cameras[cameraNum].x = cameras[cameraNum].x + 5
 	end
 end
 
 function lockOn(object)
 	
-	cameras[cameraNum].x = object.globalX + object.img:getWidth()/2 - 400
+	cameras[cameraNum].x = object.x + object.img:getWidth()/2 - 400
+	cameras[cameraNum].y = object.y + object.img:getHeight()/2 - 300
 	
 	--dx = cameras[cameraNum].x - object.globalX
 	--if dx ~= 0 then

@@ -21,7 +21,7 @@ function love.draw()
 	x, y = getMouse()
 	love.graphics.draw(placeable[cur], x - placeable[cur]:getWidth()/2, y - placeable[cur]:getHeight()/2)
 	if table.getn(objects) > 0 then
-		love.graphics.print(objects[table.getn(objects)].globalX, 10, 10)
+		love.graphics.print(objects[table.getn(objects)].x, 10, 10)
 	end
 end
 
@@ -29,38 +29,31 @@ end
 function love.update(dt)
 	mouseCheck()
 	camera(dt)
-	if table.getn(objects) > 0 then
-		lockOn(objects[1])
-		if love.keyboard.isDown('a') then
-			objects[1].globalX = objects[1].globalX - 1
-		end
+	if table.getn(players) > 0 then
+		lockOn(objects[players[1]])
 	end
 	if love.keyboard.isDown('h') then
 		lockOn(objects[1])
 	end	
-	
+	playerUpdate(dt)
 	
 end
 
 
 
-function createObject(x, y)
+function createObject(mousex, mousey)
 	num = table.getn(objects)+1
 	objects[num] = {
-		relativeX = x,
-		relativeY = y,
 		img = nil,
-		globalX = x,
-		globalY = y
+		x = mousex,
+		y = mousey
 	}
 	
 	objects[num].img = placeable[cur]
-	objects[num].relativeX = x - objects[num].img:getWidth()/2
-	objects[num].relativeY = y - objects[num].img:getHeight()/2
 	
 	if cameraNum > 0 then
-		objects[num].globalX = x + cameras[cameraNum].x - objects[num].img:getWidth()/2
-		objects[num].globalY = y - cameras[cameraNum].y - objects[num].img:getHeight()/2
+		objects[num].x = x + cameras[cameraNum].x - objects[num].img:getWidth()/2
+		objects[num].y = y + cameras[cameraNum].y - objects[num].img:getHeight()/2
 	end
 	
 end
