@@ -33,8 +33,7 @@ function onClick(button)
 		end
 	end
 	if button == 2 then
-		x, y = love.mouse.getPosition( )
-		createPlayer(x,y)
+
 	end
 end
 

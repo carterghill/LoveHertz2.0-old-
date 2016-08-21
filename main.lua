@@ -2,9 +2,6 @@ require('mouse') -- Handles all mouse actions
 require('camera')
 require('objects')
 
-
-pic = nil
-
 function love.load()
 	newPlaceable(love.graphics.newImage("1225.png"), "Player")
 	newPlaceable(love.graphics.newImage("smile.png"), "None")
@@ -15,11 +12,8 @@ end
 
 function love.draw()
 	drawObjects()
-	x, y = getMouse()
-	love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/2, y - placeable[placeableNum].img:getHeight()/2)
-	--if table.getn(objects) > 0 then
-		love.graphics.print(table.getn(placeable), 10, 10)
-	--end
+	drawPlaceable()
+	love.graphics.print(table.getn(placeable), 10, 10)
 end
 
 

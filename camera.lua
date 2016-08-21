@@ -23,13 +23,4 @@ function lockOn(object)
 	cameras[cameraNum].x = object.x + object.img:getWidth()/2 - 400
 	cameras[cameraNum].y = object.y + object.img:getHeight()/2 - 300
 	
-	--dx = cameras[cameraNum].x - object.globalX
-	--if dx ~= 0 then
-		--cameras[cameraNum].x = object.globalX
-		--local count = 1
-		--while count <= table.getn(objects) do
-			--object.relativeX = object.relativeX + dx --+400
-			--count = count + 1
-		--end
-	--end
 end
