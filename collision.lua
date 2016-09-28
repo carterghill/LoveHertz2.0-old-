@@ -31,8 +31,8 @@ function collision( player, dt )
 			end			
 		elseif player.xSpeed < 0 and count ~= player.id and player.x > objects[count].x then
 			if player.x - player.xSpeed*dt - 3  < objects[count].x + objects[count].height +3 then
-				if player.y < objects[count].y + objects[count].width
-				and player.y + player.height > objects[count].y then
+				if player.y + 3 < objects[count].y + objects[count].width
+				and player.y + player.height - 3 > objects[count].y then
 					player.xSpeed = 0
 					player.x = objects[count].x + objects[count].width
 				end
