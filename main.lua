@@ -1,6 +1,7 @@
 require('mouse') -- Handles all mouse actions
 require('camera')
 require('objects')
+editMode = true
 
 function love.load()
 	newPlaceable(love.graphics.newImage("1225.png"), "Player")
@@ -13,13 +14,18 @@ end
 
 function love.draw()
 	drawObjects()
-	drawPlaceable()
-	love.graphics.print(classText, 10, 10)
+	if editMode then
+		drawPlaceable()
+		love.graphics.print("Edit mode Enabled", 10, 10)
+	end
 end
 
 
 function love.update(dt)
-	mouseCheck()
+	
+	if editMode then
+		mouseCheck()
+	end
 	
 	if table.getn(players) > 0 then
 		lockOn(objects[players[1]])
@@ -27,9 +33,25 @@ function love.update(dt)
 	if love.keyboard.isDown('h') then
 		lockOn(objects[1])
 	end	
-	playerUpdate(dt)
-	camera(dt)
+
+	if not editMode then
+		playerUpdate(dt)
+		camera(dt)
+	end
 	
+end
+
+function love.keypressed(key)
+   if key == "escape" then
+      love.event.quit()
+   end
+   if key == "t" then
+      if editMode then
+      	editMode = false
+      else
+      	editMode = true
+      end
+   end
 end
 
 

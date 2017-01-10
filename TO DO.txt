@@ -1,11 +1,8 @@
 The Engine
- - Create unique object types
- - Add controls
  - Collision and movement (the actual game stuff)
  - Saving levels (might need to do some lua filesystem stuff)
  - Sprite animation
- - Camera displacement
- - Camera switching
+ - Smooth out camera movement 
  - Switch to and from editor mode
  - Algorithm to change an objects place in the objects list, 
 	and thus it's draw order (depth)

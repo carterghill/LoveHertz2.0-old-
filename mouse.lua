@@ -33,6 +33,8 @@ function onClick(button)
 		elseif classText == "Player" then
 			createPlayer(x,y)
 		elseif classText == "Tile" then
+			y = y + 32
+			x = x + 32
 			classText = tostring(offset)
 			offsetx = (x + cameras[cameraNum].x) % 64
 			offsety = (y + cameras[cameraNum].y) % 64
