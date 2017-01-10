@@ -1,6 +1,7 @@
 require('player')
 require('placeable')
 mouseDown = {false, false, false, false, false}
+classText = "ha"
 
 function mouseCheck()
 	local count = 1
@@ -26,10 +27,34 @@ function onClick(button)
 	-- If LEFT mouse button is clicked
 	if button == 1 then
 		x, y = love.mouse.getPosition( )
-		if placeable[placeableNum].class == "None" then
+		classText = placeable[placeableNum].class
+		if classText == "None" then
 			createObject(x,y)
-		elseif placeable[placeableNum].class == "Player" then
+		elseif classText == "Player" then
 			createPlayer(x,y)
+		elseif classText == "Tile" then
+			classText = tostring(offset)
+			offsetx = (x + cameras[cameraNum].x) % 64
+			offsety = (y + cameras[cameraNum].y) % 64
+			classText = "x = "..tostring(x)..", offset = "..tostring(offset)
+			if offsetx < 64 then
+				placex = x - offsetx 
+
+				classText = "x = "..tostring(x)..", place = "..tostring(placex)
+				if offsety < 64 then
+					createObject(placex,y-offsety)
+				else
+					createObject(placex,y+offsety)
+				end
+			else
+				placex = x + offsetx
+				classText = "x = "..tostring(x)..", place = "..tostring(placex)
+				if offsety < 64 then
+					createObject(placex,y-offsety)
+				else
+					createObject(placex,y+offsety)
+				end
+			end
 		end
 	end
 	if button == 2 then

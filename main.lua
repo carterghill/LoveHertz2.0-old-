@@ -6,6 +6,7 @@ function love.load()
 	newPlaceable(love.graphics.newImage("1225.png"), "Player")
 	newPlaceable(love.graphics.newImage("smile.png"), "None")
 	newPlaceable(love.graphics.newImage("neutral.png"), "None")
+	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
 	newCamera()
 end
 
@@ -13,13 +14,13 @@ end
 function love.draw()
 	drawObjects()
 	drawPlaceable()
-	love.graphics.print(table.getn(placeable), 10, 10)
+	love.graphics.print(classText, 10, 10)
 end
 
 
 function love.update(dt)
 	mouseCheck()
-	camera(dt)
+	
 	if table.getn(players) > 0 then
 		lockOn(objects[players[1]])
 	end
@@ -27,6 +28,7 @@ function love.update(dt)
 		lockOn(objects[1])
 	end	
 	playerUpdate(dt)
+	camera(dt)
 	
 end
 
