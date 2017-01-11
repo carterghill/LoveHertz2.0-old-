@@ -15,7 +15,9 @@ function createObject(mousex, mousey)
 		width = 0,
 		height = 0,
 		x = mousex,
-		y = mousey
+		y = mousey,
+		xSpeed = 0,
+		ySpeed = 0
 	}
 	
 	objects[num].img = placeable[placeableNum].img

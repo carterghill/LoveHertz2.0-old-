@@ -9,6 +9,7 @@ function newCamera()
 		xSpeed = 0,
 		ySpeed = 0
 	}
+	
 	if cameraNum == 0 then
 		cameraNum = 1
 	end
@@ -31,7 +32,7 @@ end
 
 -- moveTo: Moves the camera to the object in the alloted time
 function moveTo(object, time, dt)
-	cameras[cameraNum].xSpeed = ((object.x + object.img:getWidth()/2 - 400) - cameras[cameraNum].x)/time
-	cameras[cameraNum].ySpeed = ((object.y + object.img:getHeight()/2 - 300) - cameras[cameraNum].y)/time
+	cameras[cameraNum].xSpeed = ((object.x + object.xSpeed/3 + object.img:getWidth()/2 - 400) - cameras[cameraNum].x)/time
+	cameras[cameraNum].ySpeed = ((object.y + object.ySpeed/10 + object.img:getHeight()/2 - 300) - cameras[cameraNum].y)/time
 
 end
