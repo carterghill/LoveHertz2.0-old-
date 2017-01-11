@@ -17,6 +17,7 @@ function createPlayer(mousex, mousey)
 		width = 0,
 		height = 0,
 		runSpeed = 400,
+		fallSpeed = 800,
 		xSpeed = 0,
 		ySpeed = 0,
 		accel = 1800,
@@ -89,6 +90,9 @@ function playerUpdate(dt)
 		end
 		
 		player.ySpeed = player.ySpeed + player.gravity*dt
+		if player.ySpeed > player.fallSpeed then
+		  player.ySpeed = player.fallSpeed
+		end
 
 		collision(player,dt)
 		player.y = player.y + player.ySpeed*dt

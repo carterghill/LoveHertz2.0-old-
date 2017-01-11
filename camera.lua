@@ -16,9 +16,23 @@ function newCamera()
 end
 
 function camera(dt)
-	
-	cameras[cameraNum].x = cameras[cameraNum].x + cameras[cameraNum].xSpeed*dt
-	cameras[cameraNum].y = cameras[cameraNum].y + cameras[cameraNum].ySpeed*dt
+	if editMode then
+	   if love.keyboard.isDown('d') then
+	     cameras[cameraNum].x = cameras[cameraNum].x + 300*dt
+	   end
+	   if love.keyboard.isDown('a') then
+       cameras[cameraNum].x = cameras[cameraNum].x + -300*dt
+     end
+     if love.keyboard.isDown('s') then
+       cameras[cameraNum].y = cameras[cameraNum].y + 300*dt
+     end
+     if love.keyboard.isDown('w') then
+       cameras[cameraNum].y = cameras[cameraNum].y - 300*dt
+     end
+	else
+	  cameras[cameraNum].x = cameras[cameraNum].x + cameras[cameraNum].xSpeed*dt
+	  cameras[cameraNum].y = cameras[cameraNum].y + cameras[cameraNum].ySpeed*dt
+	end
 end
 
 function lockOn(object, dt)

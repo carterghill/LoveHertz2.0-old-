@@ -39,9 +39,9 @@ function love.update(dt)
 
 	if not editMode then
 		playerUpdate(dt)
-		camera(dt)
+		
 	end
-	
+	camera(dt)
 end
 
 function love.keypressed(key)
