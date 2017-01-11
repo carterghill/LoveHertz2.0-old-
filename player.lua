@@ -9,20 +9,23 @@ function createPlayer(mousex, mousey)
 	players[playerNum] = num
 	
 	objects[num] = {
+		gravity = 2200,
 		img = nil,
 		id = num,
 		x = mousex,
 		y = mousey,
 		width = 0,
 		height = 0,
-		runSpeed = 750,
+		runSpeed = 400,
 		xSpeed = 0,
 		ySpeed = 0,
-		accel = 500,
+		accel = 1800,
 		up = "w",
 		down = "s",
 		left = 'a',
-		right = 'd'
+		right = 'd',
+		grounded = false,
+		jumped = true
 	}
 	
 	objects[num].img = placeable[placeableNum].img
@@ -46,24 +49,27 @@ function playerUpdate(dt)
 	while count <= table.getn(players) do
 		player = getPlayer(count)
 		if love.keyboard.isDown(objects[players[count]].up) then
-			player.ySpeed = player.ySpeed - player.accel*dt
-			if player.ySpeed < -player.runSpeed then
-				player.ySpeed = -player.runSpeed
-			end
+			if player.grounded and player.jumped == false then
+				player.ySpeed = -1000
+				player.jumped = true
+			end	
+		elseif player.jumped == true and player.grounded == true then
+			player.jumped = false
 		end
-		if love.keyboard.isDown(objects[players[count]].left) then
+
+		if love.keyboard.isDown(player.left) then
 			player.xSpeed = player.xSpeed - player.accel*dt
 			if player.xSpeed < -player.runSpeed then
 				player.xSpeed = -player.runSpeed
 			end
 		end
-		if love.keyboard.isDown(objects[players[count]].right) then
+		if love.keyboard.isDown(player.right) then
 			player.xSpeed = player.xSpeed + player.accel*dt
 			if player.xSpeed > player.runSpeed then
 				player.xSpeed = player.runSpeed
 			end
 		end
-		if love.keyboard.isDown(objects[players[count]].down) then
+		if love.keyboard.isDown(player.down) then
 			player.ySpeed = player.ySpeed + player.accel*dt
 			if player.ySpeed > player.runSpeed then
 				player.ySpeed = player.runSpeed
@@ -71,19 +77,8 @@ function playerUpdate(dt)
 			
 		end
 		
-		if not love.keyboard.isDown(objects[players[count]].down)
-		and not love.keyboard.isDown(objects[players[count]].up) then
-			if player.ySpeed > 0 + player.accel*dt then
-				player.ySpeed = player.ySpeed - player.accel*dt
-			elseif player.ySpeed < 0 - player.accel*dt then
-				player.ySpeed = player.ySpeed + player.accel*dt
-			else 
-				player.ySpeed = 0
-			end
-		end
-		
-		if not love.keyboard.isDown(objects[players[count]].right)
-		and not love.keyboard.isDown(objects[players[count]].left) then
+		if not love.keyboard.isDown(player.right)
+		and not love.keyboard.isDown(player.left) then
 			if player.xSpeed > 0 + player.accel*dt then
 				player.xSpeed = player.xSpeed - player.accel*dt
 			elseif player.xSpeed < 0 - player.accel*dt then
@@ -93,9 +88,12 @@ function playerUpdate(dt)
 			end
 		end
 		
+		player.ySpeed = player.ySpeed + player.gravity*dt
+
 		collision(player,dt)
 		player.y = player.y + player.ySpeed*dt
 		player.x = player.x + player.xSpeed*dt
 		count = count + 1
 	end
 end
+

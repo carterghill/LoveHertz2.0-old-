@@ -2,12 +2,14 @@ collisions = {}
 
 function collision( player, dt )
 	local count = 1
+	player.grounded = false
 	while count <= table.getn(objects) do
 		if player.ySpeed > 0 and count ~= player.id and player.y < objects[count].y then
 			if player.y + player.height + player.ySpeed*dt > objects[count].y then
 				if player.x < objects[count].x + objects[count].width - 2
 				and player.x + player.width > objects[count].x +2 then
 					player.ySpeed = 0
+					player.grounded = true
 					player.y = objects[count].y - player.height
 				end
 			end			

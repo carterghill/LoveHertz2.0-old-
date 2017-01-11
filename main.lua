@@ -8,6 +8,9 @@ function love.load()
 	newPlaceable(love.graphics.newImage("smile.png"), "None")
 	newPlaceable(love.graphics.newImage("neutral.png"), "None")
 	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
+	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
+	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
+	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
 	newCamera()
 end
 
@@ -28,10 +31,10 @@ function love.update(dt)
 	end
 	
 	if table.getn(players) > 0 then
-		lockOn(objects[players[1]])
+		lockOn(objects[players[1]], dt)
 	end
 	if love.keyboard.isDown('h') then
-		lockOn(objects[1])
+		lockOn(objects[5], dt)
 	end	
 
 	if not editMode then

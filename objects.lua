@@ -25,6 +25,7 @@ function createObject(mousex, mousey)
 	if cameraNum > 0 then
 		objects[num].x = objects[num].x + cameras[cameraNum].x - objects[num].img:getWidth()/2
 		objects[num].y = objects[num].y + cameras[cameraNum].y - objects[num].img:getHeight()/2
+		
 	end
 	
 end
