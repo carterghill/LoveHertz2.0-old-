@@ -1,6 +1,8 @@
 require('mouse') -- Handles all mouse actions
 require('camera')
 require('objects')
+require('table')
+require('string')
 editMode = true
 
 function love.load()
@@ -20,6 +22,10 @@ function love.draw()
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
+		if table.getn(objects)>2 then
+		  --haha = to_string(objects[1])
+		  --love.graphics.print(haha, 10, 30)
+		end
 	end
 end
 
