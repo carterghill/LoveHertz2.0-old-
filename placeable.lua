@@ -12,6 +12,11 @@ end
 
 function drawPlaceable()
 	x, y = getMouse()
-	love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/2, y 
-		- placeable[placeableNum].img:getHeight()/2)
+	if placeable[placeableNum].class == "Tile" and placeable[placeableNum].img:getWidth() == 128 then 
+	   love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/4, y 
+        - placeable[placeableNum].img:getHeight()/4, 0, 0.5)
+	else
+	   love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/2, y 
+		    - placeable[placeableNum].img:getHeight()/2)
+	end
 end

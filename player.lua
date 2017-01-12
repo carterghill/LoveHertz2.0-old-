@@ -51,7 +51,7 @@ function playerUpdate(dt)
 		player = getPlayer(count)
 		if love.keyboard.isDown(objects[players[count]].up) then
 			if player.grounded and player.jumped == false then
-				player.ySpeed = -1000
+				player.ySpeed = -900
 				player.jumped = true
 			end	
 		elseif player.jumped == true and player.grounded == true then

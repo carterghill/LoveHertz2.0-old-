@@ -3,7 +3,8 @@ objects = {}
 function drawObjects()
 	local count = 1
 	while count <= table.getn(objects) do
-		love.graphics.draw(objects[count].img,objects[count].x-cameras[cameraNum].x, objects[count].y-cameras[cameraNum].y)
+		love.graphics.draw(objects[count].img,objects[count].x-cameras[cameraNum].x,
+         objects[count].y-cameras[cameraNum].y, 0, objects[count].scale)
 		count = count + 1
 	end
 end
@@ -17,7 +18,8 @@ function createObject(mousex, mousey)
 		x = mousex,
 		y = mousey,
 		xSpeed = 0,
-		ySpeed = 0
+		ySpeed = 0,
+		scale = 1
 	}
 	
 	objects[num].img = placeable[placeableNum].img

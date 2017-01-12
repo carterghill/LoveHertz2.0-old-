@@ -46,7 +46,7 @@ end
 
 -- moveTo: Moves the camera to the object in the alloted time
 function moveTo(object, time, dt)
-	cameras[cameraNum].xSpeed = ((object.x + object.xSpeed/3 + object.img:getWidth()/2 - 400) - cameras[cameraNum].x)/time
-	cameras[cameraNum].ySpeed = ((object.y + object.ySpeed/10 + object.img:getHeight()/2 - 300) - cameras[cameraNum].y)/time
+	cameras[cameraNum].xSpeed = ((object.x + object.xSpeed/3 + object.img:getWidth()/2 - love.graphics.getWidth( )/2) - cameras[cameraNum].x)/time
+	cameras[cameraNum].ySpeed = ((object.y + object.ySpeed/10 + object.img:getHeight()/2 - love.graphics.getHeight( )/2) - cameras[cameraNum].y)/time
 
 end

@@ -33,8 +33,10 @@ function onClick(button)
 		elseif classText == "Player" then
 			createPlayer(x,y)
 		elseif classText == "Tile" then
-			y = y + 32
-			x = x + 32
+		  if placeable[placeableNum].img:getHeight() == 64 then
+			  y = y + 32
+			  x = x + 32
+      end
 			classText = tostring(offset)
 			offsetx = (x + cameras[cameraNum].x) % 64
 			offsety = (y + cameras[cameraNum].y) % 64
@@ -56,6 +58,13 @@ function onClick(button)
 				else
 					createObject(placex,y+offsety)
 				end
+			end
+			if objects[table.getn(objects)].width == 128 then
+			  objects[table.getn(objects)].scale = 0.5
+			  objects[table.getn(objects)].width = objects[table.getn(objects)].width/2
+			  objects[table.getn(objects)].height = objects[table.getn(objects)].height/2
+			  objects[table.getn(objects)].x = objects[table.getn(objects)].x + 32
+			  objects[table.getn(objects)].y = objects[table.getn(objects)].y + 32
 			end
 		end
 	end

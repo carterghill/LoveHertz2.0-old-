@@ -25,7 +25,7 @@ function collision( player, dt )
 		
 		if player.xSpeed > 0 and count ~= player.id and player.x < objects[count].x then
 			if player.x + player.width + player.xSpeed*dt > objects[count].x then
-				if player.y < objects[count].y + objects[count].height
+				if player.y+4 < objects[count].y + objects[count].height
 				and player.y + player.height - 2 > objects[count].y then
 					player.xSpeed = 0
 					player.x = objects[count].x - player.width
