@@ -9,7 +9,7 @@ function createPlayer(mousex, mousey)
 	players[playerNum] = num
 	
 	objects[num] = {
-		gravity = 2200,
+		gravity = 3000,
 		img = nil,
     imagePath = placeable[placeableNum].imagePath,
 		id = num,
@@ -17,15 +17,17 @@ function createPlayer(mousex, mousey)
 		y = mousey,
 		width = 0,
 		height = 0,
-		runSpeed = 400,
-		fallSpeed = 800,
+		runSpeed = 500,
+		fallSpeed = 1000,
 		xSpeed = 0,
 		ySpeed = 0,
-		accel = 1800,
+		accel = 2200,
 		up = "w",
 		down = "s",
 		left = 'a',
 		right = 'd',
+    rightCol = false,
+    leftCol = false,
 		grounded = false,
 		jumped = true
 	}
@@ -53,10 +55,19 @@ function playerUpdate(dt)
 		player = getPlayer(count)
 		if love.keyboard.isDown(objects[players[count]].up) then
 			if player.grounded and player.jumped == false then
-				player.ySpeed = -900
+				player.ySpeed = -1200
 				player.jumped = true
-			end	
-		elseif player.jumped == true and player.grounded == true then
+			elseif player.rightCol and player.jumped == false then
+				player.ySpeed = -1200
+        player.xSpeed = -player.runSpeed
+				player.jumped = true
+			elseif player.leftCol and player.jumped == false then
+				player.ySpeed = -1200
+        player.xSpeed = player.runSpeed
+        --player.x = player.x + 16
+				player.jumped = true
+			end		
+		elseif player.jumped == true and (player.grounded or player.rightCol or player.leftCol) then
 			player.jumped = false
 		end
 
