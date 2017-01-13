@@ -1,18 +1,12 @@
 require('mouse') -- Handles all mouse actions
 require('camera')
 require('objects')
-require('Tserial')
-require('tablesave')
 require('levels')
 editMode = true
 
-function isempty(s)
-  return s == nil
-end
-
 function love.load()
   levelsInit()
-	newPlaceable("dude.png", "Player")
+	createPlayer()
 	newPlaceable("smile.png", "None")
 	newPlaceable("neutral.png", "None")
 	newPlaceable("tile.jpg", "Tile")
@@ -28,9 +22,7 @@ function love.draw()
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
-		if table.getn(objects)>2 then
-		  love.graphics.print(Tserial.pack(objects, "img = nil"), 10, 30)
-		end
+    love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
 	end
 end
 
@@ -71,6 +63,12 @@ function love.keypressed(key)
   end
   if key == "l" then
     loadLevels()
+  end
+  if key == "right" then
+    setLevel(levelNum+1)
+  end
+  if key == "left" then
+    setLevel(levelNum-1)
   end
 end
 

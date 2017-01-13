@@ -44,6 +44,47 @@ function createPlayer(mousex, mousey)
 	
 end
 
+function createPlayer()
+	local num = table.getn(objects)+1
+	local playerNum = table.getn(players)+1
+	players[playerNum] = num
+	
+	objects[num] = {
+		gravity = 3000,
+		img = nil,
+    imagePath = "dude.png",
+		id = num,
+		x = 0,
+		y = 0,
+		width = 0,
+		height = 0,
+		runSpeed = 500,
+		fallSpeed = 1000,
+		xSpeed = 0,
+		ySpeed = 0,
+		accel = 3000,
+		up = "w",
+		down = "s",
+		left = 'a',
+		right = 'd',
+    rightCol = false,
+    leftCol = false,
+		grounded = false,
+		jumped = true
+	}
+	
+	objects[num].img = love.graphics.newImage("dude.png")
+	objects[num].width = objects[num].img:getWidth()
+	objects[num].height = objects[num].img:getHeight()
+  imagePath = "dude.png"
+	
+	if cameraNum > 0 then
+		objects[num].x = cameras[cameraNum].x - objects[num].width/2
+		objects[num].y = cameras[cameraNum].y - objects[num].height/2
+	end
+	
+end
+
 -- Returns player num
 function getPlayer(num)
 	return objects[players[num]]
@@ -59,11 +100,11 @@ function playerUpdate(dt)
 				player.jumped = true
 			elseif player.rightCol and player.jumped == false then
 				player.ySpeed = -1200
-        player.xSpeed = -player.runSpeed
+        player.xSpeed = -player.runSpeed*1.5
 				player.jumped = true
 			elseif player.leftCol and player.jumped == false then
 				player.ySpeed = -1200
-        player.xSpeed = player.runSpeed
+        player.xSpeed = player.runSpeed*1.5
         --player.x = player.x + 16
 				player.jumped = true
 			end		

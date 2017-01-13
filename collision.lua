@@ -10,7 +10,7 @@ function collision( player, dt )
 	while count <= table.getn(objects) do
 		if player.ySpeed > 0 and count ~= player.id and player.y < objects[count].y then
 			if player.y + player.height + player.ySpeed*dt > objects[count].y then
-				if player.x < objects[count].x + objects[count].width - 2
+				if player.x + 2 < objects[count].x + objects[count].width - 2
 				and player.x + player.width > objects[count].x +2 then
 					player.ySpeed = 0
 					player.grounded = true
@@ -40,7 +40,7 @@ function collision( player, dt )
 				end
 			end			
 		elseif player.xSpeed < 0 and count ~= player.id and player.x > objects[count].x then
-			if player.x - player.xSpeed*dt - 3  < objects[count].x + objects[count].height +3 then
+			if player.x - player.xSpeed*dt - 3  < objects[count].x + objects[count].width + 3 then
 				if player.y + 3 < objects[count].y + objects[count].width
 				and player.y + player.height - 3 > objects[count].y then
 					player.xSpeed = 0
@@ -48,7 +48,7 @@ function collision( player, dt )
             player.ySpeed = player.ySpeed*.8
           end
           player.leftCol = true
-					player.x = objects[count].x + objects[count].width
+					player.x = objects[count].x + objects[count].width + 1
 				end
 			end			
 		end
