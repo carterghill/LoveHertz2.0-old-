@@ -12,7 +12,7 @@ end
 
 function love.load()
   levelsInit()
-	newPlaceable("1225.png", "Player")
+	newPlaceable("dude.png", "Player")
 	newPlaceable("smile.png", "None")
 	newPlaceable("neutral.png", "None")
 	newPlaceable("tile.jpg", "Tile")
