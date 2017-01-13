@@ -5,6 +5,10 @@ require('Tserial')
 require('tablesave')
 editMode = true
 
+function isempty(s)
+  return s == nil
+end
+
 function love.load()
   objects = table.load("lvl1.txt")
   print(table.getn(objects))
@@ -12,6 +16,10 @@ function love.load()
   while(i <= table.getn(objects)) do
     print(Tserial.pack(objects[i], "img = nil"))
     objects[i].img = love.graphics.newImage(objects[i].imagePath)
+    if not isempty(objects[i].id) then
+      local playerNum = table.getn(players)+1
+      players[playerNum] = i
+    end
     i = i+1
   end
 	newPlaceable("1225.png", "Player")
