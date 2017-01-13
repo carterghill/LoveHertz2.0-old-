@@ -3,6 +3,7 @@ require('camera')
 require('objects')
 require('Tserial')
 require('tablesave')
+require('levels')
 editMode = true
 
 function isempty(s)
@@ -10,18 +11,7 @@ function isempty(s)
 end
 
 function love.load()
-  objects = table.load("lvl1.txt")
-  print(table.getn(objects))
-  i = 1
-  while(i <= table.getn(objects)) do
-    print(Tserial.pack(objects[i], "img = nil"))
-    objects[i].img = love.graphics.newImage(objects[i].imagePath)
-    if not isempty(objects[i].id) then
-      local playerNum = table.getn(players)+1
-      players[playerNum] = i
-    end
-    i = i+1
-  end
+  levelsInit()
 	newPlaceable("1225.png", "Player")
 	newPlaceable("smile.png", "None")
 	newPlaceable("neutral.png", "None")
@@ -67,7 +57,6 @@ end
 
 function love.keypressed(key)
   if key == "escape" then
-    table.save(objects,"lvl1.txt")
     love.event.quit()
   end
   if key == "t" then
@@ -76,6 +65,12 @@ function love.keypressed(key)
     else
       editMode = true
     end
+  end
+  if key == "p" then
+    saveLevels()
+  end
+  if key == "l" then
+    loadLevels()
   end
 end
 
