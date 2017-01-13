@@ -2,127 +2,126 @@ return {
 -- Table: {1}
 {
    {2},
-   {3},
-   [0]=2,
+   [0]=1,
 },
 -- Table: {2}
 {
-   ["objs"]={4},
-   ["plyrs"]={5},
+   ["objs"]={3},
+   ["plyrs"]={4},
 },
 -- Table: {3}
 {
-   ["objs"]={6},
-   ["plyrs"]={7},
-},
--- Table: {4}
-{
+   {5},
+   {6},
+   {7},
    {8},
    {9},
    {10},
    {11},
+   {12},
+},
+-- Table: {4}
+{
+   1,
 },
 -- Table: {5}
-{
-   1,
-},
--- Table: {6}
-{
-   {12},
-   {13},
-},
--- Table: {7}
-{
-   1,
-},
--- Table: {8}
 {
    ["right"]="d",
    ["x"]=0,
    ["id"]=1,
-   ["y"]=96,
+   ["y"]=0,
    ["down"]="s",
    ["left"]="a",
-   ["rightCol"]=false,
-   ["gravity"]=3000,
-   ["jumped"]=false,
-   ["accel"]=3000,
-   ["up"]="w",
-   ["fallSpeed"]=1000,
-   ["grounded"]=true,
-   ["imagePath"]="dude.png",
-   ["xSpeed"]=0,
-   ["ySpeed"]=0,
-   ["width"]=64,
    ["runSpeed"]=500,
-   ["height"]=128,
-   ["leftCol"]=false,
-},
--- Table: {9}
-{
-   ["x"]=32,
-   ["y"]=224,
-   ["imagePath"]="tile.jpg",
-   ["xSpeed"]=0,
-   ["height"]=64,
-   ["width"]=64,
-   ["ySpeed"]=0,
-   ["scale"]=1,
-},
--- Table: {10}
-{
-   ["x"]=-32,
-   ["y"]=224,
-   ["imagePath"]="tile.jpg",
-   ["xSpeed"]=0,
-   ["height"]=64,
-   ["width"]=64,
-   ["ySpeed"]=0,
-   ["scale"]=1,
-},
--- Table: {11}
-{
-   ["x"]=96,
-   ["y"]=224,
-   ["imagePath"]="tile.jpg",
-   ["xSpeed"]=0,
-   ["height"]=64,
-   ["width"]=64,
-   ["ySpeed"]=0,
-   ["scale"]=1,
-},
--- Table: {12}
-{
-   ["right"]="d",
-   ["x"]=-639.99974207936,
-   ["id"]=1,
-   ["y"]=-261.4999289438,
-   ["down"]="s",
-   ["left"]="a",
-   ["rightCol"]=false,
    ["gravity"]=3000,
    ["jumped"]=true,
-   ["accel"]=3000,
+   ["leftCol"]=false,
    ["up"]="w",
    ["fallSpeed"]=1000,
    ["grounded"]=false,
    ["imagePath"]="dude.png",
    ["xSpeed"]=0,
-   ["ySpeed"]=0,
-   ["width"]=64,
-   ["runSpeed"]=500,
+   ["rightCol"]=false,
    ["height"]=128,
-   ["leftCol"]=false,
-},
--- Table: {13}
-{
-   ["x"]=-667.9587104774,
-   ["y"]=-44.506646241513,
-   ["imagePath"]="neutral.png",
-   ["xSpeed"]=0,
-   ["height"]=120,
-   ["width"]=120,
+   ["width"]=64,
    ["ySpeed"]=0,
+   ["accel"]=3000,
+},
+-- Table: {6}
+{
    ["scale"]=1,
+   ["y"]=224,
+   ["imagePath"]="tile.jpg",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=32,
+},
+-- Table: {7}
+{
+   ["scale"]=1,
+   ["y"]=224,
+   ["imagePath"]="tile.jpg",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=-32,
+},
+-- Table: {8}
+{
+   ["scale"]=0.5,
+   ["y"]=224,
+   ["imagePath"]="tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=96,
+},
+-- Table: {9}
+{
+   ["scale"]=0.5,
+   ["y"]=160,
+   ["imagePath"]="tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=160,
+},
+-- Table: {10}
+{
+   ["scale"]=0.5,
+   ["y"]=224,
+   ["imagePath"]="tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=160,
+},
+-- Table: {11}
+{
+   ["scale"]=0.5,
+   ["y"]=224,
+   ["imagePath"]="tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=224,
+},
+-- Table: {12}
+{
+   ["scale"]=0.5,
+   ["y"]=224,
+   ["imagePath"]="tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=288,
 },
 }

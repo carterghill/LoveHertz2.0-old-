@@ -34,8 +34,8 @@ function onClick(button)
 			createPlayer(x,y)
 		elseif classText == "Tile" then
 		  if placeable[placeableNum].img:getHeight() == 64 then
-			  y = y + 32
-			  x = x + 32
+			  --y = y + 32
+			  --x = x + 32
       end
 			classText = tostring(offset)
 			offsetx = (x + cameras[cameraNum].x) % 64

@@ -1,17 +1,29 @@
 tiles = {}
 tileNum = 1
 
-function newTile(image)
-	num = table.getn(placeable)+1
-	placeable[num] = {
+function createTile(mousex, mousey)
+  if cameraNum ~= 0 then
+    x = mousex + cameras[cameraNum].x - placeable[placeableNum].img:getWidth()/2
+    y = mousey + cameras[cameraNum].y - placeable[placeableNum].img:getHeight()/2
+  end
+	tiles[x/64][y/64] = {
 		img = nil,
-		class = "Tile"
+    imagePath = placeable[placeableNum].imagePath,
+		width = 0,
+		height = 0,
+		x = mousex,
+		y = mousey,
+		xSpeed = 0,
+		ySpeed = 0,
+		scale = 1
 	}
-	placeable[num].img = image
+	
+	tiles[x/64][y/64].img = placeable[placeableNum].img
+	tiles[x/64][y/64].width = tiles[x/64][y/64].img:getWidth()
+	tiles[x/64][y/64].height = tiles[x/64][y/64].img:getHeight()
+
 end
 
-function drawPlaceable()
-	x, y = getMouse()
-	love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/2, y 
-		- placeable[placeableNum].img:getHeight()/2)
+function tileCollision(player, dt)
+  
 end
