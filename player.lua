@@ -11,6 +11,7 @@ function createPlayer(mousex, mousey)
 	objects[num] = {
 		gravity = 2200,
 		img = nil,
+    imagePath = placeable[placeableNum].imagePath,
 		id = num,
 		x = mousex,
 		y = mousey,
@@ -32,6 +33,7 @@ function createPlayer(mousex, mousey)
 	objects[num].img = placeable[placeableNum].img
 	objects[num].width = objects[num].img:getWidth()
 	objects[num].height = objects[num].img:getHeight()
+  imagePath = placeable[placeableNum].imagePath
 	
 	if cameraNum > 0 then
 		objects[num].x = mousex + cameras[cameraNum].x - objects[num].width/2

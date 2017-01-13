@@ -1,18 +1,26 @@
 require('mouse') -- Handles all mouse actions
 require('camera')
 require('objects')
-require('table')
-require('string')
+require('Tserial')
+require('tablesave')
 editMode = true
 
 function love.load()
-	newPlaceable(love.graphics.newImage("1225.png"), "Player")
-	newPlaceable(love.graphics.newImage("smile.png"), "None")
-	newPlaceable(love.graphics.newImage("neutral.png"), "None")
-	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
-	newPlaceable(love.graphics.newImage("tile.png"), "Tile")
-	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
-	newPlaceable(love.graphics.newImage("tile.jpg"), "Tile")
+  objects = table.load("lvl1.txt")
+  print(table.getn(objects))
+  i = 1
+  while(i <= table.getn(objects)) do
+    print(Tserial.pack(objects[i], "img = nil"))
+    objects[i].img = love.graphics.newImage(objects[i].imagePath)
+    i = i+1
+  end
+	newPlaceable("1225.png", "Player")
+	newPlaceable("smile.png", "None")
+	newPlaceable("neutral.png", "None")
+	newPlaceable("tile.jpg", "Tile")
+	newPlaceable("tile.png", "Tile")
+	newPlaceable("tile.jpg", "Tile")
+	newPlaceable("tile.jpg", "Tile")
 	newCamera()
 end
 
@@ -23,8 +31,7 @@ function love.draw()
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
 		if table.getn(objects)>2 then
-		  --haha = to_string(objects[1])
-		  --love.graphics.print(haha, 10, 30)
+		  love.graphics.print(Tserial.pack(objects, "img = nil"), 10, 30)
 		end
 	end
 end
@@ -51,16 +58,17 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-   if key == "escape" then
-      love.event.quit()
-   end
-   if key == "t" then
-      if editMode then
-      	editMode = false
-      else
-      	editMode = true
-      end
-   end
+  if key == "escape" then
+    table.save(objects,"lvl1.txt")
+    love.event.quit()
+  end
+  if key == "t" then
+    if editMode then
+      editMode = false
+    else
+      editMode = true
+    end
+  end
 end
 
 

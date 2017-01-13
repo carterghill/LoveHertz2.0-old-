@@ -13,6 +13,7 @@ function createObject(mousex, mousey)
 	num = table.getn(objects)+1
 	objects[num] = {
 		img = nil,
+    imagePath = placeable[placeableNum].imagePath,
 		width = 0,
 		height = 0,
 		x = mousex,

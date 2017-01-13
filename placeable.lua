@@ -5,9 +5,10 @@ function newPlaceable(image, classx)
 	num = table.getn(placeable)+1
 	placeable[num] = {
 		img = nil,
+    imagePath = image,
 		class = classx
 	}
-	placeable[num].img = image
+	placeable[num].img = love.graphics.newImage(image)
 end
 
 function drawPlaceable()
