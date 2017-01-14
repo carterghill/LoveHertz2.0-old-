@@ -1,5 +1,16 @@
 collisions = {}
 
+-- Collision detection function;
+-- Returns true if two boxes overlap, false if they don't;
+-- x1,y1 are the top-left coords of the first box, while w1,h1 are its width and height;
+-- x2,y2,w2 & h2 are the same, but for the second box.
+function CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
+  return x1 < x2+w2 and
+         x2 < x1+w1 and
+         y1 < y2+h2 and
+         y2 < y1+h1
+end
+
 function collision( player, dt )
 	
   player.grounded = false
@@ -8,51 +19,29 @@ function collision( player, dt )
   
   local count = 1
 	while count <= table.getn(objects) do
-		if player.ySpeed > 0 and count ~= player.id and player.y < objects[count].y then
-			if player.y + player.height + player.ySpeed*dt > objects[count].y then
-				if player.x + 2 < objects[count].x + objects[count].width - 2
-				and player.x + player.width > objects[count].x +2 then
-					player.ySpeed = 0
-					player.grounded = true
-					player.y = objects[count].y - player.height
-				end
-			end			
-		elseif player.ySpeed < 0 and count ~= player.id and player.y > objects[count].y then
-			if player.y - player.ySpeed*dt - 3  < objects[count].y + objects[count].height then
-				if player.x + 2 < objects[count].x + objects[count].width -2
-				and player.x + player.width -2 > objects[count].x then
-					player.ySpeed = 0
-					player.y = objects[count].y + objects[count].height
-				end
-			end			
-		end
-		
-		if player.xSpeed > 0 and count ~= player.id and player.x < objects[count].x then
-			if player.x + player.width + player.xSpeed*dt > objects[count].x then
-				if player.y+4 < objects[count].y + objects[count].height
-				and player.y + player.height - 2 > objects[count].y then
-					player.xSpeed = 0
-          if player.ySpeed > 0 then
-            player.ySpeed = player.ySpeed*.8
-          end
+		if CheckCollision(player.x-1,player.y-1, player.width+2, player.height+2, 
+        objects[count].x, objects[count].y, objects[count].width, objects[count].height) 
+        and count ~= player.id then
+          
+      if math.abs(objects[count].x - player.x) < math.abs(objects[count].y - player.y) then
+        if player.ySpeed > 0 then
+          player.grounded = true
+          player.ySpeed = 0
+          player.y = objects[count].y - player.height
+        else
+          
+        end
+      else
+        if player.xSpeed > 0 then
           player.rightCol = true
-					player.x = objects[count].x - player.width
-				end
-			end			
-		elseif player.xSpeed < 0 and count ~= player.id and player.x > objects[count].x then
-			if player.x - player.xSpeed*dt - 3  < objects[count].x + objects[count].width + 3 then
-				if player.y + 3 < objects[count].y + objects[count].width
-				and player.y + player.height - 3 > objects[count].y then
-					player.xSpeed = 0
-          if player.ySpeed > 0 then
-            player.ySpeed = player.ySpeed*.8
-          end
-          player.leftCol = true
-					player.x = objects[count].x + objects[count].width + 1
-				end
-			end			
-		end
-		
+          player.xSpeed = 0
+          player.x = objects[count].x - player.width
+        else
+          
+        end
+      end
+    
+    end
 		count = count + 1
 	end
 end

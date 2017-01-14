@@ -1,5 +1,6 @@
 tiles = {}
 tileNum = 1
+downCollision = ""
 
 function createTile(mousex, mousey)
   if cameraNum ~= 0 then
@@ -11,8 +12,8 @@ function createTile(mousex, mousey)
     imagePath = placeable[placeableNum].imagePath,
 		width = 0,
 		height = 0,
-		x = mousex,
-		y = mousey,
+		x = x,
+		y = y,
 		xSpeed = 0,
 		ySpeed = 0,
 		scale = 1
@@ -25,5 +26,7 @@ function createTile(mousex, mousey)
 end
 
 function tileCollision(player, dt)
-  
+  if player.ySpeed > 0 then
+    --if tiles[player.x + player.width][player.y  >= 
+  end
 end
