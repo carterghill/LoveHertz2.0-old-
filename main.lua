@@ -16,18 +16,21 @@ function love.load()
 	newCamera()
 end
 
-
+words = ""
 function love.draw()
 	drawObjects()
+  love.graphics.print(words, 10, 50)
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
     love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
+    
 	end
 end
 
 
 function love.update(dt)
+  --dt = dt/10
 	
 	if editMode then
 		mouseCheck()
