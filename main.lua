@@ -19,6 +19,7 @@ end
 words = ""
 function love.draw()
 	drawObjects()
+  --m = definePoints(getPlayer(1))
   love.graphics.print(words, 10, 50)
 	if editMode then
 		drawPlaceable()
@@ -26,6 +27,14 @@ function love.draw()
     love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
     
 	end
+  
+  if table.getn(objects) > 3 then
+    p = objects[players[1]]
+    o = objects[2]
+    --love.graphics.print(tostring(pointInObject(getPlayer(1).x, getPlayer(1).y, objects[2])), 10, 70)
+    --love.graphics.print(tostring(checkCollision(objects[players[1]], o)), 10, 90)
+    --checkCollision(getPlayer(1), objects[count])
+  end
 end
 
 

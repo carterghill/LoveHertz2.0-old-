@@ -1,4 +1,4 @@
-require('collision')
+require('morecollision')
 
 players = {}
 
