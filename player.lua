@@ -1,4 +1,4 @@
-require('morecollision')
+require('collision')
 
 players = {}
 
@@ -148,6 +148,10 @@ function playerUpdate(dt)
 		if player.ySpeed > player.fallSpeed then
 		  player.ySpeed = player.fallSpeed
 		end
+    
+    if (player.rightCol or player.leftCol) and player.ySpeed > 0 then
+      player.ySpeed = player.ySpeed*0.85
+    end
 
 		collision(player,dt)
 		player.y = player.y + player.ySpeed*dt
