@@ -14,6 +14,7 @@ function love.load()
 	newPlaceable("tile.jpg", "Tile")
 	newPlaceable("tile.jpg", "Tile")
 	newCamera()
+  print(tostring(cameras[cameraNum].x))
 end
 
 words = ""

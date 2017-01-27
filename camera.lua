@@ -26,7 +26,7 @@ function camera(dt)
      if love.keyboard.isDown('s') then
        cameras[cameraNum].y = cameras[cameraNum].y + 300*dt
      end
-     if love.keyboard.isDown('w') then
+     if love.keyboard.isDown('space') then
        cameras[cameraNum].y = cameras[cameraNum].y - 300*dt
      end
 	else
