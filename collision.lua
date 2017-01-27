@@ -41,12 +41,14 @@ function collision( player, dt )
       end
 		end
     
-    if player.ySpeed < 0 and player.y + player.ySpeed*dt > objects[count].y + objects[count].height and count ~= player.id then
+    if player.ySpeed < 0 and player.y + player.ySpeed*dt < objects[count].y + objects[count].height and count ~= player.id then
       if player.x+player.width > objects[count].x and player.x < objects[count].x + objects[count].width then
-        player.y = objects[count].y + objects[count].height
-        player.ySpeed = 0
-        player.upCol = true
-        --print("wtf")
+        if player.y > objects[count].y + objects[count].height then
+          player.y = objects[count].y + objects[count].height
+          player.ySpeed = 0
+          player.upCol = true
+          print("Player.y: "..tostring(player.y).." object bottom: "..tostring(objects[count].y))
+        end
       end
 		end
     

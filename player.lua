@@ -22,7 +22,7 @@ function createPlayer(mousex, mousey)
 		xSpeed = 0,
 		ySpeed = 0,
 		accel = 2200,
-		up = "w",
+		up = "space",
 		down = "s",
 		left = 'a',
 		right = 'd',
@@ -63,7 +63,7 @@ function createPlayer()
 		xSpeed = 0,
 		ySpeed = 0,
 		accel = 3000,
-		up = "w",
+		up = "q",
 		down = "s",
 		left = 'a',
 		right = 'd',
@@ -94,10 +94,10 @@ function playerUpdate(dt)
 	local count = 1
 	while count <= table.getn(players) do
 		player = getPlayer(count)
-		if love.keyboard.isDown(objects[players[count]].up) then
+		if love.keyboard.isDown("space") then
 			if player.grounded and player.jumped == false then
 				player.ySpeed = -1200
-        player.y = player.y-6
+        player.y = player.y
 				player.jumped = true
 			elseif player.rightCol and player.jumped == false then
 				player.ySpeed = -1200

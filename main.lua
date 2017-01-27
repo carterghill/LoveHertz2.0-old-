@@ -84,5 +84,11 @@ function love.keypressed(key)
   end
 end
 
+function love.keyreleased(key)
+  if key == "space" and objects[players[1]].ySpeed < -400 then
+    objects[players[1]].ySpeed = -400
+  end
+end
+
 
 

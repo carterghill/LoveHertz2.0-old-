@@ -45,7 +45,7 @@ function loadLevels()
   levels = {}
   levels = table.load("levels.txt")
   i = 1
-  print(table.getn(levels))
+  --print(table.getn(levels))
   while(i <= table.getn(levels)) do
     j = 1
     print(table.getn(levels[i].objs))
