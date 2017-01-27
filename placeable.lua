@@ -13,6 +13,7 @@ end
 
 function drawPlaceable()
 	x, y = getMouse()
+  love.graphics.setColor( 255, 255, 255, 150 )
 	if placeable[placeableNum].class == "Tile"  then 
     
     if x%64 < 64 then
@@ -38,4 +39,5 @@ function drawPlaceable()
 	   love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/2, y 
 		    - placeable[placeableNum].img:getHeight()/2)
 	end
+  love.graphics.setColor( 255, 255, 255, 255 )
 end
