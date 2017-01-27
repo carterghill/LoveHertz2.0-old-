@@ -65,11 +65,12 @@ function onClick(button)
           objects[table.getn(objects)].scale = 0.5
           objects[table.getn(objects)].width = objects[table.getn(objects)].width/2
           objects[table.getn(objects)].height = objects[table.getn(objects)].height/2
+          objects[table.getn(objects)].x = objects[table.getn(objects)].x + 64
+          objects[table.getn(objects)].y = objects[table.getn(objects)].y + 64
+        else
           objects[table.getn(objects)].x = objects[table.getn(objects)].x + 32
           objects[table.getn(objects)].y = objects[table.getn(objects)].y + 32
         end
-      
-      
 		end
 	end
 	if button == 2 then

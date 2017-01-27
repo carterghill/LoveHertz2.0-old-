@@ -43,7 +43,7 @@ function collision( player, dt )
     
     if player.ySpeed < 0 and player.y + player.ySpeed*dt < objects[count].y + objects[count].height and count ~= player.id then
       if player.x+player.width > objects[count].x and player.x < objects[count].x + objects[count].width then
-        if player.y > objects[count].y + objects[count].height then
+        if player.y > objects[count].y + objects[count].height/2 then
           player.y = objects[count].y + objects[count].height
           player.ySpeed = 0
           player.upCol = true
