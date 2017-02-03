@@ -1,5 +1,6 @@
 require('player')
 require('placeable')
+require('camera')
 mouseDown = {false, false, false, false, false}
 classText = "ha"
 
@@ -34,6 +35,8 @@ function onClick(button)
 			createPlayer(x,y)
 		elseif classText == "Tile" then
 		  createTile(x,y)
+    elseif classText == "Camera Collider" then
+		  createCameraCollider(x,y)
 		end
 	end
 	if button == 2 then
@@ -52,7 +55,7 @@ function onRelease(button)
 end
  
 function love.wheelmoved(x, y)
-    if y > 0 then
+  if y > 0 then
         placeableNum = placeableNum + 1
 		if placeableNum > table.getn(placeable) then
 			placeableNum = 1
@@ -62,7 +65,7 @@ function love.wheelmoved(x, y)
 		if placeableNum < 1 then
 			placeableNum = table.getn(placeable)
 		end
-    end
+  end
 end
 
 function deleteObject(x, y)
@@ -111,4 +114,29 @@ function createTile(x, y)
     objects[table.getn(objects)].x = objects[table.getn(objects)].x + 32
     objects[table.getn(objects)].y = objects[table.getn(objects)].y + 32
   end
+end
+
+function createCameraCollider(mousex, mousey)
+  num = table.getn(cameraColliders)+1
+	cameraColliders[num] = {
+		img = nil,
+    imagePath = placeable[placeableNum].imagePath,
+		width = 0,
+		height = 0,
+		x = mousex,
+		y = mousey,
+		xSpeed = 0,
+		ySpeed = 0,
+		scale = 1
+	}
+	
+	cameraColliders[num].img = placeable[placeableNum].img
+	cameraColliders[num].width = cameraColliders[num].img:getWidth()
+	cameraColliders[num].height = cameraColliders[num].img:getHeight()
+	
+	if cameraNum > 0 then
+		cameraColliders[num].x = cameraColliders[num].x + cameras[cameraNum].x - cameraColliders[num].img:getWidth()/2
+		cameraColliders[num].y = cameraColliders[num].y + cameras[cameraNum].y - cameraColliders[num].img:getHeight()/2
+		
+	end
 end

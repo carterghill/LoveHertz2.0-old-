@@ -1,0 +1,177 @@
+return {
+-- Table: {1}
+{
+   {2},
+   [0]=1,
+},
+-- Table: {2}
+{
+   ["objs"]={3},
+   ["plyrs"]={4},
+},
+-- Table: {3}
+{
+   {5},
+   {6},
+   {7},
+   {8},
+   {9},
+   {10},
+   {11},
+   {12},
+   {13},
+   {14},
+   {15},
+   {16},
+},
+-- Table: {4}
+{
+   1,
+},
+-- Table: {5}
+{
+   ["right"]="d",
+   ["x"]=41.457773627887,
+   ["id"]=1,
+   ["y"]=0,
+   ["down"]="s",
+   ["left"]="a",
+   ["runSpeed"]=500,
+   ["gravity"]=3000,
+   ["leftCol"]=false,
+   ["jumped"]=false,
+   ["ySpeed"]=0,
+   ["accel"]=3000,
+   ["up"]="q",
+   ["fallSpeed"]=1000,
+   ["grounded"]=true,
+   ["imagePath"]="images/characters/dude.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["upCol"]=false,
+   ["rightCol"]=false,
+   ["height"]=128,
+   ["facing"]="left",
+},
+-- Table: {6}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=256,
+},
+-- Table: {7}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=192,
+},
+-- Table: {8}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=128,
+},
+-- Table: {9}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=0,
+},
+-- Table: {10}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=64,
+},
+-- Table: {11}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=320,
+},
+-- Table: {12}
+{
+   ["scale"]=0.5,
+   ["y"]=128,
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=384,
+},
+-- Table: {13}
+{
+   ["scale"]=1,
+   ["y"]=64,
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=384,
+},
+-- Table: {14}
+{
+   ["scale"]=1,
+   ["y"]=-64,
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=384,
+},
+-- Table: {15}
+{
+   ["scale"]=1,
+   ["y"]=0,
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=384,
+},
+-- Table: {16}
+{
+   ["scale"]=1,
+   ["y"]=-128,
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=384,
+},
+}

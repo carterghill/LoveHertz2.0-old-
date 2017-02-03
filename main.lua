@@ -1,43 +1,26 @@
 require('mouse') -- Handles all mouse actions
 require('camera')
-require('objects')
-require('levels')
+require('levels/objects')
+require('levels/levels')
 editMode = true
 
 function love.load()
   levelsInit()
 	createPlayer()
-	newPlaceable("smile.png", "None")
-	newPlaceable("neutral.png", "None")
-	newPlaceable("tile.jpg", "Tile")
-	newPlaceable("tile.png", "Tile")
-	newPlaceable("tile.jpg", "Tile")
-	newPlaceable("tile.jpg", "Tile")
+	newPlaceable("images/static/smile.png", "None")
+	newPlaceable("images/static/neutral.png", "None")
+	newPlaceable("images/tiles/tile.jpg", "Tile")
+	newPlaceable("images/tiles/tile.png", "Tile")
+	newPlaceable("images/tiles/tile.jpg", "Tile")
+	newPlaceable("images/tiles/tile.jpg", "Tile")
+  newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
-  print(tostring(cameras[cameraNum].x))
-  print(exp(2,7))
-end
-
-function exp(x, y)
-  if y == 0 then
-    return 1
-  elseif y == 1 then
-    return x
-  elseif y == 2 then
-    return x*x
-  end
-  
-  if (y % 2) == 0 then
-    return exp(exp(x, y/2), 2)
-  else 
-    return x*exp(x, y-1)
-  end
+  loadLevels()
 end
 
 words = ""
 function love.draw()
 	drawObjects()
-  --m = definePoints(getPlayer(1))
   love.graphics.print(words, 10, 50)
 	if editMode then
 		drawPlaceable()

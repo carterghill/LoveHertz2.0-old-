@@ -11,7 +11,7 @@ function createPlayer()
 	objects[num] = {
 		gravity = 3000,
 		img = nil,
-    imagePath = "dude.png",
+    imagePath = "images/characters/dude.png",
 		id = num,
 		x = 0,
 		y = 0,
@@ -33,10 +33,10 @@ function createPlayer()
     facing = "right"
 	}
 	
-	objects[num].img = love.graphics.newImage("dude.png")
+	objects[num].img = love.graphics.newImage("images/characters/dude.png")
 	objects[num].width = objects[num].img:getWidth()
 	objects[num].height = objects[num].img:getHeight()
-  imagePath = "dude.png"
+  imagePath = "images/characters/dude.png"
 	
 	if cameraNum > 0 then
 		objects[num].x = cameras[cameraNum].x - objects[num].width/2
@@ -126,25 +126,25 @@ function shoot()
 
 	bullets[num] = {
 		img = nil,
-    imagePath = "bullet.png",
+    imagePath = "images/characters/bullet.png",
 		id = num,
 		x = getPlayer(1).x,
-		y = getPlayer(1).y+24,
+		y = getPlayer(1).y+36,
 		width = 0,
 		height = 0,
 		xSpeed = 0,
 		ySpeed = 0
 	}
 	
-	bullets[num].img = love.graphics.newImage("bullet.png")
+	bullets[num].img = love.graphics.newImage("images/characters/bullet.png")
 	bullets[num].width = bullets[num].img:getWidth()
 	bullets[num].height = bullets[num].img:getHeight()
   
   if getPlayer(1).facing == "right" then
-    bullets[num].xSpeed = 1000
+    bullets[num].xSpeed = 1000 + getPlayer(1).xSpeed
     bullets[num].x = getPlayer(1).x + getPlayer(1).width
   else
-    bullets[num].xSpeed = -1000
+    bullets[num].xSpeed = -1000 + getPlayer(1).xSpeed
     bullets[num].x = getPlayer(1).x - bullets[num].width
   end
 end
@@ -163,15 +163,4 @@ function bulletUpdate(dt)
     end
     count = count + 1
   end
-end
-
-function bulletCollision(bullet)
-  count = 1
-  --while count <= table.getn(objects) do
-    --if count ~= bullet.id and simpleCollision(bullet, objects[count]) then
-      --return true
-    --end
-    count = count + 1
-  --end
-  return false
 end

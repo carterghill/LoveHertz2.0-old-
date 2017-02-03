@@ -1,5 +1,6 @@
 cameras = {}
 cameraNum = 0
+cameraColliders = {}
 
 function newCamera()
 	local num = table.getn(cameras)+1
@@ -7,7 +8,9 @@ function newCamera()
 		x = 0,
 		y = 0,
 		xSpeed = 0,
-		ySpeed = 0
+		ySpeed = 0,
+    width = love.graphics.getWidth( ),
+    height = love.graphics.getHeight()
 	}
 	
 	if cameraNum == 0 then
@@ -30,6 +33,7 @@ function camera(dt)
        cameras[cameraNum].y = cameras[cameraNum].y - 600*dt
      end
 	else
+    cameraCollision(cameras[cameraNum], dt)
 	  cameras[cameraNum].x = cameras[cameraNum].x + cameras[cameraNum].xSpeed*dt
 	  cameras[cameraNum].y = cameras[cameraNum].y + cameras[cameraNum].ySpeed*dt
 	end
