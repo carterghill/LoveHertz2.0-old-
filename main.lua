@@ -15,6 +15,23 @@ function love.load()
 	newPlaceable("tile.jpg", "Tile")
 	newCamera()
   print(tostring(cameras[cameraNum].x))
+  print(exp(2,7))
+end
+
+function exp(x, y)
+  if y == 0 then
+    return 1
+  elseif y == 1 then
+    return x
+  elseif y == 2 then
+    return x*x
+  end
+  
+  if (y % 2) == 0 then
+    return exp(exp(x, y/2), 2)
+  else 
+    return x*exp(x, y-1)
+  end
 end
 
 words = ""
@@ -28,20 +45,15 @@ function love.draw()
     love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
     
 	end
-  
-  if table.getn(objects) > 3 then
-    p = objects[players[1]]
-    o = objects[2]
-    --love.graphics.print(tostring(pointInObject(getPlayer(1).x, getPlayer(1).y, objects[2])), 10, 70)
-    --love.graphics.print(tostring(checkCollision(objects[players[1]], o)), 10, 90)
-    --checkCollision(getPlayer(1), objects[count])
-  end
 end
 
 
 function love.update(dt)
-  --dt = dt/10
 	
+  if love.keyboard.isDown("f") then
+    dt = dt/5
+  end
+  
 	if editMode then
 		mouseCheck()
 	end
@@ -55,6 +67,7 @@ function love.update(dt)
 
 	if not editMode then
 		playerUpdate(dt)
+    bulletUpdate(dt)
 		
 	end
 	camera(dt)
@@ -70,6 +83,10 @@ function love.keypressed(key)
     else
       editMode = true
     end
+  end
+  if key == "e" then
+    print("hi")
+    shoot()
   end
   if key == "p" then
     saveLevels()
@@ -91,5 +108,11 @@ function love.keyreleased(key)
   end
 end
 
+function love.mousepressed(x, y, button)
+  if button == "1" then
+    print("hi")
+    shoot()
+  end
+end
 
 

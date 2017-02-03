@@ -1,48 +1,7 @@
 require('collision')
 
 players = {}
-
--- Creates a player, adds it to the objects list, and saves it's objectNum to players
-function createPlayer(mousex, mousey)
-	local num = table.getn(objects)+1
-	local playerNum = table.getn(players)+1
-	players[playerNum] = num
-	
-	objects[num] = {
-		gravity = 3000,
-		img = nil,
-    imagePath = placeable[placeableNum].imagePath,
-		id = num,
-		x = mousex,
-		y = mousey,
-		width = 0,
-		height = 0,
-		runSpeed = 500,
-		fallSpeed = 1000,
-		xSpeed = 0,
-		ySpeed = 0,
-		accel = 2200,
-		up = "space",
-		down = "s",
-		left = 'a',
-		right = 'd',
-    rightCol = false,
-    leftCol = false,
-		grounded = false,
-		jumped = true
-	}
-	
-	objects[num].img = placeable[placeableNum].img
-	objects[num].width = objects[num].img:getWidth()
-	objects[num].height = objects[num].img:getHeight()
-  imagePath = placeable[placeableNum].imagePath
-	
-	if cameraNum > 0 then
-		objects[num].x = mousex + cameras[cameraNum].x - objects[num].width/2
-		objects[num].y = mousey + cameras[cameraNum].y - objects[num].height/2
-	end
-	
-end
+bullets = {}
 
 function createPlayer()
 	local num = table.getn(objects)+1
@@ -70,7 +29,8 @@ function createPlayer()
     rightCol = false,
     leftCol = false,
 		grounded = false,
-		jumped = true
+		jumped = true,
+    facing = "right"
 	}
 	
 	objects[num].img = love.graphics.newImage("dude.png")
@@ -106,7 +66,6 @@ function playerUpdate(dt)
 			elseif player.leftCol and player.jumped == false then
 				player.ySpeed = -1200
         player.xSpeed = player.runSpeed*1.5
-        --player.x = player.x + 16
 				player.jumped = true
 			end		
 		elseif player.jumped == true and (player.grounded or player.rightCol or player.leftCol) then
@@ -114,12 +73,14 @@ function playerUpdate(dt)
 		end
 
 		if love.keyboard.isDown(player.left) then
+      player.facing = "left"
 			player.xSpeed = player.xSpeed - player.accel*dt
 			if player.xSpeed < -player.runSpeed then
 				player.xSpeed = -player.runSpeed
 			end
 		end
 		if love.keyboard.isDown(player.right) then
+      player.facing = "right"
 			player.xSpeed = player.xSpeed + player.accel*dt
 			if player.xSpeed > player.runSpeed then
 				player.xSpeed = player.runSpeed
@@ -160,3 +121,57 @@ function playerUpdate(dt)
 	end
 end
 
+function shoot()
+  local num = table.getn(bullets)+1
+
+	bullets[num] = {
+		img = nil,
+    imagePath = "bullet.png",
+		id = num,
+		x = getPlayer(1).x,
+		y = getPlayer(1).y+24,
+		width = 0,
+		height = 0,
+		xSpeed = 0,
+		ySpeed = 0
+	}
+	
+	bullets[num].img = love.graphics.newImage("bullet.png")
+	bullets[num].width = bullets[num].img:getWidth()
+	bullets[num].height = bullets[num].img:getHeight()
+  
+  if getPlayer(1).facing == "right" then
+    bullets[num].xSpeed = 1000
+    bullets[num].x = getPlayer(1).x + getPlayer(1).width
+  else
+    bullets[num].xSpeed = -1000
+    bullets[num].x = getPlayer(1).x - bullets[num].width
+  end
+end
+
+function bulletUpdate(dt)
+  count = 1
+  while count <= table.getn(bullets) do
+    bullet = bullets[count]
+    bullet.x = bullet.x + bullet.xSpeed*dt
+    i = 1
+    while i <= table.getn(objects) do
+      if simpleCollision(bullet, objects[i]) then
+        table.remove(bullets, count)
+      end
+      i = i + 1
+    end
+    count = count + 1
+  end
+end
+
+function bulletCollision(bullet)
+  count = 1
+  --while count <= table.getn(objects) do
+    --if count ~= bullet.id and simpleCollision(bullet, objects[count]) then
+      --return true
+    --end
+    count = count + 1
+  --end
+  return false
+end

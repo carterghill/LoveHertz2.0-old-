@@ -4,6 +4,9 @@ require('tablesave')
 
 levels = {}
 levelNum = 1
+-- The "zeroeth level" is actually a placeholder for the 
+-- amount of levels in the game
+
 levels[0] = 1
 
 function isempty(s)

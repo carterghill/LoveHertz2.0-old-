@@ -20,8 +20,8 @@ function drawPlaceable()
     y = y - ((y + cameras[cameraNum].y) % 64) + 32
     
     if placeable[placeableNum].img:getWidth() == 128 then
-	   love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/4 - cameras[cameraNum].x, y 
-        - placeable[placeableNum].img:getHeight()/4 - cameras[cameraNum].y, 0, 0.5)
+	   love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/4, y 
+        - placeable[placeableNum].img:getHeight()/4 , 0, 0.5)
     else 
       love.graphics.draw(placeable[placeableNum].img, x - placeable[placeableNum].img:getWidth()/2, y 
 		    - placeable[placeableNum].img:getHeight()/2)

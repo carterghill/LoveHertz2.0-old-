@@ -14,7 +14,6 @@ function collision( player, dt )
           player.x = objects[count].x - player.width
           player.xSpeed = 0
           player.rightCol = true
-          --print("wtf")
         end
       end
 		end
@@ -25,7 +24,6 @@ function collision( player, dt )
           player.x = objects[count].x + objects[count].width
           player.xSpeed = 0
           player.leftCol = true
-          --print("wtf")
         end
       end
 		end
@@ -36,7 +34,6 @@ function collision( player, dt )
           player.y = objects[count].y - player.height
           player.ySpeed = 0
           player.grounded = true
-          --print("wtf")
         end
       end
 		end
@@ -47,11 +44,16 @@ function collision( player, dt )
           player.y = objects[count].y + objects[count].height
           player.ySpeed = 0
           player.upCol = true
-          print("Player.y: "..tostring(player.y).." object bottom: "..tostring(objects[count].y))
         end
       end
 		end
-    
     count = count + 1
 	end
+end
+
+function simpleCollision(o1, o2)
+  return o1.x < o2.x+o2.width and
+         o2.x < o1.x+o1.width and
+         o1.y < o2.y+o2.height and
+         o2.y < o1.y+o1.height
 end

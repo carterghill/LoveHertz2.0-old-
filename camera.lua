@@ -18,16 +18,16 @@ end
 function camera(dt)
 	if editMode then
 	   if love.keyboard.isDown('d') then
-	     cameras[cameraNum].x = cameras[cameraNum].x + 300*dt
+	     cameras[cameraNum].x = cameras[cameraNum].x + 600*dt
 	   end
 	   if love.keyboard.isDown('a') then
-       cameras[cameraNum].x = cameras[cameraNum].x + -300*dt
+       cameras[cameraNum].x = cameras[cameraNum].x + -600*dt
      end
      if love.keyboard.isDown('s') then
-       cameras[cameraNum].y = cameras[cameraNum].y + 300*dt
+       cameras[cameraNum].y = cameras[cameraNum].y + 600*dt
      end
-     if love.keyboard.isDown('space') then
-       cameras[cameraNum].y = cameras[cameraNum].y - 300*dt
+     if love.keyboard.isDown('w') then
+       cameras[cameraNum].y = cameras[cameraNum].y - 600*dt
      end
 	else
 	  cameras[cameraNum].x = cameras[cameraNum].x + cameras[cameraNum].xSpeed*dt

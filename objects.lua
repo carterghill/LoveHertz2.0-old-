@@ -7,6 +7,12 @@ function drawObjects()
          objects[count].y-cameras[cameraNum].y, 0, objects[count].scale)
 		count = count + 1
 	end
+  count = 1
+	while count <= table.getn(bullets) do
+		love.graphics.draw(bullets[count].img,bullets[count].x-cameras[cameraNum].x,
+         bullets[count].y-cameras[cameraNum].y, 0, bullets[count].scale)
+		count = count + 1
+	end
 end
 
 function createObject(mousex, mousey)
