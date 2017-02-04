@@ -130,13 +130,16 @@ function createCameraCollider(mousex, mousey)
 		scale = 1
 	}
 	
+  x = x - ((x + cameras[cameraNum].x) % 64)
+  y = y - ((y + cameras[cameraNum].y) % 64)
+  
 	cameraColliders[num].img = placeable[placeableNum].img
 	cameraColliders[num].width = cameraColliders[num].img:getWidth()
 	cameraColliders[num].height = cameraColliders[num].img:getHeight()
 	
 	if cameraNum > 0 then
-		cameraColliders[num].x = cameraColliders[num].x + cameras[cameraNum].x - cameraColliders[num].img:getWidth()/2
-		cameraColliders[num].y = cameraColliders[num].y + cameras[cameraNum].y - cameraColliders[num].img:getHeight()/2
+		cameraColliders[num].x = x + cameras[cameraNum].x - cameraColliders[num].img:getWidth()/2 + 32
+		cameraColliders[num].y = y + cameras[cameraNum].y - cameraColliders[num].img:getHeight()/2 + 32
 		
 	end
 end

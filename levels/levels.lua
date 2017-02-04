@@ -16,7 +16,8 @@ end
 function levelsInit()
   levels[1] = {
     objs = objects,
-    plyrs = players
+    plyrs = players,
+    camCols = cameraColliders
   }
 end
 
@@ -24,16 +25,19 @@ function setLevel(x)
   if x > 0 then
     levels[levelNum].objs = objects
     levels[levelNum].plyrs = players
+    levels[levelNum].camCols = cameraColliders
     objects = {}
     players = {}
+    cameraColliders = {}
     levelNum = x
     if x > levels[0] then
-      levels[levelNum] = {objs = objects, plyrs = {} }
+      levels[levelNum] = {objs = objects, plyrs = {}, camCols = cameraColliders }
       createPlayer()
       levels[0] = levels[0]+1
     else
       objects = levels[levelNum].objs
       players = levels[levelNum].plyrs
+      cameraColliders = levels[levelNum].camCols
     end
   end
 end
@@ -55,8 +59,15 @@ function loadLevels()
       end
       j=j+1
     end
+    j = 1
+    while (j <= table.getn(levels[i].camCols)) do
+      levels[i].camCols[j].img = love.graphics.newImage("images/tiles/noCamera.png")
+      j=j+1
+    end
     i = i+1
   end
   objects = {}
   objects = levels[levelNum].objs
+  cameraColliders = {}
+  cameraColliders = levels[levelNum].camCols
 end
