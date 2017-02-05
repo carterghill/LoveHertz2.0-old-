@@ -97,7 +97,7 @@ function cameraCollision( player, dt )
       end
 		end
     
-    if player.ySpeed < 0 and player.y + player.ySpeed*dt < objects[count].y + objects[count].height and count ~= player.id then
+    if player.ySpeed < 0 and player.y + player.ySpeed*dt < cameraColliders[count].y + cameraColliders[count].height and count ~= player.id then
       if player.x+player.width > cameraColliders[count].x and player.x < cameraColliders[count].x + cameraColliders[count].width then
         if player.y > cameraColliders[count].y + cameraColliders[count].height/2 then
           player.y = cameraColliders[count].y + cameraColliders[count].height
