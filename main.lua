@@ -86,6 +86,9 @@ function love.keypressed(key)
   if key == "left" then
     setLevel(levelNum-1)
   end
+  if key == "space" then
+    --jump(getPlayer(1), dt)
+  end
 end
 
 function love.keyreleased(key)

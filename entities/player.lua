@@ -31,7 +31,8 @@ function createPlayer()
     leftCol = false,
 		grounded = false,
 		jumped = true,
-    facing = "right"
+    facing = "right",
+    jumpForce = 1200
 	}
 	
 	objects[num].img = love.graphics.newImage("images/characters/dude.png")
@@ -56,19 +57,7 @@ function playerUpdate(dt)
 	while count <= table.getn(players) do
 		player = getPlayer(count)
 		if love.keyboard.isDown("space") then
-			if player.grounded and player.jumped == false then
-				player.ySpeed = -1200
-        player.y = player.y
-				player.jumped = true
-			elseif player.rightCol and player.jumped == false then
-				player.ySpeed = -1200
-        player.xSpeed = -player.runSpeed*1.5
-				player.jumped = true
-			elseif player.leftCol and player.jumped == false then
-				player.ySpeed = -1200
-        player.xSpeed = player.runSpeed*1.5
-				player.jumped = true
-			end		
+			jump(player, dt)	
 		elseif player.jumped == true and (player.grounded or player.rightCol or player.leftCol) then
 			player.jumped = false
 		end

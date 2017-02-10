@@ -32,3 +32,33 @@ function fall(ent, dt)
     end
   end
 end
+
+function grounded(ent)
+  for i = 1, table.getn(objects) do
+    if ent.y + ent.height + 2 > objects[i].y and i ~= ent.id then
+      if ent.x+ent.width > objects[i].x and ent.x < objects[i].x + objects[i].width then
+        if ent.y + ent.height < objects[i].y + objects[i].height/2 then
+          return true
+        end
+      end
+    end
+  end
+  return false
+end
+
+function jump(ent, dt)
+  print("jumped = "..tostring(ent.jumped).."\ngrounded = "..tostring(ent.grounded))
+  if grounded(ent) and ent.jumped == false then
+    ent.ySpeed = -1200
+    ent.y = ent.y
+    ent.jumped = true
+  elseif ent.rightCol and ent.jumped == false then
+    ent.ySpeed = -1200
+    ent.xSpeed = -player.runSpeed*1.5
+    ent.jumped = true
+  elseif ent.leftCol and ent.jumped == false then
+    ent.ySpeed = -1200
+    ent.xSpeed = ent.runSpeed*1.5
+    ent.jumped = true
+  end	
+end

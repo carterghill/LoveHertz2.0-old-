@@ -15,6 +15,19 @@ function enemyInit()
         end
       end
     end
+    if enemy.name == "frank" then
+      function enemy:action(dt)
+        
+        self.actionTimer = self.actionTimer + dt
+        if self.actionTimer > 4 then
+          self.jumped = false
+          --self.grounded = true
+          jump(self, dt)
+          self.actionTimer = 0
+        end
+        
+      end
+    end
   end
 end
 
@@ -25,7 +38,7 @@ function createEnemy(mousex, mousey)
 	
 	objects[num] = {
 		gravity = 3000,
-    name = "paul",
+    name = "frank",
 		img = nil,
     imagePath = "images/characters/enemy.png",
 		id = num,
@@ -46,17 +59,11 @@ function createEnemy(mousex, mousey)
     up = "i",
     down = "k",
     left = "j",
-    right = "l"
+    right = "l",
+    actionTimer = 0
 	}
 	
-  drr = objects[num]
-  function drr:action(dt)
-    if getPlayer(1).x > self.x then
-      moveRight(self, dt)
-    else
-      moveLeft(self, dt)
-    end
-  end
+  enemyInit()
   
 	objects[num].img = love.graphics.newImage("images/characters/enemy.png")
 	objects[num].width = objects[num].img:getWidth()
@@ -79,13 +86,13 @@ function enemyUpdate(dt)
 	local count = 1
 	while count <= table.getn(enemies) do
 		enemy = getEnemy(count)
-		print(tostring(enemy.grounded))
     
     fall(enemy, dt)
     
+    collision(enemy,dt)
     enemy:action(dt)
 
-		collision(enemy,dt)
+		--collision(enemy,dt)
 		enemy.y = enemy.y + enemy.ySpeed*dt
 		enemy.x = enemy.x + enemy.xSpeed*dt
 		count = count + 1
