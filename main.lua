@@ -2,6 +2,8 @@ require('mouse') -- Handles all mouse actions
 require('camera')
 require('levels/objects')
 require('levels/levels')
+require('entities/enemy')
+require('entities/player')
 editMode = true
 
 function love.load()
@@ -12,7 +14,7 @@ function love.load()
 	newPlaceable("images/tiles/tile.jpg", "Tile")
 	newPlaceable("images/tiles/tile.png", "Tile")
 	newPlaceable("images/tiles/tile.jpg", "Tile")
-	newPlaceable("images/tiles/tile.jpg", "Tile")
+	newPlaceable("images/characters/enemy.png", "Enemy")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
   loadLevels()
@@ -26,7 +28,6 @@ function love.draw()
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
     love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
-    
 	end
 end
 
@@ -49,6 +50,7 @@ function love.update(dt)
 	end	
 
 	if not editMode then
+    enemyUpdate(dt)
 		playerUpdate(dt)
     bulletUpdate(dt)
 		
@@ -92,7 +94,7 @@ function love.keyreleased(key)
 end
 
 function love.mousepressed(x, y, button)
-  if button == "1" then
+  if button == 1 and not editMode then
     print("hi")
     shoot()
   end

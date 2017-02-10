@@ -1,4 +1,5 @@
 require('collision')
+require('entities/entities')
 
 players = {}
 bullets = {}
@@ -73,42 +74,18 @@ function playerUpdate(dt)
 		end
 
 		if love.keyboard.isDown(player.left) then
-      player.facing = "left"
-			player.xSpeed = player.xSpeed - player.accel*dt
-			if player.xSpeed < -player.runSpeed then
-				player.xSpeed = -player.runSpeed
-			end
+      moveLeft(player, dt)
 		end
 		if love.keyboard.isDown(player.right) then
-      player.facing = "right"
-			player.xSpeed = player.xSpeed + player.accel*dt
-			if player.xSpeed > player.runSpeed then
-				player.xSpeed = player.runSpeed
-			end
-		end
-		if love.keyboard.isDown(player.down) then
-			player.ySpeed = player.ySpeed + player.accel*dt
-			if player.ySpeed > player.runSpeed then
-				player.ySpeed = player.runSpeed
-			end
-			
+      moveRight(player, dt)
 		end
 		
 		if not love.keyboard.isDown(player.right)
 		and not love.keyboard.isDown(player.left) then
-			if player.xSpeed > 0 + player.accel*dt then
-				player.xSpeed = player.xSpeed - player.accel*dt
-			elseif player.xSpeed < 0 - player.accel*dt then
-				player.xSpeed = player.xSpeed + player.accel*dt
-			else 
-				player.xSpeed = 0
-			end
+			slowDown(player, dt)
 		end
-		
-		player.ySpeed = player.ySpeed + player.gravity*dt
-		if player.ySpeed > player.fallSpeed then
-		  player.ySpeed = player.fallSpeed
-		end
+    
+    fall(player, dt)
     
     if (player.rightCol or player.leftCol) and player.ySpeed > 0 then
       player.ySpeed = player.ySpeed*0.85
@@ -141,10 +118,10 @@ function shoot()
 	bullets[num].height = bullets[num].img:getHeight()
   
   if getPlayer(1).facing == "right" then
-    bullets[num].xSpeed = 1000 + getPlayer(1).xSpeed
+    bullets[num].xSpeed = 1000 + getPlayer(1).xSpeed/7
     bullets[num].x = getPlayer(1).x + getPlayer(1).width
   else
-    bullets[num].xSpeed = -1000 + getPlayer(1).xSpeed
+    bullets[num].xSpeed = -1000 + getPlayer(1).xSpeed/7
     bullets[num].x = getPlayer(1).x - bullets[num].width
   end
 end

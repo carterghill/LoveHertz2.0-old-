@@ -1,4 +1,3 @@
-require('player')
 require('placeable')
 require('camera')
 mouseDown = {false, false, false, false, false}
@@ -37,6 +36,8 @@ function onClick(button)
 		  createTile(x,y)
     elseif classText == "Camera Collider" then
 		  createCameraCollider(x,y)
+    elseif classText == "Enemy" then
+		  createEnemy(x,y)
 		end
 	end
 	if button == 2 then
@@ -78,6 +79,20 @@ function deleteObject(x, y)
       if y + cameras[cameraNum].y > objects[count].y and y + cameras[cameraNum].y <
       objects[count].y + objects[count].height then
         table.remove(objects, count)
+      end
+    end 
+    count = count + 1
+  end
+  
+  count = 1
+  while count <= table.getn(cameraColliders) do
+    
+    if x + cameras[cameraNum].x > cameraColliders[count].x and x + cameras[cameraNum].x <
+    cameraColliders[count].x + cameraColliders[count].width then
+      
+      if y + cameras[cameraNum].y > cameraColliders[count].y and y + cameras[cameraNum].y <
+      cameraColliders[count].y + cameraColliders[count].height then
+        table.remove(cameraColliders, count)
       end
     end 
     count = count + 1

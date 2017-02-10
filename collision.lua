@@ -1,3 +1,10 @@
+function simpleCollision(o1, o2)
+  return o1.x < o2.x+o2.width and
+         o2.x < o1.x+o1.width and
+         o1.y < o2.y+o2.height and
+         o2.y < o1.y+o1.height
+end
+
 function collision( player, dt )
   
   player.grounded = false
@@ -51,12 +58,7 @@ function collision( player, dt )
 	end
 end
 
-function simpleCollision(o1, o2)
-  return o1.x < o2.x+o2.width and
-         o2.x < o1.x+o1.width and
-         o1.y < o2.y+o2.height and
-         o2.y < o1.y+o1.height
-end
+
 function cameraCollision( player, dt )
   
   player.grounded = false
@@ -68,7 +70,7 @@ function cameraCollision( player, dt )
 	while count <= table.getn(cameraColliders) do
     
     if player.xSpeed > 0 and player.x + player.width + player.xSpeed*dt > cameraColliders[count].x and count ~= player.id then
-      if player.y+player.height > cameraColliders[count].y and player.y < cameraColliders[count].y + objects[count].height then
+      if player.y+player.height > cameraColliders[count].y and player.y < cameraColliders[count].y + cameraColliders[count].height then
         if player.x < cameraColliders[count].x + cameraColliders[count].width/2 then
           player.x = cameraColliders[count].x - player.width
           player.xSpeed = 0

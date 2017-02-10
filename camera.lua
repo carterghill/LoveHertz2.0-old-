@@ -32,6 +32,10 @@ function camera(dt)
      if love.keyboard.isDown('w') then
        cameras[cameraNum].y = cameras[cameraNum].y - 600*dt
      end
+     if love.keyboard.isDown('c') then
+       cameras[cameraNum].y = getPlayer(1).y
+       cameras[cameraNum].x = getPlayer(1).x
+     end
 	else
     cameraCollision(cameras[cameraNum], dt)
 	  cameras[cameraNum].x = cameras[cameraNum].x + cameras[cameraNum].xSpeed*dt
@@ -44,7 +48,7 @@ function lockOn(object, dt)
 	--cameras[cameraNum].x = object.x + object.img:getWidth()/2 - 400
 	--cameras[cameraNum].y = object.y + object.img:getHeight()/2 - 300
 	
-	moveTo(object, 0.2, dt)
+	moveTo(object, 0.25, dt)
 
 end
 
