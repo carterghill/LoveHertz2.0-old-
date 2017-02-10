@@ -17,6 +17,7 @@ function levelsInit()
   levels[1] = {
     objs = objects,
     plyrs = players,
+    enems = enemies,
     camCols = cameraColliders
   }
 end
@@ -28,16 +29,18 @@ function setLevel(x)
     levels[levelNum].camCols = cameraColliders
     objects = {}
     players = {}
+    enemies = {}
     cameraColliders = {}
     levelNum = x
     if x > levels[0] then
-      levels[levelNum] = {objs = objects, plyrs = {}, camCols = cameraColliders }
+      levels[levelNum] = {objs = objects, plyrs = {}, camCols = cameraColliders, enems = enemies }
       createPlayer()
       levels[0] = levels[0]+1
     else
       objects = levels[levelNum].objs
       players = levels[levelNum].plyrs
       cameraColliders = levels[levelNum].camCols
+      enemies = levels[levelNum].enems
     end
   end
 end
@@ -70,4 +73,6 @@ function loadLevels()
   objects = levels[levelNum].objs
   cameraColliders = {}
   cameraColliders = levels[levelNum].camCols
+  enemies = {}
+  enemies = levels[levelNum].enems
 end

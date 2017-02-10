@@ -2,6 +2,22 @@ require('collision')
 
 enemies = {}
 
+function enemyInit()
+  for i=1, table.getn(enemies) do
+    enemy = getEnemy(i)
+    if enemy.name == "paul" then
+      print("paul here")
+      function enemy:action(dt)
+        if getPlayer(1).x > self.x then
+          moveRight(self, dt)
+        else
+          moveLeft(self, dt)
+        end
+      end
+    end
+  end
+end
+
 function createEnemy(mousex, mousey)
 	local num = table.getn(objects)+1
 	local enemyNum = table.getn(enemies)+1
@@ -9,6 +25,7 @@ function createEnemy(mousex, mousey)
 	
 	objects[num] = {
 		gravity = 3000,
+    name = "paul",
 		img = nil,
     imagePath = "images/characters/enemy.png",
 		id = num,

@@ -18,6 +18,7 @@ function love.load()
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
   loadLevels()
+  enemyInit()
 end
 
 words = ""
