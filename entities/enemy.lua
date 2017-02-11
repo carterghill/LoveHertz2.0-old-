@@ -2,45 +2,16 @@ require('collision')
 
 enemies = {}
 
-function enemyInit()
-  for i=1, table.getn(enemies) do
-    enemy = getEnemy(i)
-    if enemy.name == "paul" then
-      print("paul here")
-      function enemy:action(dt)
-        if getPlayer(1).x > self.x then
-          moveRight(self, dt)
-        else
-          moveLeft(self, dt)
-        end
-      end
-    end
-    if enemy.name == "frank" then
-      function enemy:action(dt)
-        
-        self.actionTimer = self.actionTimer + dt
-        if self.actionTimer > 4 then
-          self.jumped = false
-          --self.grounded = true
-          jump(self, dt)
-          self.actionTimer = 0
-        end
-        
-      end
-    end
-  end
-end
-
-function createEnemy(mousex, mousey)
+function createEnemy(mousex, mousey, namex)
 	local num = table.getn(objects)+1
 	local enemyNum = table.getn(enemies)+1
 	enemies[enemyNum] = num
 	
 	objects[num] = {
 		gravity = 3000,
-    name = "frank",
+    name = namex,
 		img = nil,
-    imagePath = "images/characters/enemy.png",
+    imagePath = placeable[placeableNum].imagePath,
 		id = num,
 		x = mousex,
 		y = mousey,
@@ -65,10 +36,9 @@ function createEnemy(mousex, mousey)
 	
   enemyInit()
   
-	objects[num].img = love.graphics.newImage("images/characters/enemy.png")
+	objects[num].img = placeable[placeableNum].img
 	objects[num].width = objects[num].img:getWidth()
 	objects[num].height = objects[num].img:getHeight()
-  imagePath = "images/characters/enemy.png"
 	
 	if cameraNum > 0 then
 		objects[num].x = objects[num].x + cameras[cameraNum].x - objects[num].width/2
@@ -99,3 +69,35 @@ function enemyUpdate(dt)
 	end
 end
 
+
+-- ////////////////////
+-- ENEMY AI DEFINITIONS
+-- ////////////////////
+
+
+function enemyInit()
+  for i=1, table.getn(enemies) do
+    enemy = getEnemy(i)
+    
+    if enemy.name == "paul" then
+      function enemy:action(dt)
+       if getPlayer(1).x > self.x then
+          moveRight(self, dt)
+        else
+          moveLeft(self, dt)
+        end
+     end
+      
+    elseif enemy.name == "frank" then
+      function enemy:action(dt)
+        self.actionTimer = self.actionTimer + dt
+        if self.actionTimer > 3 then
+          self.jumped = false
+          --self.grounded = true
+          jump(self, dt)
+          self.actionTimer = 0
+        end
+      end
+    end
+  end
+end

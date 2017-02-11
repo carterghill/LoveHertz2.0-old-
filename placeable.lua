@@ -1,12 +1,13 @@
 placeable = {}
 placeableNum = 1
 
-function newPlaceable(image, classx)
+function newPlaceable(image, classx, namex)
 	num = table.getn(placeable)+1
 	placeable[num] = {
 		img = nil,
     imagePath = image,
-		class = classx
+		class = classx,
+    name = namex
 	}
 	placeable[num].img = love.graphics.newImage(image)
 end

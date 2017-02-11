@@ -28,6 +28,7 @@ function onClick(button)
 	if button == 1 then
 		x, y = love.mouse.getPosition( )
 		classText = placeable[placeableNum].class
+    name = placeable[placeableNum].name
 		if classText == "None" then
 			createObject(x,y)
 		elseif classText == "Player" then
@@ -37,7 +38,7 @@ function onClick(button)
     elseif classText == "Camera Collider" then
 		  createCameraCollider(x,y)
     elseif classText == "Enemy" then
-		  createEnemy(x,y)
+		  createEnemy(x,y, name)
 		end
 	end
 	if button == 2 then
