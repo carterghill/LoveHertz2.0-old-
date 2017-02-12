@@ -48,7 +48,7 @@ function lockOn(object, dt)
 	--cameras[cameraNum].x = object.x + object.img:getWidth()/2 - 400
 	--cameras[cameraNum].y = object.y + object.img:getHeight()/2 - 300
 	
-	moveTo(object, 0.25, dt)
+	moveTo(object, 0.2, dt)
 
 end
 

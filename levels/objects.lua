@@ -19,11 +19,16 @@ function drawObjects()
          cameraColliders[count].y-cameras[cameraNum].y, 0, cameraColliders[count].scale)
 		count = count + 1
 	end
+  for i = 1, table.getn(enemies) do
+    love.graphics.print(getEnemy(i).health, getx(getEnemy(i)), gety(getEnemy(i))-15)
+  end
 end
 
 function createObject(mousex, mousey)
 	num = table.getn(objects)+1
 	objects[num] = {
+    id = num,
+    objType = "Static",
 		img = nil,
     imagePath = placeable[placeableNum].imagePath,
 		width = 0,

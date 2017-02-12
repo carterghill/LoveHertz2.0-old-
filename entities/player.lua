@@ -14,6 +14,7 @@ function createPlayer()
 		img = nil,
     imagePath = "images/characters/dude.png",
 		id = num,
+    objType = "Player",
 		x = 0,
 		y = 0,
 		width = 0,
@@ -121,9 +122,10 @@ function bulletUpdate(dt)
     bullet = bullets[count]
     bullet.x = bullet.x + bullet.xSpeed*dt
     i = 1
-    while i <= table.getn(objects) do
-      if simpleCollision(bullet, objects[i]) then
+    while i <= table.getn(enemies) do
+      if simpleCollision(bullet, getEnemy(i)) then
         table.remove(bullets, count)
+        getEnemy(i).health = getEnemy(i).health - 1
       end
       i = i + 1
     end

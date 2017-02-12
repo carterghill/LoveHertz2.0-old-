@@ -13,6 +13,7 @@ function createEnemy(mousex, mousey, namex)
 		img = nil,
     imagePath = placeable[placeableNum].imagePath,
 		id = num,
+    objType = "Enemy",
 		x = mousex,
 		y = mousey,
 		width = 0,
@@ -31,7 +32,8 @@ function createEnemy(mousex, mousey, namex)
     down = "k",
     left = "j",
     right = "l",
-    actionTimer = 0
+    actionTimer = 0,
+    health = 10
 	}
 	
   enemyInit()
@@ -62,7 +64,10 @@ function enemyUpdate(dt)
     collision(enemy,dt)
     enemy:action(dt)
 
-		--collision(enemy,dt)
+		if enemy.health <= 0 then
+      deleteEntity(enemy)
+    end
+    
 		enemy.y = enemy.y + enemy.ySpeed*dt
 		enemy.x = enemy.x + enemy.xSpeed*dt
 		count = count + 1
@@ -76,12 +81,17 @@ end
 
 
 function enemyInit()
+  
   for i=1, table.getn(enemies) do
     enemy = getEnemy(i)
     
     if enemy.name == "paul" then
+      
+      enemy.health = 10
+      enemy.accel = 500
+      
       function enemy:action(dt)
-       if getPlayer(1).x > self.x then
+       if getPlayer(1).x + getPlayer(1).width/2 > self.x + self.width/2 then
           moveRight(self, dt)
         else
           moveLeft(self, dt)
@@ -89,15 +99,29 @@ function enemyInit()
      end
       
     elseif enemy.name == "frank" then
+      
+      enemy.health = 10
+      
       function enemy:action(dt)
         self.actionTimer = self.actionTimer + dt
         if self.actionTimer > 3 then
           self.jumped = false
-          --self.grounded = true
           jump(self, dt)
+          if getPlayer(1).x + getPlayer(1).width/2 > self.x + self.width/2 then
+            self.xSpeed = 200
+          else
+            self.xSpeed = -200
+          end
           self.actionTimer = 0
         end
+        if grounded(self) and xSpeed ~= 0 and self.actionTimer > 0 then
+          self.xSpeed = 0
+        end
       end
+    
+    else
+      
     end
+    
   end
 end

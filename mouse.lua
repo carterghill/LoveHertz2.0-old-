@@ -79,7 +79,12 @@ function deleteObject(x, y)
       
       if y + cameras[cameraNum].y > objects[count].y and y + cameras[cameraNum].y <
       objects[count].y + objects[count].height then
-        table.remove(objects, count)
+        
+        if objects[count].objType == "Enemy" then
+          deleteEntity(objects[count])
+        else
+          table.remove(objects, count)
+        end
       end
     end 
     count = count + 1
@@ -135,6 +140,7 @@ end
 function createCameraCollider(mousex, mousey)
   num = table.getn(cameraColliders)+1
 	cameraColliders[num] = {
+    id = num,
 		img = nil,
     imagePath = placeable[placeableNum].imagePath,
 		width = 0,

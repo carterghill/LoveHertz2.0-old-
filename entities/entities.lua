@@ -62,3 +62,27 @@ function jump(ent, dt)
     ent.jumped = true
   end	
 end
+
+function getx(ent)
+  return ent.x - cameras[cameraNum].x
+end
+
+function gety(ent)
+  return ent.y - cameras[cameraNum].y
+end
+
+function deleteEntity(ent)
+  local id = ent.id
+  if ent.objType == "Enemy" then
+    for i=1, table.getn(enemies) do
+      if getEnemy(i).id == id then
+        count = i
+      end
+    end
+  end
+  table.remove(objects, ent.id)
+  table.remove(enemies, count)
+  for i=id, table.getn(objects) do
+    objects[i].id = objects[i].id - 1
+  end
+end
