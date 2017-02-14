@@ -73,15 +73,16 @@ end
 
 function deleteEntity(ent)
   local id = ent.id
+  local idHolder = 0
   if ent.objType == "Enemy" then
     for i=1, table.getn(enemies) do
       if getEnemy(i).id == id then
-        count = i
+        idHolder = i
       end
     end
   end
   table.remove(objects, ent.id)
-  table.remove(enemies, count)
+  table.remove(enemies, idHolder)
   for i=id, table.getn(objects) do
     objects[i].id = objects[i].id - 1
   end

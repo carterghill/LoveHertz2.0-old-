@@ -18,7 +18,7 @@ function love.load()
   newPlaceable("images/characters/frank.png", "Enemy", "frank")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
-  loadLevels()
+  --loadLevels()
   enemyInit()
 end
 

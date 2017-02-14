@@ -3,8 +3,10 @@ objects = {}
 function drawObjects()
 	local count = 1
 	while count <= table.getn(objects) do
-		love.graphics.draw(objects[count].img,objects[count].x-cameras[cameraNum].x,
+    if objects[count] ~= nil then
+      love.graphics.draw(objects[count].img,objects[count].x-cameras[cameraNum].x,
          objects[count].y-cameras[cameraNum].y, 0, objects[count].scale)
+    end
 		count = count + 1
 	end
   count = 1
@@ -20,7 +22,12 @@ function drawObjects()
 		count = count + 1
 	end
   for i = 1, table.getn(enemies) do
-    love.graphics.print(getEnemy(i).health, getx(getEnemy(i)), gety(getEnemy(i))-15)
+    if getEnemy(i) ~= nil then
+      love.graphics.print(getEnemy(i).health, getx(getEnemy(i)), gety(getEnemy(i))-15)
+      love.graphics.draw(getEnemy(i).img, getx(getEnemy(i)), gety(getEnemy(i)), 0, getEnemy(i).scale)
+    else
+      print(tostring(i))
+    end
   end
 end
 

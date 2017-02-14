@@ -3,11 +3,10 @@ require('collision')
 enemies = {}
 
 function createEnemy(mousex, mousey, namex)
-	local num = table.getn(objects)+1
-	local enemyNum = table.getn(enemies)+1
-	enemies[enemyNum] = num
+	local num = table.getn(enemies)+1
+
 	
-	objects[num] = {
+	enemies[num] = {
 		gravity = 3000,
     name = namex,
 		img = nil,
@@ -38,38 +37,43 @@ function createEnemy(mousex, mousey, namex)
 	
   enemyInit()
   
-	objects[num].img = placeable[placeableNum].img
-	objects[num].width = objects[num].img:getWidth()
-	objects[num].height = objects[num].img:getHeight()
+	enemies[num].img = placeable[placeableNum].img
+	enemies[num].width = enemies[num].img:getWidth()
+	enemies[num].height = enemies[num].img:getHeight()
 	
 	if cameraNum > 0 then
-		objects[num].x = objects[num].x + cameras[cameraNum].x - objects[num].width/2
-		objects[num].y = objects[num].y + cameras[cameraNum].y - objects[num].height/2
+		enemies[num].x = enemies[num].x + cameras[cameraNum].x - enemies[num].width/2
+		enemies[num].y = enemies[num].y + cameras[cameraNum].y - enemies[num].height/2
 	end
 	
 end
 
 -- Returns enemy object
 function getEnemy(num)
-	return objects[enemies[num]]
+	return enemies[num]
 end
 
 function enemyUpdate(dt)
 	local count = 1
 	while count <= table.getn(enemies) do
-		enemy = getEnemy(count)
-    
-    fall(enemy, dt)
-    
-    collision(enemy,dt)
-    enemy:action(dt)
 
-		if enemy.health <= 0 then
-      deleteEntity(enemy)
-    end
+		enemy = getEnemy(count)
+    if enemy ~= nil then
     
-		enemy.y = enemy.y + enemy.ySpeed*dt
-		enemy.x = enemy.x + enemy.xSpeed*dt
+      fall(enemy, dt)
+      
+      collision(enemy,dt)
+      enemy:action(dt)
+
+      if enemy.health <= 0 then
+        --deleteEntity(enemy)
+        table.remove(enemies, count)
+
+      end
+      
+      enemy.y = enemy.y + enemy.ySpeed*dt
+      enemy.x = enemy.x + enemy.xSpeed*dt
+    end
 		count = count + 1
 	end
 end
@@ -87,7 +91,7 @@ function enemyInit()
     
     if enemy.name == "paul" then
       
-      enemy.health = 10
+      --enemy.health = 10
       enemy.accel = 500
       
       function enemy:action(dt)
@@ -100,7 +104,7 @@ function enemyInit()
       
     elseif enemy.name == "frank" then
       
-      enemy.health = 10
+      --enemy.health = 10
       
       function enemy:action(dt)
         self.actionTimer = self.actionTimer + dt

@@ -1,8 +1,13 @@
 function simpleCollision(o1, o2)
-  return o1.x < o2.x+o2.width and
-         o2.x < o1.x+o1.width and
-         o1.y < o2.y+o2.height and
-         o2.y < o1.y+o1.height
+  if o1 ~= nil and o2 ~= nil then
+    return o1.x < o2.x+o2.width and
+           o2.x < o1.x+o1.width and
+           o1.y < o2.y+o2.height and
+           o2.y < o1.y+o1.height
+  else
+    print("object nil\n")
+    return false
+  end
 end
 
 function collision( ent, dt )
