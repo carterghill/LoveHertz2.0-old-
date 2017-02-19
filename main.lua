@@ -4,9 +4,17 @@ require('levels/objects')
 require('levels/levels')
 require('entities/enemy')
 require('entities/player')
+require('controls')
+require('sequences')
 editMode = true
 
+thing = {
+  {"hi", "1:2"},
+  {"hello"}
+  }
 function love.load()
+  seqInit()
+  dialInit()
   levelsInit()
 	createPlayer()
 	newPlaceable("images/static/smile.png", "None", "lol")
@@ -18,24 +26,30 @@ function love.load()
   newPlaceable("images/characters/frank.png", "Enemy", "frank")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
-  --loadLevels()
+  loadLevels()
   enemyInit()
+  thing[table.getn(thing)+1] = {"3:1","3:2"}
 end
 
 words = ""
 function love.draw()
 	drawObjects()
-  love.graphics.print(words, 10, 50)
+  love.graphics.print(thing[3][2], 10, 50)
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
     love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
-	end
+	else
+    --love.graphics.print(tostring(table.getn(bullets)))
+  end
+  drawDialog()
 end
 
 
 function love.update(dt)
-	
+	if getPlayer(1).x < 200 then
+    displayDialog("x < 200", dt)
+  end 
   if love.keyboard.isDown("f") then
     dt = dt/5
   end
@@ -47,16 +61,16 @@ function love.update(dt)
 	if table.getn(players) > 0 then
 		lockOn(objects[players[1]], dt)
 	end
-	if love.keyboard.isDown('h') then
-		lockOn(objects[5], dt)
-	end	
 
 	if not editMode then
     enemyUpdate(dt)
 		playerUpdate(dt)
     bulletUpdate(dt)
-		
+    --if not inSequence then
+      checkControls()
+    --end
 	end
+  sequence(dt)
 	camera(dt)
 end
 
@@ -87,8 +101,11 @@ function love.keypressed(key)
   if key == "left" then
     setLevel(levelNum-1)
   end
-  if key == "space" then
-    --jump(getPlayer(1), dt)
+  if not inSequence and key == controls[1].jump then
+    jump(getPlayer(1), dt)
+  end
+  if key == "y" then
+    inSequence = not inSequence
   end
 end
 

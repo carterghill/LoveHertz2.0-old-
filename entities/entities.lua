@@ -47,19 +47,19 @@ function grounded(ent)
 end
 
 function jump(ent, dt)
-  print("jumped = "..tostring(ent.jumped).."\ngrounded = "..tostring(ent.grounded))
-  if grounded(ent) and ent.jumped == false then
+  --print("jumped = "..tostring(ent.jumped).."\ngrounded = "..tostring(ent.grounded))
+  if grounded(ent) then
     ent.ySpeed = -1200
     ent.y = ent.y
-    ent.jumped = true
-  elseif ent.rightCol and ent.jumped == false then
+    --ent.jumped = true
+  elseif ent.rightCol then
     ent.ySpeed = -1200
     ent.xSpeed = -player.runSpeed*1.5
-    ent.jumped = true
-  elseif ent.leftCol and ent.jumped == false then
+    --ent.jumped = true
+  elseif ent.leftCol then
     ent.ySpeed = -1200
     ent.xSpeed = ent.runSpeed*1.5
-    ent.jumped = true
+    --ent.jumped = true
   end	
 end
 

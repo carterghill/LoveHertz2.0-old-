@@ -64,12 +64,15 @@ function loadLevels()
   while(i <= table.getn(levels)) do
     local j = 1
     while (j <= table.getn(levels[i].objs)) do
-      print("image: "..tostring(levels[i].objs[j].imagePath))
+      --print("image: "..tostring(levels[i].objs[j].imagePath))
       levels[i].objs[j].img = love.graphics.newImage(levels[i].objs[j].imagePath)
       if not isempty(levels[i].objs[j].id) then
         local playerNum = table.getn(players)+1
       end
       j=j+1
+    end
+    for j=1, table.getn(levels[i].enems) do
+      levels[i].enems[j].img = love.graphics.newImage(levels[i].enems[j].imagePath)
     end
     local j = 1
     while (j <= table.getn(levels[i].camCols)) do

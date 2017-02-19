@@ -5,7 +5,6 @@ function simpleCollision(o1, o2)
            o1.y < o2.y+o2.height and
            o2.y < o1.y+o1.height
   else
-    print("object nil\n")
     return false
   end
 end

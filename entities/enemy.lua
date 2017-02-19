@@ -63,7 +63,12 @@ function enemyUpdate(dt)
       fall(enemy, dt)
       
       collision(enemy,dt)
-      enemy:action(dt)
+      
+      if not inSequence then
+        enemy:action(dt)
+      else
+        slowDown(enemy, dt)
+      end
 
       if enemy.health <= 0 then
         --deleteEntity(enemy)
@@ -91,7 +96,7 @@ function enemyInit()
     
     if enemy.name == "paul" then
       
-      --enemy.health = 10
+      enemy.runSpeed = 150
       enemy.accel = 500
       
       function enemy:action(dt)

@@ -24,9 +24,9 @@ function createPlayer()
 		xSpeed = 0,
 		ySpeed = 0,
 		accel = 3000,
-		up = "q",
-		down = "s",
-		left = 'a',
+		up = false,
+		down = false,
+		left = false,
 		right = 'd',
     rightCol = false,
     leftCol = false,
@@ -57,21 +57,16 @@ function playerUpdate(dt)
 	local count = 1
 	while count <= table.getn(players) do
 		player = getPlayer(count)
-		if love.keyboard.isDown("space") then
-			jump(player, dt)	
-		elseif player.jumped == true and (player.grounded or player.rightCol or player.leftCol) then
-			player.jumped = false
-		end
 
-		if love.keyboard.isDown(player.left) then
+		if player.left then
       moveLeft(player, dt)
 		end
-		if love.keyboard.isDown(player.right) then
+		if player.right then
       moveRight(player, dt)
 		end
 		
-		if not love.keyboard.isDown(player.right)
-		and not love.keyboard.isDown(player.left) then
+		if not player.right
+		and not player.left then
 			slowDown(player, dt)
 		end
     
@@ -128,6 +123,9 @@ function bulletUpdate(dt)
         getEnemy(i).health = getEnemy(i).health - 1
       end
       i = i + 1
+    end
+    if math.abs(bullet.x - getPlayer(1).x) > 3000 then
+      table.remove(bullets, count)
     end
     count = count + 1
   end
