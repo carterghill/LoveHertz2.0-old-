@@ -13,6 +13,7 @@ thing = {
   {"hello"}
   }
 function love.load()
+    --loadLevels()
   seqInit()
   dialInit()
   levelsInit()
@@ -26,7 +27,7 @@ function love.load()
   newPlaceable("images/characters/frank.png", "Enemy", "frank")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
-  loadLevels()
+
   enemyInit()
   thing[table.getn(thing)+1] = {"3:1","3:2"}
 end
@@ -86,7 +87,7 @@ function love.keypressed(key)
     end
   end
   if key == "e" then
-    print("hi")
+    --print("hi")
     shoot()
   end
   if key == "p" then

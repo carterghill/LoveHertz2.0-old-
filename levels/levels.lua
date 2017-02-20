@@ -53,34 +53,35 @@ function loadLevels()
   levels = {}
   levels = table.load("levels/levels.txt")
   
-  objects = {}
-  objects = levels[levelNum].objs
-  cameraColliders = {}
-  cameraColliders = levels[levelNum].camCols
-  enemies = {}
-  enemies = levels[levelNum].enems
-  
-  local i = 1
-  while(i <= table.getn(levels)) do
-    local j = 1
-    while (j <= table.getn(levels[i].objs)) do
-      --print("image: "..tostring(levels[i].objs[j].imagePath))
-      levels[i].objs[j].img = love.graphics.newImage(levels[i].objs[j].imagePath)
-      if not isempty(levels[i].objs[j].id) then
-        local playerNum = table.getn(players)+1
-      end
-      j=j+1
-    end
-    for j=1, table.getn(levels[i].enems) do
-      levels[i].enems[j].img = love.graphics.newImage(levels[i].enems[j].imagePath)
-    end
-    local j = 1
-    while (j <= table.getn(levels[i].camCols)) do
-      levels[i].camCols[j].img = love.graphics.newImage("images/tiles/noCamera.png")
-      j=j+1
-    end
+  if levels ~= nil then
+    objects = {}
+    objects = levels[levelNum].objs
+    cameraColliders = {}
+    cameraColliders = levels[levelNum].camCols
+    enemies = {}
+    enemies = levels[levelNum].enems
     
-    i = i+1
+    local i = 1
+    while(i <= table.getn(levels)) do
+      local j = 1
+      while (j <= table.getn(levels[i].objs)) do
+        --print("image: "..tostring(levels[i].objs[j].imagePath))
+        levels[i].objs[j].img = love.graphics.newImage(levels[i].objs[j].imagePath)
+        if not isempty(levels[i].objs[j].id) then
+          local playerNum = table.getn(players)+1
+        end
+        j=j+1
+      end
+      for j=1, table.getn(levels[i].enems) do
+        levels[i].enems[j].img = love.graphics.newImage(levels[i].enems[j].imagePath)
+      end
+      local j = 1
+      while (j <= table.getn(levels[i].camCols)) do
+        levels[i].camCols[j].img = love.graphics.newImage("images/tiles/noCamera.png")
+        j=j+1
+      end
+      
+      i = i+1
+    end
   end
-  
 end

@@ -28,22 +28,19 @@ function seqInit()
       seqTimer = seqTimer + dt
       --walk right for 1 second
       if seqTimer < 1 then
-        moveRight(getPlayer(1), dt)
-        -- Display dialog for 5 seconds
-      elseif seqTimer < 2 then
         slowDown(getPlayer(1), dt)
-      elseif seqTimer < 3 then
+      elseif seqTimer < 2 then
         displayDialog("Hello Joel!", dt)
         moveLeft(getPlayer(1), dt)
-      elseif seqTimer < 4 then
+      elseif seqTimer < 3 then
         displayDialog("Hello Joel!", dt)
         slowDown(getPlayer(1), dt)
-      elseif seqTimer < 7 then
-        if seqTimer > 4.25 then
+      elseif seqTimer < 6 then
+        if seqTimer > 3.25 then
           displayDialog("This is a test cutscene.", dt)
         end
-      elseif seqTimer < 10 then
-        if seqTimer > 7.25 then
+      elseif seqTimer < 9 then
+        if seqTimer > 6.25 then
           displayDialog("Okay back to game now bye", dt)
         end
       else
