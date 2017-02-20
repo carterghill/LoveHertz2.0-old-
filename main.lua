@@ -35,7 +35,7 @@ end
 words = ""
 function love.draw()
 	drawObjects()
-  love.graphics.print(thing[3][2], 10, 50)
+  --love.graphics.print(thing[3][2], 10, 50)
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
@@ -49,7 +49,7 @@ end
 
 function love.update(dt)
 	if getPlayer(1).x < 200 then
-    displayDialog("x < 200", dt)
+    --displayDialog("x < 200", dt)
   end 
   if love.keyboard.isDown("f") then
     dt = dt/5

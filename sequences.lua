@@ -32,7 +32,7 @@ function seqInit()
       elseif seqTimer < 2 then
         displayDialog("Hello Joel!", dt)
         moveLeft(getPlayer(1), dt)
-      elseif seqTimer < 3 then
+      elseif seqTimer < 2.25 then
         displayDialog("Hello Joel!", dt)
         slowDown(getPlayer(1), dt)
       elseif seqTimer < 6 then
@@ -54,9 +54,9 @@ function seqInit()
 end
 
 function sequence(dt)
-  for i = 1, table.getn(sequences[levelNum]) do
-    seq = sequences[levelNum][i]
-    if seq ~= nil then
+  if sequences[levelNum] ~= nil then
+    for i = 1, table.getn(sequences[levelNum]) do
+      seq = sequences[levelNum][i]
       seq:action(i, dt)
     end
   end
