@@ -33,7 +33,7 @@ function setLevel(x)
     --cameraColliders = {}
     levelNum = x
     if x > levels[0] then
-      levels[levelNum] = {objs = objects, plyrs = {}, camCols = cameraColliders, enems = enemies }
+      levels[levelNum] = {objs = objects, plyrs = players, camCols = cameraColliders, enems = enemies }
       createPlayer()
       levels[0] = levels[0]+1
     else
@@ -49,7 +49,7 @@ function saveLevels()
   table.save(levels,"levels/levels.txt")
   --print(Tserial.pack(levels, {}, true))
   --print(love.filesystem.getIdentity( ))
-  print(love.filesystem.write( "save.txt", Tserial.pack(levels, {}, false) ))
+  love.filesystem.write( "save.txt", Tserial.pack(levels, {}, false) )
 end
 
 function loadLevels()
@@ -67,20 +67,20 @@ function loadLevels()
     cameraColliders = levels[levelNum].camCols
     --enemies = {}
     enemies = levels[levelNum].enems
+    players = levels[levelNum].plyrs
     
     local i = 1
     while(i <= table.getn(levels)) do
       local j = 1
       while (j <= table.getn(levels[i].objs)) do
-        --print("image: "..tostring(levels[i].objs[j].imagePath))
         levels[i].objs[j].img = love.graphics.newImage(levels[i].objs[j].imagePath)
-        if not isempty(levels[i].objs[j].id) then
-          local playerNum = table.getn(players)+1
-        end
         j=j+1
       end
       for j=1, table.getn(levels[i].enems) do
         levels[i].enems[j].img = love.graphics.newImage(levels[i].enems[j].imagePath)
+      end
+      for j=1, table.getn(levels[i].plyrs) do
+        levels[i].plyrs[j].img = love.graphics.newImage(levels[i].plyrs[j].imagePath)
       end
       local j = 1
       while (j <= table.getn(levels[i].camCols)) do

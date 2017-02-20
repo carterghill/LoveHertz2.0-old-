@@ -13,7 +13,7 @@ thing = {
   {"hello"}
   }
 function love.load()
-    --loadLevels()
+  --loadLevels()
   seqInit()
   dialInit()
   levelsInit()
@@ -28,7 +28,7 @@ function love.load()
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
 
-  enemyInit()
+  --enemyInit()
 end
 
 words = ""
@@ -56,7 +56,7 @@ function love.update(dt)
 	end
 	
 	if table.getn(players) > 0 then
-		lockOn(objects[players[1]], dt)
+		lockOn(players[1], dt)
 	end
 
 	if not editMode then
@@ -107,8 +107,8 @@ function love.keypressed(key)
 end
 
 function love.keyreleased(key)
-  if key == "space" and objects[players[1]].ySpeed < -400 then
-    objects[players[1]].ySpeed = -400
+  if key == "space" and getPlayer(1).ySpeed < -400 then
+    getPlayer(1).ySpeed = -400
   end
 end
 

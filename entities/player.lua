@@ -5,11 +5,9 @@ players = {}
 bullets = {}
 
 function createPlayer()
-	local num = table.getn(objects)+1
-	local playerNum = table.getn(players)+1
-	players[playerNum] = num
+	local num = table.getn(players)+1
 	
-	objects[num] = {
+	players[num] = {
 		gravity = 3000,
 		img = nil,
     imagePath = "images/characters/dude.png",
@@ -36,21 +34,20 @@ function createPlayer()
     jumpForce = 1200
 	}
 	
-	objects[num].img = love.graphics.newImage("images/characters/dude.png")
-	objects[num].width = objects[num].img:getWidth()
-	objects[num].height = objects[num].img:getHeight()
-  imagePath = "images/characters/dude.png"
+	players[num].img = love.graphics.newImage(players[num].imagePath)
+	players[num].width = players[num].img:getWidth()
+	players[num].height = players[num].img:getHeight()
 	
 	if cameraNum > 0 then
-		objects[num].x = cameras[cameraNum].x - objects[num].width/2
-		objects[num].y = cameras[cameraNum].y - objects[num].height/2
+		players[num].x = cameras[cameraNum].x - players[num].width/2
+		players[num].y = cameras[cameraNum].y - players[num].height/2
 	end
 	
 end
 
 -- Returns player num
 function getPlayer(num)
-	return objects[players[num]]
+	return players[num]
 end
 
 function playerUpdate(dt)

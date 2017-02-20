@@ -29,6 +29,11 @@ function drawObjects()
       print(tostring(i))
     end
   end
+  for i = 1, table.getn(players) do
+    if getPlayer(i) ~= nil then
+      love.graphics.draw(getPlayer(i).img, getx(getPlayer(i)), gety(getPlayer(i)), 0, getPlayer(i).scale)
+    end
+  end
 end
 
 function createObject(mousex, mousey)

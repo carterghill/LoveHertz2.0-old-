@@ -19,7 +19,7 @@ function seqInit()
   seq = sequences[1][1]
   function seq:action(index, dt)
     
-    if getPlayer(1).x > 500 and not inSequence then
+    if getPlayer(1) ~= nil and getPlayer(1).x > 500 and not inSequence then
       inSequence = true
       seqTimer = 0
     end
