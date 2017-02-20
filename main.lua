@@ -29,17 +29,15 @@ function love.load()
 	newCamera()
 
   enemyInit()
-  thing[table.getn(thing)+1] = {"3:1","3:2"}
 end
 
 words = ""
 function love.draw()
 	drawObjects()
-  --love.graphics.print(thing[3][2], 10, 50)
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
-    love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
+    --love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
 	else
     --love.graphics.print(tostring(table.getn(bullets)))
   end
@@ -48,9 +46,7 @@ end
 
 
 function love.update(dt)
-	if getPlayer(1).x < 200 then
-    --displayDialog("x < 200", dt)
-  end 
+
   if love.keyboard.isDown("f") then
     dt = dt/5
   end

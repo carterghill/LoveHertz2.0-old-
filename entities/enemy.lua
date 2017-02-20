@@ -105,7 +105,7 @@ function enemyInit()
         else
           moveLeft(self, dt)
         end
-     end
+      end
       
     elseif enemy.name == "frank" then
       

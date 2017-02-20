@@ -27,10 +27,10 @@ function setLevel(x)
     levels[levelNum].objs = objects
     levels[levelNum].plyrs = players
     levels[levelNum].camCols = cameraColliders
-    objects = {}
-    players = {}
-    enemies = {}
-    cameraColliders = {}
+    --objects = {}
+    --players = {}
+    --enemies = {}
+    --cameraColliders = {}
     levelNum = x
     if x > levels[0] then
       levels[levelNum] = {objs = objects, plyrs = {}, camCols = cameraColliders, enems = enemies }
@@ -47,18 +47,25 @@ end
 
 function saveLevels()
   table.save(levels,"levels/levels.txt")
+  --print(Tserial.pack(levels, {}, true))
+  --print(love.filesystem.getIdentity( ))
+  print(love.filesystem.write( "save.txt", Tserial.pack(levels, {}, false) ))
 end
 
 function loadLevels()
-  levels = {}
-  levels = table.load("levels/levels.txt")
+  --levels = {}
+  --levels = table.load("levels/levels.txt")
+  if love.filesystem.read("save.txt") ~= "" then
+    levels = Tserial.unpack(love.filesystem.read("save.txt"))
+  end
+  --enemyInit()
   
   if levels ~= nil then
-    objects = {}
+    --objects = {}
     objects = levels[levelNum].objs
-    cameraColliders = {}
+    --cameraColliders = {}
     cameraColliders = levels[levelNum].camCols
-    enemies = {}
+    --enemies = {}
     enemies = levels[levelNum].enems
     
     local i = 1
@@ -84,4 +91,5 @@ function loadLevels()
       i = i+1
     end
   end
+  enemyInit()
 end
