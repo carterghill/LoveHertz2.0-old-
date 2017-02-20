@@ -37,7 +37,9 @@ function love.draw()
 	if editMode then
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
-    --love.graphics.print("Level: "..levelNum.." / "..levels[0], 10, 30)
+    if levels[1] ~= nil then
+      love.graphics.print("Level: "..levelNum-1.." / "..levels[1], 10, 30)
+    end
 	else
     --love.graphics.print(tostring(table.getn(bullets)))
   end

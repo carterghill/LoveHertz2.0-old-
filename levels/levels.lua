@@ -3,18 +3,18 @@ require('Tserial')
 require('tablesave')
 
 levels = {}
-levelNum = 1
+levelNum = 2
 -- The "zeroeth level" is actually a placeholder for the 
 -- amount of levels in the game
 
-levels[0] = 1
+levels[1] = 1
 
 function isempty(s)
   return s == nil
 end
 
 function levelsInit()
-  levels[1] = {
+  levels[2] = {
     objs = objects,
     plyrs = players,
     enems = enemies,
@@ -23,7 +23,7 @@ function levelsInit()
 end
 
 function setLevel(x)
-  if x > 0 then
+  if x > 1 then
     levels[levelNum].objs = objects
     levels[levelNum].plyrs = players
     levels[levelNum].camCols = cameraColliders
@@ -32,10 +32,10 @@ function setLevel(x)
     --enemies = {}
     --cameraColliders = {}
     levelNum = x
-    if x > levels[0] then
+    if x > levels[1] then
       levels[levelNum] = {objs = objects, plyrs = players, camCols = cameraColliders, enems = enemies }
       createPlayer()
-      levels[0] = levels[0]+1
+      levels[1] = levels[1]+1
     else
       objects = levels[levelNum].objs
       players = levels[levelNum].plyrs
@@ -69,7 +69,7 @@ function loadLevels()
     enemies = levels[levelNum].enems
     players = levels[levelNum].plyrs
     
-    local i = 1
+    local i = 2
     while(i <= table.getn(levels)) do
       local j = 1
       while (j <= table.getn(levels[i].objs)) do
