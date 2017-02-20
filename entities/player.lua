@@ -66,7 +66,8 @@ function playerUpdate(dt)
 		end
 		
 		if not player.right
-		and not player.left then
+		and not player.left 
+    and not inSequence then
 			slowDown(player, dt)
 		end
     
