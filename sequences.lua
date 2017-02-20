@@ -12,6 +12,10 @@ function seqInit()
     y = 0
   }
   
+  --------------------
+  -- Level 1: Scene 1
+  --------------------
+  
   seq = sequences[1][1]
   function seq:action(index, dt)
     if getPlayer(1).x > 500 and not inSequence then
@@ -23,9 +27,20 @@ function seqInit()
       --walk right for 1 second
       if seqTimer < 1 then
         moveRight(getPlayer(1), dt)
-      -- Display dialog for 5 seconds
-      elseif seqTimer < 6 then
+        -- Display dialog for 5 seconds
+      elseif seqTimer < 3 then
+        slowDown(getPlayer(1), dt)
+      elseif seqTimer < 5 then
         displayDialog("Hello Joel!", dt)
+        moveLeft(getPlayer(1), dt)
+      elseif seqTimer < 8 then
+        if seqTimer > 5.5 then
+          displayDialog("This is a test cutscene.", dt)
+        end
+      elseif seqTimer < 12 then
+        if seqTimer > 8.5 then
+          displayDialog("Okay back to game now bye", dt)
+        end
       else
         -- When done, end sequence and remove it
         inSequence = false
