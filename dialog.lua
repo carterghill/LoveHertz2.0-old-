@@ -1,18 +1,36 @@
 dialogTimer = 0
 showDialog = false
 dialog = ""
+targetDialog = ""
 dialogx = 0
 dialogy = love.graphics.getHeight()*0.75
 
 function dialInit()
-  font = love.graphics.newFont("bitfont.ttf", 26)
+  font = love.graphics.newFont("bitfont.ttf", 28)
 end
 
 function displayDialog(text, dt)
   showDialog = true
-  dialog = text
+  if targetDialog ~= text then
+    targetDialog = text
+    dialog = " "
+    dialogTimer = 0
+  else
+    dialogTimer = dialogTimer + dt
+    if dialogTimer > 0.25 then
+      if string.len(dialog) <= string.len(targetDialog) and string.len(targetDialog) > 0 then
+        local temp = targetDialog
+        -- Get the character at dialog length from the target dialog
+        temp = temp:sub(string.len(dialog), string.len(dialog))
+        -- Concatenate it to the dialog being displayed
+        dialog = dialog ..temp
+      end
+      dialogTimer = 0
+    end
+  end
 
 end
+
 
 function drawDialog()
   if showDialog then

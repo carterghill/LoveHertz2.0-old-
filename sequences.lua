@@ -23,8 +23,8 @@ function seqInit()
       --walk right for 1 second
       if seqTimer < 1 then
         moveRight(getPlayer(1), dt)
-      -- Display dialog for 3 seconds
-      elseif seqTimer < 4 then
+      -- Display dialog for 5 seconds
+      elseif seqTimer < 6 then
         displayDialog("Hello Joel!", dt)
       else
         -- When done, end sequence and remove it
