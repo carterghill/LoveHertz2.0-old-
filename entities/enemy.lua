@@ -5,7 +5,6 @@ enemies = {}
 function createEnemy(mousex, mousey, namex)
 	local num = table.getn(enemies)+1
 
-	
 	enemies[num] = {
 		gravity = 3000,
     name = namex,
@@ -112,20 +111,24 @@ function enemyInit()
       --enemy.health = 10
       
       function enemy:action(dt)
-        self.actionTimer = self.actionTimer + dt
-        if self.actionTimer > 3 then
-          self.jumped = false
-          jump(self, dt)
-          if getPlayer(1).x + getPlayer(1).width/2 > self.x + self.width/2 then
-            self.xSpeed = 200
-          else
-            self.xSpeed = -200
+        
+        if math.abs(self.x - getPlayer(1).x) < 1000 then
+          self.actionTimer = self.actionTimer + dt
+          if self.actionTimer > 3 then
+            self.jumped = false
+            jump(self, dt)
+            if getPlayer(1).x + getPlayer(1).width/2 > self.x + self.width/2 then
+              self.xSpeed = 200
+            else
+              self.xSpeed = -200
+            end
+            self.actionTimer = 0
           end
-          self.actionTimer = 0
+          if grounded(self) and xSpeed ~= 0 and self.actionTimer > 0 then
+            self.xSpeed = 0
+          end
         end
-        if grounded(self) and xSpeed ~= 0 and self.actionTimer > 0 then
-          self.xSpeed = 0
-        end
+        
       end
     
     else

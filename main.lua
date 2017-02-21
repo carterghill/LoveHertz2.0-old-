@@ -42,8 +42,6 @@ function love.draw()
       love.graphics.print("Level: "..x.." / "..levels[1], 10, 30)
     end
     love.graphics.print("Press P to save level\nPress L to load saved level\nT toggles Edit Mode", 10, 50)
-	else
-    --love.graphics.print(tostring(table.getn(bullets)))
   end
   drawDialog()
 end

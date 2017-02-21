@@ -19,7 +19,7 @@ function collision( ent, dt )
   local count = 1
 	while count <= table.getn(objects) do
     
-    if ent.xSpeed > 0 and ent.x + ent.width + ent.xSpeed*dt > objects[count].x and count ~= ent.id then
+    if ent.xSpeed > 0 and ent.x + ent.width + ent.xSpeed*dt > objects[count].x then
       if ent.y+ent.height > objects[count].y and ent.y < objects[count].y + objects[count].height then
         if ent.x < objects[count].x + objects[count].width/2 then
           ent.x = objects[count].x - ent.width
@@ -29,7 +29,7 @@ function collision( ent, dt )
       end
 		end
     
-    if ent.xSpeed < 0 and ent.x + ent.xSpeed*dt < objects[count].x + objects[count].width and count ~= ent.id then
+    if ent.xSpeed < 0 and ent.x + ent.xSpeed*dt < objects[count].x + objects[count].width then
       if ent.y+ent.height > objects[count].y and ent.y < objects[count].y + objects[count].height then
         if ent.x >= objects[count].x + objects[count].width/2 then
           ent.x = objects[count].x + objects[count].width
@@ -39,7 +39,7 @@ function collision( ent, dt )
       end
 		end
     
-    if ent.ySpeed > 0 and ent.y + ent.height + ent.ySpeed*dt+2 > objects[count].y and count ~= ent.id then
+    if ent.ySpeed > 0 and ent.y + ent.height + ent.ySpeed*dt+2 > objects[count].y then
       if ent.x+ent.width > objects[count].x and ent.x < objects[count].x + objects[count].width then
         if ent.y + ent.height < objects[count].y + objects[count].height/2 then
           ent.y = objects[count].y - ent.height
@@ -49,7 +49,7 @@ function collision( ent, dt )
       end
 		end
     
-    if ent.ySpeed < 0 and ent.y + ent.ySpeed*dt < objects[count].y + objects[count].height and count ~= ent.id then
+    if ent.ySpeed < 0 and ent.y + ent.ySpeed*dt < objects[count].y + objects[count].height then
       if ent.x+ent.width > objects[count].x and ent.x < objects[count].x + objects[count].width then
         if ent.y > objects[count].y + objects[count].height/2 then
           ent.y = objects[count].y + objects[count].height
@@ -73,7 +73,7 @@ function cameraCollision( player, dt )
   local count = 1
 	while count <= table.getn(cameraColliders) do
     
-    if player.xSpeed > 0 and player.x + player.width + player.xSpeed*dt > cameraColliders[count].x and count ~= player.id then
+    if player.xSpeed > 0 and player.x + player.width + player.xSpeed*dt > cameraColliders[count].x then
       if player.y+player.height > cameraColliders[count].y and player.y < cameraColliders[count].y + cameraColliders[count].height then
         if player.x < cameraColliders[count].x + cameraColliders[count].width/2 then
           player.x = cameraColliders[count].x - player.width
@@ -83,7 +83,7 @@ function cameraCollision( player, dt )
       end
 		end
     
-    if player.xSpeed < 0 and player.x + player.xSpeed*dt < cameraColliders[count].x + cameraColliders[count].width and count ~= player.id then
+    if player.xSpeed < 0 and player.x + player.xSpeed*dt < cameraColliders[count].x + cameraColliders[count].width then
       if player.y+player.height > cameraColliders[count].y and player.y < cameraColliders[count].y + cameraColliders[count].height then
         if player.x >= cameraColliders[count].x + cameraColliders[count].width/2 then
           player.x = cameraColliders[count].x + cameraColliders[count].width
@@ -93,7 +93,7 @@ function cameraCollision( player, dt )
       end
 		end
     
-    if player.ySpeed > 0 and player.y + player.height + player.ySpeed*dt > cameraColliders[count].y and count ~= player.id then
+    if player.ySpeed > 0 and player.y + player.height + player.ySpeed*dt > cameraColliders[count].y then
       if player.x+player.width > cameraColliders[count].x and player.x < cameraColliders[count].x + cameraColliders[count].width then
         if player.y + player.height < cameraColliders[count].y + cameraColliders[count].height/2 then
           player.y = cameraColliders[count].y - player.height
@@ -103,7 +103,7 @@ function cameraCollision( player, dt )
       end
 		end
     
-    if player.ySpeed < 0 and player.y + player.ySpeed*dt < cameraColliders[count].y + cameraColliders[count].height and count ~= player.id then
+    if player.ySpeed < 0 and player.y + player.ySpeed*dt < cameraColliders[count].y + cameraColliders[count].height then
       if player.x+player.width > cameraColliders[count].x and player.x < cameraColliders[count].x + cameraColliders[count].width then
         if player.y > cameraColliders[count].y + cameraColliders[count].height/2 then
           player.y = cameraColliders[count].y + cameraColliders[count].height

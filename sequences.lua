@@ -54,9 +54,9 @@ function seqInit()
 end
 
 function sequence(dt)
-  if sequences[levelNum] ~= nil then
-    for i = 1, table.getn(sequences[levelNum]) do
-      seq = sequences[levelNum][i]
+  if sequences[levelNum-1] ~= nil then
+    for i = 1, table.getn(sequences[levelNum-1]) do
+      seq = sequences[levelNum-1][i]
       seq:action(i, dt)
     end
   end

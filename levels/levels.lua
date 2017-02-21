@@ -4,9 +4,9 @@ require('tablesave')
 
 levels = {}
 levelNum = 2
--- The "zeroeth level" is actually a placeholder for the 
--- amount of levels in the game
 
+-- The first level is actually a placeholder for the 
+-- amount of levels in the game
 levels[1] = 1
 
 function isempty(s)
@@ -27,10 +27,10 @@ function setLevel(x)
     levels[levelNum].objs = objects
     levels[levelNum].plyrs = players
     levels[levelNum].camCols = cameraColliders
-    --objects = {}
-    --players = {}
-    --enemies = {}
-    --cameraColliders = {}
+    objects = {}
+    players = {}
+    enemies = {}
+    cameraColliders = {}
     levelNum = x
     if x > levels[1] then
       levels[levelNum] = {objs = objects, plyrs = players, camCols = cameraColliders, enems = enemies }

@@ -1,23 +1,26 @@
 return {
 -- Table: {1}
 {
-   1,
+   3,
    {2},
+   {3},
 },
 -- Table: {2}
 {
-   ["objs"]={3},
-   ["camCols"]={4},
-   ["enems"]={5},
-   ["plyrs"]={6},
+   ["objs"]={4},
+   ["camCols"]={5},
+   ["enems"]={6},
+   ["plyrs"]={7},
 },
 -- Table: {3}
 {
-   {7},
-   {8},
-   {9},
-   {10},
-   {11},
+   ["objs"]={8},
+   ["camCols"]={9},
+   ["enems"]={10},
+   ["plyrs"]={11},
+},
+-- Table: {4}
+{
    {12},
    {13},
    {14},
@@ -52,9 +55,6 @@ return {
    {43},
    {44},
    {45},
-},
--- Table: {4}
-{
    {46},
    {47},
    {48},
@@ -78,512 +78,619 @@ return {
    {66},
    {67},
    {68},
+   {69},
+   {70},
+   {71},
+   {72},
+   {73},
+   {74},
+   {75},
+   {76},
+   {77},
+   {78},
+   {79},
+   {80},
+   {81},
+   {82},
+   {83},
+   {84},
+   {85},
+   {86},
+   {87},
+   {88},
+   {89},
+   {90},
+   {91},
+   {92},
+   {93},
+   {94},
+   {95},
+   {96},
+   {97},
+   {98},
+   {99},
+   {100},
+   {101},
+   {102},
+   {103},
+   {104},
+   {105},
+   {106},
+   {107},
+   {108},
+   {109},
+   {110},
+   {111},
+   {112},
+   {113},
+   {114},
+   {115},
+   {116},
+   {117},
+   {118},
+   {119},
+   {120},
 },
 -- Table: {5}
 {
+   {121},
+   {122},
+   {123},
+   {124},
+   {125},
+   {126},
+   {127},
+   {128},
+   {129},
+   {130},
+   {131},
+   {132},
+   {133},
+   {134},
+   {135},
+   {136},
+   {137},
+   {138},
+   {139},
+   {140},
+   {141},
+   {142},
+   {143},
 },
 -- Table: {6}
 {
-   {69},
+   {144},
 },
 -- Table: {7}
 {
-   ["width"]=64,
+   {145},
+},
+-- Table: {8}
+{
+   {146},
+   {147},
+},
+-- Table: {9}
+{
+},
+-- Table: {10}
+{
+},
+-- Table: {11}
+{
+   {148},
+},
+-- Table: {12}
+{
+   ["x"]=0,
    ["id"]=1,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=0,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {8}
-{
    ["width"]=64,
+},
+-- Table: {13}
+{
+   ["x"]=64,
    ["id"]=2,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=64,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {9}
-{
    ["width"]=64,
+},
+-- Table: {14}
+{
+   ["x"]=128,
    ["id"]=3,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=128,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {10}
-{
    ["width"]=64,
+},
+-- Table: {15}
+{
+   ["x"]=192,
    ["id"]=4,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=192,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {11}
-{
    ["width"]=64,
+},
+-- Table: {16}
+{
+   ["x"]=256,
    ["id"]=5,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=256,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {12}
-{
    ["width"]=64,
+},
+-- Table: {17}
+{
+   ["x"]=320,
    ["id"]=6,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=320,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {13}
-{
    ["width"]=64,
+},
+-- Table: {18}
+{
+   ["x"]=384,
    ["id"]=7,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=384,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {14}
-{
    ["width"]=64,
+},
+-- Table: {19}
+{
+   ["x"]=448,
    ["id"]=8,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=448,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {15}
-{
    ["width"]=64,
+},
+-- Table: {20}
+{
+   ["x"]=512,
    ["id"]=9,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=512,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {16}
-{
    ["width"]=64,
+},
+-- Table: {21}
+{
+   ["x"]=576,
    ["id"]=10,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=576,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {17}
-{
    ["width"]=64,
+},
+-- Table: {22}
+{
+   ["x"]=640,
    ["id"]=11,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=640,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {18}
-{
    ["width"]=64,
+},
+-- Table: {23}
+{
+   ["x"]=704,
    ["id"]=12,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=704,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {19}
-{
    ["width"]=64,
+},
+-- Table: {24}
+{
+   ["x"]=768,
    ["id"]=13,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=768,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {20}
-{
    ["width"]=64,
+},
+-- Table: {25}
+{
+   ["x"]=832,
    ["id"]=14,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=832,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
-},
--- Table: {21}
-{
    ["width"]=64,
+},
+-- Table: {26}
+{
+   ["x"]=896,
    ["id"]=15,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["x"]=896,
+   ["scale"]=0.5,
    ["ySpeed"]=0,
    ["height"]=64,
-   ["scale"]=0.5,
+   ["width"]=64,
 },
--- Table: {22}
+-- Table: {27}
 {
-   ["scale"]=1,
+   ["width"]=64,
    ["id"]=16,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {23}
-{
    ["scale"]=1,
+},
+-- Table: {28}
+{
+   ["width"]=64,
    ["id"]=17,
    ["y"]=448,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {24}
-{
    ["scale"]=1,
+},
+-- Table: {29}
+{
+   ["width"]=64,
    ["id"]=18,
    ["y"]=320,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {25}
-{
    ["scale"]=1,
+},
+-- Table: {30}
+{
+   ["width"]=64,
    ["id"]=19,
    ["y"]=192,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {26}
-{
    ["scale"]=1,
+},
+-- Table: {31}
+{
+   ["width"]=64,
    ["id"]=20,
    ["y"]=64,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {27}
-{
    ["scale"]=1,
+},
+-- Table: {32}
+{
+   ["width"]=64,
    ["id"]=21,
    ["y"]=-64,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {28}
-{
    ["scale"]=1,
+},
+-- Table: {33}
+{
+   ["width"]=64,
    ["id"]=22,
    ["y"]=-192,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {29}
-{
    ["scale"]=1,
+},
+-- Table: {34}
+{
+   ["width"]=64,
    ["id"]=23,
    ["y"]=-320,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {30}
-{
    ["scale"]=1,
+},
+-- Table: {35}
+{
+   ["width"]=64,
    ["id"]=24,
    ["y"]=-448,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {31}
-{
    ["scale"]=1,
+},
+-- Table: {36}
+{
+   ["width"]=64,
    ["id"]=25,
    ["y"]=-576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=-64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=-64,
-},
--- Table: {32}
-{
    ["scale"]=1,
+},
+-- Table: {37}
+{
+   ["width"]=64,
    ["id"]=26,
    ["y"]=-640,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=0,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=0,
-},
--- Table: {33}
-{
    ["scale"]=1,
+},
+-- Table: {38}
+{
+   ["width"]=64,
    ["id"]=27,
    ["y"]=-640,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=64,
-},
--- Table: {34}
-{
    ["scale"]=1,
+},
+-- Table: {39}
+{
+   ["width"]=64,
    ["id"]=28,
    ["y"]=576,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
-},
--- Table: {35}
-{
    ["scale"]=1,
+},
+-- Table: {40}
+{
+   ["width"]=64,
    ["id"]=29,
    ["y"]=512,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
-},
--- Table: {36}
-{
    ["scale"]=1,
+},
+-- Table: {41}
+{
+   ["width"]=64,
    ["id"]=30,
    ["y"]=448,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
-},
--- Table: {37}
-{
    ["scale"]=1,
+},
+-- Table: {42}
+{
+   ["width"]=64,
    ["id"]=31,
    ["y"]=384,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
-},
--- Table: {38}
-{
    ["scale"]=1,
+},
+-- Table: {43}
+{
+   ["width"]=64,
    ["id"]=32,
    ["y"]=320,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
-},
--- Table: {39}
-{
    ["scale"]=1,
+},
+-- Table: {44}
+{
+   ["width"]=64,
    ["id"]=33,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.jpg",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
+   ["scale"]=1,
 },
--- Table: {40}
+-- Table: {45}
 {
-   ["scale"]=0.5,
+   ["width"]=64,
    ["id"]=34,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=960,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=960,
-},
--- Table: {41}
-{
    ["scale"]=0.5,
+},
+-- Table: {46}
+{
+   ["width"]=64,
    ["id"]=35,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=1024,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=1024,
-},
--- Table: {42}
-{
    ["scale"]=0.5,
+},
+-- Table: {47}
+{
+   ["width"]=64,
    ["id"]=36,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=1088,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=1088,
-},
--- Table: {43}
-{
    ["scale"]=0.5,
+},
+-- Table: {48}
+{
+   ["width"]=64,
    ["id"]=37,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=1152,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=1152,
-},
--- Table: {44}
-{
    ["scale"]=0.5,
+},
+-- Table: {49}
+{
+   ["width"]=64,
    ["id"]=38,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
    ["xSpeed"]=0,
-   ["width"]=64,
+   ["x"]=1216,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=1216,
+   ["scale"]=0.5,
 },
--- Table: {45}
+-- Table: {50}
+{
+   ["width"]=64,
+   ["id"]=39,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["x"]=1280,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["scale"]=0.5,
+},
+-- Table: {51}
 {
    ["scale"]=0.5,
-   ["id"]=39,
+   ["id"]=40,
    ["y"]=256,
    ["objType"]="Static",
    ["imagePath"]="images/tiles/tile.png",
@@ -591,9 +698,906 @@ return {
    ["width"]=64,
    ["height"]=64,
    ["ySpeed"]=0,
-   ["x"]=1280,
+   ["x"]=1344,
 },
--- Table: {46}
+-- Table: {52}
+{
+   ["scale"]=0.5,
+   ["id"]=41,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1408,
+},
+-- Table: {53}
+{
+   ["scale"]=0.5,
+   ["id"]=42,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1472,
+},
+-- Table: {54}
+{
+   ["scale"]=0.5,
+   ["id"]=43,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1536,
+},
+-- Table: {55}
+{
+   ["scale"]=0.5,
+   ["id"]=44,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1600,
+},
+-- Table: {56}
+{
+   ["scale"]=0.5,
+   ["id"]=45,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1664,
+},
+-- Table: {57}
+{
+   ["scale"]=0.5,
+   ["id"]=46,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1728,
+},
+-- Table: {58}
+{
+   ["scale"]=0.5,
+   ["id"]=47,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1792,
+},
+-- Table: {59}
+{
+   ["scale"]=0.5,
+   ["id"]=48,
+   ["y"]=256,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["width"]=64,
+   ["height"]=64,
+   ["ySpeed"]=0,
+   ["x"]=1856,
+},
+-- Table: {60}
+{
+   ["x"]=1024,
+   ["id"]=49,
+   ["y"]=320,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {61}
+{
+   ["x"]=1024,
+   ["id"]=50,
+   ["y"]=384,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {62}
+{
+   ["x"]=1024,
+   ["id"]=51,
+   ["y"]=384,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {63}
+{
+   ["x"]=1024,
+   ["id"]=52,
+   ["y"]=448,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {64}
+{
+   ["x"]=1024,
+   ["id"]=53,
+   ["y"]=512,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {65}
+{
+   ["x"]=1024,
+   ["id"]=54,
+   ["y"]=576,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {66}
+{
+   ["x"]=1024,
+   ["id"]=55,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {67}
+{
+   ["x"]=960,
+   ["id"]=56,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {68}
+{
+   ["x"]=896,
+   ["id"]=57,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {69}
+{
+   ["x"]=832,
+   ["id"]=58,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {70}
+{
+   ["x"]=768,
+   ["id"]=59,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {71}
+{
+   ["x"]=704,
+   ["id"]=60,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {72}
+{
+   ["x"]=640,
+   ["id"]=61,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {73}
+{
+   ["x"]=576,
+   ["id"]=62,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {74}
+{
+   ["x"]=512,
+   ["id"]=63,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {75}
+{
+   ["x"]=448,
+   ["id"]=64,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {76}
+{
+   ["x"]=384,
+   ["id"]=65,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {77}
+{
+   ["x"]=320,
+   ["id"]=66,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {78}
+{
+   ["x"]=256,
+   ["id"]=67,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {79}
+{
+   ["x"]=192,
+   ["id"]=68,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {80}
+{
+   ["x"]=128,
+   ["id"]=69,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {81}
+{
+   ["x"]=64,
+   ["id"]=70,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {82}
+{
+   ["x"]=0,
+   ["id"]=71,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {83}
+{
+   ["x"]=0,
+   ["id"]=72,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {84}
+{
+   ["x"]=64,
+   ["id"]=73,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {85}
+{
+   ["x"]=128,
+   ["id"]=74,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {86}
+{
+   ["x"]=192,
+   ["id"]=75,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {87}
+{
+   ["x"]=256,
+   ["id"]=76,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {88}
+{
+   ["x"]=320,
+   ["id"]=77,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {89}
+{
+   ["x"]=448,
+   ["id"]=78,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {90}
+{
+   ["x"]=384,
+   ["id"]=79,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {91}
+{
+   ["x"]=512,
+   ["id"]=80,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {92}
+{
+   ["x"]=576,
+   ["id"]=81,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {93}
+{
+   ["x"]=640,
+   ["id"]=82,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {94}
+{
+   ["x"]=704,
+   ["id"]=83,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {95}
+{
+   ["x"]=768,
+   ["id"]=84,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {96}
+{
+   ["x"]=832,
+   ["id"]=85,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {97}
+{
+   ["x"]=896,
+   ["id"]=86,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {98}
+{
+   ["x"]=960,
+   ["id"]=87,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {99}
+{
+   ["x"]=1024,
+   ["id"]=88,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {100}
+{
+   ["x"]=1088,
+   ["id"]=89,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {101}
+{
+   ["x"]=1088,
+   ["id"]=90,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {102}
+{
+   ["x"]=1088,
+   ["id"]=91,
+   ["y"]=576,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {103}
+{
+   ["x"]=1088,
+   ["id"]=92,
+   ["y"]=512,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {104}
+{
+   ["x"]=1088,
+   ["id"]=93,
+   ["y"]=448,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {105}
+{
+   ["x"]=1088,
+   ["id"]=94,
+   ["y"]=384,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {106}
+{
+   ["x"]=1088,
+   ["id"]=95,
+   ["y"]=320,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {107}
+{
+   ["x"]=1152,
+   ["id"]=96,
+   ["y"]=320,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {108}
+{
+   ["x"]=1216,
+   ["id"]=97,
+   ["y"]=320,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {109}
+{
+   ["x"]=1216,
+   ["id"]=98,
+   ["y"]=384,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {110}
+{
+   ["x"]=1152,
+   ["id"]=99,
+   ["y"]=384,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {111}
+{
+   ["x"]=1152,
+   ["id"]=100,
+   ["y"]=448,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {112}
+{
+   ["x"]=1216,
+   ["id"]=101,
+   ["y"]=448,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {113}
+{
+   ["x"]=1216,
+   ["id"]=102,
+   ["y"]=512,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {114}
+{
+   ["x"]=1152,
+   ["id"]=103,
+   ["y"]=512,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {115}
+{
+   ["x"]=1152,
+   ["id"]=104,
+   ["y"]=576,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {116}
+{
+   ["x"]=1216,
+   ["id"]=105,
+   ["y"]=576,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {117}
+{
+   ["x"]=1216,
+   ["id"]=106,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {118}
+{
+   ["x"]=1152,
+   ["id"]=107,
+   ["y"]=640,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {119}
+{
+   ["x"]=1152,
+   ["id"]=108,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {120}
+{
+   ["x"]=1216,
+   ["id"]=109,
+   ["y"]=704,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.jpg",
+   ["xSpeed"]=0,
+   ["scale"]=1,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["width"]=64,
+},
+-- Table: {121}
 {
    ["width"]=64,
    ["id"]=1,
@@ -605,7 +1609,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {47}
+-- Table: {122}
 {
    ["width"]=64,
    ["id"]=2,
@@ -617,7 +1621,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {48}
+-- Table: {123}
 {
    ["width"]=64,
    ["id"]=3,
@@ -629,7 +1633,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {49}
+-- Table: {124}
 {
    ["width"]=64,
    ["id"]=4,
@@ -641,7 +1645,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {50}
+-- Table: {125}
 {
    ["width"]=64,
    ["id"]=5,
@@ -653,7 +1657,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {51}
+-- Table: {126}
 {
    ["width"]=64,
    ["id"]=6,
@@ -665,7 +1669,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {52}
+-- Table: {127}
 {
    ["width"]=64,
    ["id"]=7,
@@ -677,7 +1681,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {53}
+-- Table: {128}
 {
    ["width"]=64,
    ["id"]=8,
@@ -689,7 +1693,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {54}
+-- Table: {129}
 {
    ["width"]=64,
    ["id"]=9,
@@ -701,7 +1705,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {55}
+-- Table: {130}
 {
    ["width"]=64,
    ["id"]=10,
@@ -713,7 +1717,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {56}
+-- Table: {131}
 {
    ["width"]=64,
    ["id"]=11,
@@ -725,7 +1729,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {57}
+-- Table: {132}
 {
    ["width"]=64,
    ["id"]=12,
@@ -737,7 +1741,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {58}
+-- Table: {133}
 {
    ["width"]=64,
    ["id"]=13,
@@ -749,7 +1753,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {59}
+-- Table: {134}
 {
    ["width"]=64,
    ["id"]=14,
@@ -761,7 +1765,7 @@ return {
    ["ySpeed"]=0,
    ["scale"]=1,
 },
--- Table: {60}
+-- Table: {135}
 {
    ["width"]=64,
    ["id"]=15,
@@ -773,7 +1777,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=64,
 },
--- Table: {61}
+-- Table: {136}
 {
    ["width"]=64,
    ["id"]=16,
@@ -785,7 +1789,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=192,
 },
--- Table: {62}
+-- Table: {137}
 {
    ["width"]=64,
    ["id"]=17,
@@ -797,7 +1801,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=320,
 },
--- Table: {63}
+-- Table: {138}
 {
    ["width"]=64,
    ["id"]=18,
@@ -809,7 +1813,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=448,
 },
--- Table: {64}
+-- Table: {139}
 {
    ["width"]=64,
    ["id"]=19,
@@ -821,7 +1825,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=576,
 },
--- Table: {65}
+-- Table: {140}
 {
    ["width"]=64,
    ["id"]=20,
@@ -833,7 +1837,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=640,
 },
--- Table: {66}
+-- Table: {141}
 {
    ["width"]=64,
    ["id"]=21,
@@ -845,7 +1849,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=768,
 },
--- Table: {67}
+-- Table: {142}
 {
    ["width"]=64,
    ["id"]=22,
@@ -857,7 +1861,7 @@ return {
    ["ySpeed"]=0,
    ["x"]=896,
 },
--- Table: {68}
+-- Table: {143}
 {
    ["width"]=64,
    ["id"]=23,
@@ -869,7 +1873,37 @@ return {
    ["ySpeed"]=0,
    ["x"]=1024,
 },
--- Table: {69}
+-- Table: {144}
+{
+   ["right"]="l",
+   ["width"]=128,
+   ["id"]=1,
+   ["y"]=129,
+   ["objType"]="Enemy",
+   ["leftCol"]=false,
+   ["accel"]=2500,
+   ["runSpeed"]=300,
+   ["grounded"]=true,
+   ["action"]=loadstring("\27LJ\1\0\19@entities/enemy.lua—\3\0\2\6\0\n\2?Lq\0194\2\0\0007\2\1\0027\3\2\0004\4\3\0'\5\1\0>\4\2\0027\4\2\4\31\3\4\3>\2\2\2'\3è\3\1\2\3\0T\0022€7\2\4\0\30\2\1\2:\2\4\0007\2\4\0'\3\3\0\1\3\2\0T\2\29€)\2\1\0:\2\5\0004\2\6\0\16\3\0\0\16\4\1\0>\2\3\0014\2\3\0'\3\1\0>\2\2\0027\2\2\0024\3\3\0'\4\1\0>\3\2\0027\3\7\3\23\3\0\3\30\2\3\0027\3\2\0007\4\7\0\23\4\0\4\30\3\4\3\1\3\2\0T\2\3€'\2È\0:\2\8\0T\2\2€'\0028ÿ:\2\8\0'\2\0\0:\2\4\0004\2\9\0\16\3\0\0>\2\2\2\15\0\2\0T\3\9€4\2\8\0\8\2\1\0T\2\6€7\2\4\0'\3\0\0\1\3\2\0T\2\2€'\2\0\0:\2\8\0G\0\1\0\13grounded\11xSpeed\nwidth\9jump\11jumped\16actionTimer\14getPlayer\6x\8abs\9math\4\0\2\2\2\2\2\2\2\2\2\2\2\2\3\3\3\4\4\4\4\5\5\6\6\6\6\7\7\7\7\7\7\7\7\7\7\7\7\7\7\7\7\8\8\8\n\n\12\12\14\14\14\14\14\14\14\14\14\14\14\14\15\15\19self\0\0@dt\0\0@\0\0"),
+   ["rightCol"]=false,
+   ["gravity"]=3000,
+   ["ySpeed"]=0,
+   ["height"]=127,
+   ["jumped"]=true,
+   ["x"]=1791.9794319575,
+   ["left"]="j",
+   ["up"]="i",
+   ["fallSpeed"]=1000,
+   ["actionTimer"]=1.0325235188357,
+   ["imagePath"]="images/characters/frank.png",
+   ["xSpeed"]=0,
+   ["facing"]="right",
+   ["upCol"]=false,
+   ["health"]=10,
+   ["name"]="frank",
+   ["down"]="k",
+},
+-- Table: {145}
 {
    ["right"]=false,
    ["x"]=53.37774115864,
@@ -880,11 +1914,11 @@ return {
    ["left"]=false,
    ["rightCol"]=false,
    ["gravity"]=3000,
-   ["runSpeed"]=500,
-   ["grounded"]=true,
+   ["grounded"]=false,
+   ["leftCol"]=false,
    ["jumped"]=true,
    ["height"]=128,
-   ["leftCol"]=false,
+   ["runSpeed"]=500,
    ["up"]=false,
    ["fallSpeed"]=1000,
    ["jumpForce"]=1200,
@@ -892,6 +1926,58 @@ return {
    ["xSpeed"]=0,
    ["facing"]="right",
    ["upCol"]=false,
+   ["width"]=64,
+   ["ySpeed"]=0,
+   ["accel"]=3000,
+},
+-- Table: {146}
+{
+   ["width"]=64,
+   ["id"]=1,
+   ["y"]=192,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["x"]=0,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["scale"]=0.5,
+},
+-- Table: {147}
+{
+   ["width"]=64,
+   ["id"]=2,
+   ["y"]=192,
+   ["objType"]="Static",
+   ["imagePath"]="images/tiles/tile.png",
+   ["xSpeed"]=0,
+   ["x"]=-64,
+   ["ySpeed"]=0,
+   ["height"]=64,
+   ["scale"]=0.5,
+},
+-- Table: {148}
+{
+   ["right"]="d",
+   ["x"]=-32,
+   ["id"]=1,
+   ["y"]=-64,
+   ["objType"]="Player",
+   ["down"]=false,
+   ["left"]=false,
+   ["runSpeed"]=500,
+   ["gravity"]=3000,
+   ["leftCol"]=false,
+   ["jumped"]=true,
+   ["grounded"]=false,
+   ["height"]=128,
+   ["up"]=false,
+   ["fallSpeed"]=1000,
+   ["jumpForce"]=1200,
+   ["imagePath"]="images/characters/dude.png",
+   ["xSpeed"]=0,
+   ["rightCol"]=false,
+   ["facing"]="right",
    ["width"]=64,
    ["ySpeed"]=0,
    ["accel"]=3000,
