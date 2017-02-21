@@ -25,18 +25,21 @@ function seqInit()
     end
     
     if inSequence then
+      if love.keyboard.isDown("space") then
+        dt = dt*5
+      end
       seqTimer = seqTimer + dt
       --walk right for 1 second
       if seqTimer < 1 then
         slowDown(getPlayer(1), dt)
       elseif seqTimer < 2 then
-        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. Pretty sweet huh? Right? Right? Right? Right? Right?", dt)
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space.", dt)
         moveLeft(getPlayer(1), dt)
       elseif seqTimer < 2.25 then
-        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. Pretty sweet huh? Right? Right? Right? Right? Right?", dt)
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space.", dt)
         slowDown(getPlayer(1), dt)
-      elseif seqTimer < 15 then
-        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. Pretty sweet huh? Right? Right? Right? Right? Right?", dt)
+      elseif seqTimer < 18 then
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space.", dt)
       else
         -- When done, end sequence and remove it
         inSequence = false

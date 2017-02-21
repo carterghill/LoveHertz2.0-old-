@@ -6,7 +6,7 @@ dialogx = 0
 dialogy = love.graphics.getHeight()*0.75
 
 function dialInit()
-  font = love.graphics.newFont("bitfont.ttf", 28)
+  font = love.graphics.newFont("DroidSans.ttf", 30)
   textBanner = love.graphics.newImage('images/textBanner.png')
   sound = love.audio.newSource("textblip.wav", "static")
 end
@@ -18,6 +18,7 @@ function displayDialog(text, dt)
     dialog = " "
     dialogTimer = 0
   else
+    
     dialogTimer = dialogTimer + dt
     if dialogTimer > 0.1 then
       if string.len(dialog) <= string.len(targetDialog) and string.len(targetDialog) > 0 then
@@ -29,8 +30,11 @@ function displayDialog(text, dt)
           temp = temp..targetDialog:sub(string.len(dialog)+1, string.len(dialog)+1)
         end
         -- Concatenate it to the dialog being displayed
-
+        if dialog ~= " " then
           dialog = dialog ..temp
+        else
+          dialog = "~"..temp
+        end
 
       end
       dialogTimer = 0
