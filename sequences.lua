@@ -30,19 +30,13 @@ function seqInit()
       if seqTimer < 1 then
         slowDown(getPlayer(1), dt)
       elseif seqTimer < 2 then
-        displayDialog("Hello Joel!", dt)
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. Pretty sweet huh? Right? Right? Right? Right? Right?", dt)
         moveLeft(getPlayer(1), dt)
       elseif seqTimer < 2.25 then
-        displayDialog("Hello Joel!", dt)
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. Pretty sweet huh? Right? Right? Right? Right? Right?", dt)
         slowDown(getPlayer(1), dt)
-      elseif seqTimer < 6 then
-        if seqTimer > 3.25 then
-          displayDialog("This is a test cutscene.", dt)
-        end
-      elseif seqTimer < 9 then
-        if seqTimer > 6.25 then
-          displayDialog("Okay back to game now bye", dt)
-        end
+      elseif seqTimer < 15 then
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. Pretty sweet huh? Right? Right? Right? Right? Right?", dt)
       else
         -- When done, end sequence and remove it
         inSequence = false

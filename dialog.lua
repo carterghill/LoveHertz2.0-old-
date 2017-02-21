@@ -29,7 +29,9 @@ function displayDialog(text, dt)
           temp = temp..targetDialog:sub(string.len(dialog)+1, string.len(dialog)+1)
         end
         -- Concatenate it to the dialog being displayed
-        dialog = dialog ..temp
+
+          dialog = dialog ..temp
+
       end
       dialogTimer = 0
     end
@@ -45,7 +47,7 @@ function drawDialog()
     local y = love.graphics.getHeight()*0.74
     local x = love.graphics.getWidth()*0.25
     love.graphics.draw(textBanner, x, y, 0, 0.5)
-    love.graphics.print(dialog, x*1.1, y*1.025)
+    love.graphics.printf(dialog, x+16, y+16, x+textBanner:getWidth()*0.25-16, "left")
     love.graphics.setNewFont(16)
   end
 end
