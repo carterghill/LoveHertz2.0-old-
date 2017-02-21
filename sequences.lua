@@ -33,18 +33,18 @@ function seqInit()
       if seqTimer < 1 then
         slowDown(getPlayer(1), dt)
       elseif seqTimer < 2 then
-        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space.", dt)
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space. You also have to hold space to close the text when its done.", dt)
         moveLeft(getPlayer(1), dt)
       elseif seqTimer < 2.25 then
-        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space.", dt)
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space. You also have to hold space to close the text when its done.", dt)
         slowDown(getPlayer(1), dt)
-      elseif seqTimer < 18 then
-        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space.", dt)
+      elseif not dialogOver() then
+        displayDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space. You also have to hold space to close the text when its done.", dt)
       else
         -- When done, end sequence and remove it
         inSequence = false
         table.remove(sequences[1], index)
-      end
+      end 
     end
     
   end

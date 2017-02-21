@@ -35,7 +35,6 @@ function displayDialog(text, dt)
         else
           dialog = "~"..temp
         end
-
       end
       dialogTimer = 0
     end
@@ -43,6 +42,15 @@ function displayDialog(text, dt)
 
 end
 
+function dialogOver()
+  
+  if dialog == "~"..targetDialog and love.keyboard.isDown("space") then
+    return true
+  else
+    return false
+  end
+
+end
 
 function drawDialog()
   if showDialog then
@@ -51,7 +59,7 @@ function drawDialog()
     local y = love.graphics.getHeight()*0.74
     local x = love.graphics.getWidth()*0.25
     love.graphics.draw(textBanner, x, y, 0, 0.5)
-    love.graphics.printf(dialog, x+16, y+16, x+textBanner:getWidth()*0.25-16, "left")
+    love.graphics.printf(dialog, x+16, y+16, x+textBanner:getWidth()*0.25-48, "left")
     love.graphics.setNewFont(16)
   end
 end
