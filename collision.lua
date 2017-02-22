@@ -99,6 +99,7 @@ function cameraCollision( player, dt )
           player.y = cameraColliders[count].y - player.height
           player.ySpeed = 0
           player.grounded = true
+          player.jumped = false
         end
       end
 		end

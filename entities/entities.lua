@@ -51,6 +51,7 @@ function jump(ent, dt)
   if grounded(ent) then
     ent.ySpeed = -1200
     ent.y = ent.y
+    ent.jumped = true
     --ent.jumped = true
   elseif ent.rightCol then
     ent.ySpeed = -1200

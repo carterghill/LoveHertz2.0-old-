@@ -29,9 +29,12 @@ function createPlayer()
     rightCol = false,
     leftCol = false,
 		grounded = false,
-		jumped = true,
+		jumped = false,
     facing = "right",
-    jumpForce = 1200
+    jumpForce = 1200, 
+    damageTimer = 0,
+    health = 15,
+    damaged = false
 	}
 	
 	players[num].img = love.graphics.newImage(players[num].imagePath)
@@ -64,11 +67,13 @@ function playerUpdate(dt)
 		
 		if not player.right
 		and not player.left 
-    and not inSequence then
+    and not inSequence 
+    and not player.damaged then
 			slowDown(player, dt)
 		end
     
     fall(player, dt)
+    onDamage(player, dt)
     
     if (player.rightCol or player.leftCol) and player.ySpeed > 0 then
       player.ySpeed = player.ySpeed*0.85
@@ -126,5 +131,41 @@ function bulletUpdate(dt)
       table.remove(bullets, count)
     end
     count = count + 1
+  end
+end
+
+function onDamage(player, dt)
+  for i = 1, table.getn(enemies) do
+    if simpleCollision(player, getEnemy(i)) and player.damageTimer == 0 then
+      takeDamage(player, dt)
+    elseif player.damageTimer > 3 then
+      player.damageTimer = 0
+    elseif player.damageTimer > 0 then
+      player.damageTimer = player.damageTimer + dt
+      --player.ySpeed = -800
+      if not grounded(player) then
+        if player.damaged == true then
+          if player.xSpeed < 0 then
+            player.xSpeed = -300
+          else
+            player.xSpeed = 300
+          end
+        end
+      else
+        player.damaged = false
+      end
+    end
+  end
+end
+
+function takeDamage(player, dt)
+  player.damageTimer = player.damageTimer + dt
+  player.health = player.health - 2
+  player.ySpeed = -1000
+  player.damaged = true
+  if player.facing == "right" then
+    player.xSpeed = -300
+  else
+    player.xSpeed = 300
   end
 end

@@ -81,6 +81,10 @@ function loadLevels()
       end
       for j=1, table.getn(levels[i].plyrs) do
         levels[i].plyrs[j].img = love.graphics.newImage(levels[i].plyrs[j].imagePath)
+        if levels[i].plyrs[j].health == nil then
+          levels[i].plyrs[j].health = 15
+          levels[i].plyrs[j].damageTimer = 0
+        end
       end
       local j = 1
       while (j <= table.getn(levels[i].camCols)) do

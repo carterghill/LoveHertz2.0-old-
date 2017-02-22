@@ -19,18 +19,18 @@ function seqInit()
   seq = sequences[1][1]
   function seq:action(index, dt)
     
-    if getPlayer(1) ~= nil and getPlayer(1).x > 1000 and not inSequence then
+    if getPlayer(1) ~= nil and getPlayer(1).x > 700 and not inSequence then
       inSequence = true
       seqTimer = 0
-      diaNum = newDialog("Hello Joel! This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space. You also have to hold space to close the text when its done. More text for the test, testy testy testS")
-      dialNum2 = newDialog("You can also have dialog in relative position", 500, 500, 0.5, "Relative")
+      diaNum = newDialog("This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space. You also have to hold space to close the text when its done. More text for the test, testy testy testShaba daba dooba daba bee bop da boo da bop, hamana lamana shing shong laboom dabop the quick brown fox ran over the lazy dog then tripped on an alarm clock")
+      --dialNum2 = newDialog("You can also have dialog in relative position", 500, 500, 0.75, "Relative")
     end
     
     if inSequence then
       if love.keyboard.isDown("space") then
-        dt = dt*5
+        dt = dt*10
       end
-      displayDialog(dialogs[dialNum2], dt)
+      --displayDialog(dialogs[dialNum2], dt)
       seqTimer = seqTimer + dt
       --walk right for 1 second
       if seqTimer < 1 then
@@ -41,7 +41,7 @@ function seqInit()
       elseif seqTimer < 2.25 then
         displayDialog(dialogs[diaNum], dt)
         slowDown(getPlayer(1), dt)
-      elseif not dialogOver(dialogs[diaNum]) then
+      elseif not dialogOver(dialogs[diaNum]) then 
         displayDialog(dialogs[diaNum], dt)
       else
         -- When done, end sequence and remove it

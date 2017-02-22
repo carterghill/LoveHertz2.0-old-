@@ -23,7 +23,7 @@ function drawObjects()
 	end
   for i = 1, table.getn(enemies) do
     if getEnemy(i) ~= nil then
-      love.graphics.print(getEnemy(i).health, getx(getEnemy(i)), gety(getEnemy(i))-15)
+      love.graphics.print(getEnemy(i).health, getx(getEnemy(i)), gety(getEnemy(i))-20)
       love.graphics.draw(getEnemy(i).img, getx(getEnemy(i)), gety(getEnemy(i)), 0, getEnemy(i).scale)
     else
       print(tostring(i))
@@ -31,6 +31,7 @@ function drawObjects()
   end
   for i = 1, table.getn(players) do
     if getPlayer(i) ~= nil then
+      love.graphics.print(tostring(getPlayer(i).health), getx(getPlayer(i)), gety(getPlayer(i))-20)
       love.graphics.draw(getPlayer(i).img, getx(getPlayer(i)), gety(getPlayer(i)), 0, getPlayer(i).scale)
     end
   end
