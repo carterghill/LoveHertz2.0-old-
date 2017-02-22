@@ -18,6 +18,7 @@ function love.load()
   dialInit()
   levelsInit()
 	createPlayer()
+  background = love.graphics.newImage("80's+City.jpg")
 	newPlaceable("images/static/smile.png", "None", "lol")
 	newPlaceable("images/static/neutral.png", "None", "lol")
 	newPlaceable("images/tiles/tile.jpg", "Tile", "lol")
@@ -33,6 +34,7 @@ end
 
 words = ""
 function love.draw()
+  love.graphics.draw(background,0,0,0,0.5)
 	drawObjects()
 	if editMode then
 		drawPlaceable()
