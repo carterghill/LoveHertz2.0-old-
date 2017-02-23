@@ -1,6 +1,6 @@
 objects = {}
 
-function drawObjects()
+function drawObjects(dt)
 	local count = 1
 	while count <= table.getn(objects) do
     if objects[count] ~= nil then
@@ -26,13 +26,15 @@ function drawObjects()
       love.graphics.print(getEnemy(i).health, getx(getEnemy(i)), gety(getEnemy(i))-20)
       love.graphics.draw(getEnemy(i).img, getx(getEnemy(i)), gety(getEnemy(i)), 0, getEnemy(i).scale)
     else
-      print(tostring(i))
+      --print(tostring(i))
     end
   end
   for i = 1, table.getn(players) do
     if getPlayer(i) ~= nil then
       love.graphics.print(tostring(getPlayer(i).health), getx(getPlayer(i)), gety(getPlayer(i))-20)
+      love.graphics.setColor(255,255,255,getPlayer(i).alpha)
       love.graphics.draw(getPlayer(i).img, getx(getPlayer(i)), gety(getPlayer(i)), 0, getPlayer(i).scale)
+      love.graphics.setColor(255,255,255,255)
     end
   end
 end

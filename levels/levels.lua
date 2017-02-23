@@ -84,6 +84,8 @@ function loadLevels()
         if levels[i].plyrs[j].health == nil then
           levels[i].plyrs[j].health = 15
           levels[i].plyrs[j].damageTimer = 0
+          levels[i].plyrs[j].alpha = 255
+          levels[i].plyrs[j].flicker = 0
         end
       end
       local j = 1

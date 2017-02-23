@@ -34,7 +34,9 @@ function createPlayer()
     jumpForce = 1200, 
     damageTimer = 0,
     health = 15,
-    damaged = false
+    damaged = false,
+    alpha = 255,
+    flicker = 0,
 	}
 	
 	players[num].img = love.graphics.newImage(players[num].imagePath)
@@ -138,10 +140,20 @@ function onDamage(player, dt)
   for i = 1, table.getn(enemies) do
     if simpleCollision(player, getEnemy(i)) and player.damageTimer == 0 then
       takeDamage(player, dt)
-    elseif player.damageTimer > 3 then
+    elseif player.damageTimer > 2.25 then
       player.damageTimer = 0
+      player.alpha = 255
     elseif player.damageTimer > 0 then
       player.damageTimer = player.damageTimer + dt
+      player.flicker = player.flicker + dt
+      if player.flicker > 0.025 then
+        player.flicker = 0
+        if player.alpha == 255 then
+          player.alpha = 100
+        else
+          player.alpha = 255
+        end
+      end
       --player.ySpeed = -800
       if not grounded(player) then
         if player.damaged == true then
