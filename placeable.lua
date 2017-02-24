@@ -33,3 +33,32 @@ function drawPlaceable()
 	end
   love.graphics.setColor( 255, 255, 255, 255 )
 end
+
+function getPlaceables()
+  
+  -- Find placeable enemies
+  
+  local dir = "images/characters/enemies"
+  --assuming that our path is full of lovely files (it should at least contain main.lua in this case)
+  local files = love.filesystem.getDirectoryItems(dir)
+  for k, file in ipairs(files) do
+    newPlaceable(dir.."/"..file, "Enemy", file)
+    --print(k .. ". " .. file) --outputs something like "1. main.lua"
+  end
+  
+  -- Find placeable static objects
+  
+  dir = "images/static"
+  files = love.filesystem.getDirectoryItems(dir)
+  for k, file in ipairs(files) do
+    newPlaceable(dir.."/"..file, "Static")
+  end
+  
+  -- Find placeable tiles
+  --newPlaceable("images/tiles/tile.png", "Tile", "lol")
+  dir = "images/tiles"
+  files = love.filesystem.getDirectoryItems(dir)
+  for k, file in ipairs(files) do
+    newPlaceable(dir.."/"..file, "Tile")
+  end
+end

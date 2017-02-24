@@ -93,7 +93,7 @@ function enemyInit()
   for i=1, table.getn(enemies) do
     enemy = getEnemy(i)
     
-    if enemy.name == "paul" then
+    if enemy.name == "paul" or enemy.name == "paul.png" then
       
       enemy.runSpeed = 150
       enemy.accel = 500
@@ -106,7 +106,7 @@ function enemyInit()
         end
       end
       
-    elseif enemy.name == "frank" then
+    elseif enemy.name == "frank" or enemy.name == "frank.png" then
       
       --enemy.health = 10
       
@@ -116,7 +116,7 @@ function enemyInit()
           self.actionTimer = self.actionTimer + dt
           if self.actionTimer > 3 then
             self.jumped = false
-            jump(self, dt)
+            jump(self, dt) 
             if getPlayer(1).x + getPlayer(1).width/2 > self.x + self.width/2 then
               self.xSpeed = 200
             else
@@ -133,6 +133,9 @@ function enemyInit()
     
     else
       
+      function enemy:action(dt)
+        
+      end
     end
     
   end

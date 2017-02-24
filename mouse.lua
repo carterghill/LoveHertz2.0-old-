@@ -29,7 +29,7 @@ function onClick(button)
 		x, y = love.mouse.getPosition( )
 		classText = placeable[placeableNum].class
     name = placeable[placeableNum].name
-		if classText == "None" then
+		if classText == "None" or classText == "Static" or classText == nil then
 			createObject(x,y)
 		elseif classText == "Player" then
 			createPlayer(x,y)
@@ -84,6 +84,9 @@ function deleteObject(x, y)
           deleteEntity(objects[count])
         else
           table.remove(objects, count)
+          for i=count, table.getn(objects) do
+            objects[i].id = objects[i].id - 1
+          end
         end
       end
     end 

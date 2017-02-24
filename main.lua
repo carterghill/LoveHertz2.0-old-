@@ -13,23 +13,16 @@ thing = {
   {"hello"}
   }
 function love.load()
-  --loadLevels()
+
+  getPlaceables()
   seqInit()
   dialInit()
   levelsInit()
 	createPlayer()
   background = love.graphics.newImage("80's+City.jpg")
-	newPlaceable("images/static/smile.png", "None", "lol")
-	newPlaceable("images/static/neutral.png", "None", "lol")
-	newPlaceable("images/tiles/tile.jpg", "Tile", "lol")
-	newPlaceable("images/tiles/tile.png", "Tile", "lol")
-	newPlaceable("images/tiles/tile.jpg", "Tile", "lol")
-	newPlaceable("images/characters/paul.png", "Enemy", "paul")
-  newPlaceable("images/characters/frank.png", "Enemy", "frank")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
 
-  --enemyInit()
 end
 
 words = ""
@@ -43,7 +36,7 @@ function love.draw()
       local x = levelNum-1
       love.graphics.print("Level: "..x.." / "..levels[1], 10, 30)
     end
-    love.graphics.print("Press P to save level\nPress L to load saved level\nT toggles Edit Mode", 10, 50)
+    love.graphics.print("Press P to save level\nPress L to load saved level\nT toggles Edit Mode\n\"Y\" Sets the level start\n\"U\" Sets the camera start position", 10, 50)
   end
   drawDialog()
 end
@@ -106,7 +99,10 @@ function love.keypressed(key)
     jump(getPlayer(1), dt)
   end
   if key == "y" then
-    inSequence = not inSequence
+    setStart(getPlayer(1).x, getPlayer(1).y)
+  end
+  if key == "u" then
+    setCameraStart(cameras[cameraNum].x, cameras[cameraNum].y)
   end
 end
 

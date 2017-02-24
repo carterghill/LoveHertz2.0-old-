@@ -22,7 +22,7 @@ function seqInit()
     if getPlayer(1) ~= nil and getPlayer(1).x > 700 and not inSequence then
       inSequence = true
       seqTimer = 0
-      diaNum = newDialog("This is a test cutscene, and a test for text wrap in dialog. You can speed it up by holding space. You also have to hold space to close the text when its done. More text for the test, testy testy testShaba daba dooba daba bee bop da boo da bop, hamana lamana shing shong laboom dabop the quick brown fox ran over the lazy dog then tripped on an alarm clock")
+      diaNum = newDialog("Blah blah blah plot")
       --dialNum2 = newDialog("You can also have dialog in relative position", 500, 500, 0.75, "Relative")
     end
     
