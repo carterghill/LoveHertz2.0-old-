@@ -14,33 +14,113 @@ controls[1] = {
   
 }
 
+controls[2] = {
+  
+  left = "b",
+  right = "m",
+  up = "h",
+  down = "n",
+  jump = "k",
+  shoot = "j"
+  
+}
 function checkControls()
   for i=1, table.getn(controls) do
-    if love.keyboard.isDown(controls[i].up) and not inSequence  then
-      getPlayer(i).up = true
-    else
-      getPlayer(i).up = false
-    end
-    if love.keyboard.isDown(controls[i].left) and not inSequence  then
-      getPlayer(i).left = true
-    else
-      getPlayer(i).left = false
-    end
-    if love.keyboard.isDown(controls[i].right) and not inSequence  then
-      getPlayer(i).right = true
-    else
-      getPlayer(i).right = false
-    end
-    if love.keyboard.isDown(controls[i].down) and not inSequence then
-      getPlayer(i).down = true
-    else
-      getPlayer(i).down = false
+    if getPlayer(i) ~= nil then
+      if love.keyboard.isDown(controls[i].up) and not inSequence  then
+        getPlayer(i).up = true
+      else
+        getPlayer(i).up = false
+      end
+      if love.keyboard.isDown(controls[i].left) and not inSequence  then
+        getPlayer(i).left = true
+      else
+        getPlayer(i).left = false
+      end
+      if love.keyboard.isDown(controls[i].right) and not inSequence  then
+        getPlayer(i).right = true
+      else
+        getPlayer(i).right = false
+      end
+      if love.keyboard.isDown(controls[i].down) and not inSequence then
+        getPlayer(i).down = true
+      else
+        getPlayer(i).down = false
+      end
     end
   end
 end
 
-function love.keypressed()
-  if key == controls[1].jump then
-    jump(getPlayer(1), dt)
+function playerKeys()
+  print("umm")
+  for i = 1, table.getn(players) do
+    if key == controls[i].jump then
+      jump(getPlayer(i))
+    end
+    if key == controls[i].up then
+      getPlayer(i).up = true
+    end
+    if key == controls[i].down then
+      getPlayer(i).down = true
+    end
+    if key == controls[i].left then
+      getPlayer(i).left = true
+    end
+    if key == controls[i].right then
+      getPlayer(i).right = true
+    end
   end
+  if key == "k" then
+    jump(getPlayer(2), dt)
+  end
+end
+
+function love.gamepadpressed( joystick, button )
+  local i = joystick:getID()
+  if getPlayer(i) ~= nil then
+    if button == "a" then
+      jump(getPlayer(i))
+    end
+    if button == "x" then
+      shoot(i)
+    end
+    if button == "dpup" then
+      getPlayer(i).up = true
+    end
+    if button == "dpdown" then
+      getPlayer(i).down = true
+    end
+    if button == "dpleft" then
+      getPlayer(i).left = true
+    end
+    if button == "dpright" then
+      getPlayer(i).right = true
+    end
+  end
+  print(button)
+end
+
+function love.gamepadreleased( joystick, button )
+  local i = joystick:getID()
+  if getPlayer(i) ~= nil then
+    if button == "a" and getPlayer(1).ySpeed < -400 then
+      getPlayer(i).ySpeed = -400
+    end
+    if button == "x" then
+      --shoot(i)
+    end
+    if button == "dpup" then
+      getPlayer(i).up = false
+    end
+    if button == "dpdown" then
+      getPlayer(i).down = false
+    end
+    if button == "dpleft" then
+      getPlayer(i).left = false
+    end
+    if button == "dpright" then
+      getPlayer(i).right = false
+    end
+  end
+  print(button)
 end

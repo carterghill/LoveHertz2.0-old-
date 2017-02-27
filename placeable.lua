@@ -55,7 +55,7 @@ function getPlaceables()
   end
   
   -- Find placeable tiles
-  --newPlaceable("images/tiles/tile.png", "Tile", "lol")
+
   dir = "images/tiles"
   files = love.filesystem.getDirectoryItems(dir)
   for k, file in ipairs(files) do

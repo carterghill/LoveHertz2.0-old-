@@ -46,7 +46,7 @@ function grounded(ent)
   return false
 end
 
-function jump(ent, dt)
+function jump(ent)
   --print("jumped = "..tostring(ent.jumped).."\ngrounded = "..tostring(ent.grounded))
   if grounded(ent) then
     ent.ySpeed = -1200

@@ -25,7 +25,7 @@ function createPlayer()
 		up = false,
 		down = false,
 		left = false,
-		right = 'd',
+		right = false,
     rightCol = false,
     leftCol = false,
 		grounded = false,
@@ -60,6 +60,11 @@ function playerUpdate(dt)
 	while count <= table.getn(players) do
 		player = getPlayer(count)
 
+    if count == 2 then
+      print("player 2 jump")
+      --jump(player, dt)
+    end
+
 		if player.left then
       moveLeft(player, dt)
 		end
@@ -88,15 +93,16 @@ function playerUpdate(dt)
 	end
 end
 
-function shoot()
+-- i: player index
+function shoot(i)
   local num = table.getn(bullets)+1
 
 	bullets[num] = {
 		img = nil,
     imagePath = "images/characters/bullet.png",
 		id = num,
-		x = getPlayer(1).x,
-		y = getPlayer(1).y+36,
+		x = getPlayer(i).x,
+		y = getPlayer(i).y+36,
 		width = 0,
 		height = 0,
 		xSpeed = 0,
@@ -107,12 +113,12 @@ function shoot()
 	bullets[num].width = bullets[num].img:getWidth()
 	bullets[num].height = bullets[num].img:getHeight()
   
-  if getPlayer(1).facing == "right" then
-    bullets[num].xSpeed = 1000 + getPlayer(1).xSpeed/7
-    bullets[num].x = getPlayer(1).x + getPlayer(1).width
+  if getPlayer(i).facing == "right" then
+    bullets[num].xSpeed = 1000 + getPlayer(i).xSpeed/7
+    bullets[num].x = getPlayer(i).x + getPlayer(i).width
   else
-    bullets[num].xSpeed = -1000 + getPlayer(1).xSpeed/7
-    bullets[num].x = getPlayer(1).x - bullets[num].width
+    bullets[num].xSpeed = -1000 + getPlayer(i).xSpeed/7
+    bullets[num].x = getPlayer(i).x - bullets[num].width
   end
 end
 

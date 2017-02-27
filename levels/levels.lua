@@ -83,21 +83,17 @@ function loadLevels()
   --enemyInit()
   
   if levels ~= nil then
-    if levels[levelNum].startx ~= nil then
-      getPlayer(1).x = levels[levelNum].startx
-      getPlayer(1).y = levels[levelNum].starty
-    end
-    --objects = {}
+
     objects = levels[levelNum].objs
-    --cameraColliders = {}
     cameraColliders = levels[levelNum].camCols
-    --enemies = {}
     enemies = levels[levelNum].enems
     players = levels[levelNum].plyrs
     
     if levels[levelNum].startx ~= nil then
-      getPlayer(1).x = levels[levelNum].startx
-      getPlayer(1).y = levels[levelNum].starty
+      if getPlayer(1) ~= nil then
+        getPlayer(1).x = levels[levelNum].startx
+        getPlayer(1).y = levels[levelNum].starty
+      end
       cameras[cameraNum].x = levels[levelNum].camx
       cameras[cameraNum].y = levels[levelNum].camy
     end
