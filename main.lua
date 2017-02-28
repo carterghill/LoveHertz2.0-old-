@@ -8,17 +8,12 @@ require('controls')
 require('sequences')
 editMode = true
 
-thing = {
-  {"hi", "1:2"},
-  {"hello"}
-  }
 function love.load()
 
   getPlaceables()
   seqInit()
   dialInit()
   levelsInit()
-	createPlayer()
   background = love.graphics.newImage("80's+City.jpg")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
@@ -27,6 +22,7 @@ end
 
 words = ""
 function love.draw()
+
   love.graphics.draw(background,0,0,0,0.5)
 	drawObjects()
 	if editMode then
@@ -61,62 +57,15 @@ function love.update(dt)
 		playerUpdate(dt)
     bulletUpdate(dt)
     --if not inSequence then
-      checkControls()
+      --checkControls()
     --end
 	end
   sequence(dt)
 	camera(dt)
 end
 
-function love.keypressed(key)
-  if key == "escape" then
-    love.event.quit()
-  end
-  if key == "t" then
-    if editMode then
-      editMode = false
-    else
-      editMode = true
-    end
-  end
-  if key == "e" then
-    --print("hi")
-    shoot()
-  end
-  if key == "p" then
-    saveLevels()
-  end
-  if key == "l" then
-    loadLevels()
-  end
-  if key == "right" then
-    setLevel(levelNum+1)
-  end
-  if key == "left" then
-    setLevel(levelNum-1)
-  end
-  if not inSequence and key == controls[1].jump then
-    jump(getPlayer(1), dt)
-  end
-  if key == "y" then
-    setStart(getPlayer(1).x, getPlayer(1).y)
-  end
-  if key == "u" then
-    setCameraStart(cameras[cameraNum].x, cameras[cameraNum].y)
-  end
-end
-
-function love.keyreleased(key)
-  if key == "space" and getPlayer(1).ySpeed < -400 then
-    getPlayer(1).ySpeed = -400
-  end
-end
-
 function love.mousepressed(x, y, button)
   if button == 1 and not editMode then
-    print("hi")
-    shoot()
+    shoot(1)
   end
 end
-
-

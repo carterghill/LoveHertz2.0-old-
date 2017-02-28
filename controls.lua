@@ -24,56 +24,6 @@ controls[2] = {
   shoot = "j"
   
 }
-function checkControls()
-  for i=1, table.getn(controls) do
-    if getPlayer(i) ~= nil then
-      if love.keyboard.isDown(controls[i].up) and not inSequence  then
-        getPlayer(i).up = true
-      else
-        getPlayer(i).up = false
-      end
-      if love.keyboard.isDown(controls[i].left) and not inSequence  then
-        getPlayer(i).left = true
-      else
-        getPlayer(i).left = false
-      end
-      if love.keyboard.isDown(controls[i].right) and not inSequence  then
-        getPlayer(i).right = true
-      else
-        getPlayer(i).right = false
-      end
-      if love.keyboard.isDown(controls[i].down) and not inSequence then
-        getPlayer(i).down = true
-      else
-        getPlayer(i).down = false
-      end
-    end
-  end
-end
-
-function playerKeys()
-  print("umm")
-  for i = 1, table.getn(players) do
-    if key == controls[i].jump then
-      jump(getPlayer(i))
-    end
-    if key == controls[i].up then
-      getPlayer(i).up = true
-    end
-    if key == controls[i].down then
-      getPlayer(i).down = true
-    end
-    if key == controls[i].left then
-      getPlayer(i).left = true
-    end
-    if key == controls[i].right then
-      getPlayer(i).right = true
-    end
-  end
-  if key == "k" then
-    jump(getPlayer(2), dt)
-  end
-end
 
 function love.gamepadpressed( joystick, button )
   local i = joystick:getID()
@@ -124,3 +74,87 @@ function love.gamepadreleased( joystick, button )
   end
   print(button)
 end
+
+function love.keypressed(key)
+  for i = 1, table.getn(players) do
+    if key == controls[i].shoot then
+      shoot(i)
+    end
+    if key == controls[i].jump then
+      jump(getPlayer(i))
+    end
+    if key == controls[i].up then
+      getPlayer(i).up = true
+    end
+    if key == controls[i].down then
+      getPlayer(i).down = true
+    end
+    if key == controls[i].left then
+      getPlayer(i).left = true
+    end
+    if key == controls[i].right then
+      getPlayer(i).right = true
+    end
+  end
+  if key == "escape" then
+    love.event.quit()
+  end
+  if key == "t" then
+    if editMode then
+      editMode = false
+    else
+      editMode = true
+    end
+  end
+  if key == "p" then
+    saveLevels()
+  end
+  if key == "l" then
+    loadLevels()
+  end
+  if key == "right" then
+    setLevel(levelNum+1)
+  end
+  if key == "left" then
+    setLevel(levelNum-1)
+  end
+  if not inSequence and key == controls[1].jump then
+    for i = 1, table.getn(players) do
+      if key == controls[i].jump then
+        jump(getPlayer(i), dt)
+        --jump(getPlayer(2), dt)
+      end
+    end
+  end
+  if key == "y" then
+    setStart(getPlayer(1).x, getPlayer(1).y)
+  end
+  if key == "u" then
+    setCameraStart(cameras[cameraNum].x, cameras[cameraNum].y)
+  end
+   if key == "i" then
+    createPlayer()
+    --getPlayer(2).
+  end
+end
+
+function love.keyreleased(key)
+  for i = 1, table.getn(players) do
+    if key == controls[i].jump and getPlayer(i).ySpeed < -400 then
+      getPlayer(i).ySpeed = -400
+    end
+    if key == controls[i].up then
+      getPlayer(i).up = false
+    end
+    if key == controls[i].down then
+      getPlayer(i).down = false 
+    end
+    if key == controls[i].left then
+      getPlayer(i).left = false
+    end
+    if key == controls[i].right then
+      getPlayer(i).right = false
+    end
+  end
+end
+
