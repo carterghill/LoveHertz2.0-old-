@@ -115,7 +115,7 @@ end
 function love.mousepressed(x, y, button)
   if button == 1 and not editMode then
     print("hi")
-    shoot()
+    shoot(1)
   end
 end
 
