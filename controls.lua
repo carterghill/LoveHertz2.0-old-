@@ -49,6 +49,30 @@ function checkControls()
       end
     end
   end
+  for i = 1, table.getn(joysticks) do
+    if getPlayer(i) ~= nil then
+      if joysticks[i]:getHat(1) == 'r' and not inSequence then
+         getPlayer(i).right = true
+      else
+         getPlayer(i).right = false
+      end
+      if joysticks[i]:getHat(1) == 'l' and not inSequence then
+         getPlayer(i).left = true
+      else
+         getPlayer(i).left = false
+      end
+      if joysticks[i]:getHat(1) == 'u' and not inSequence then
+         getPlayer(i).up = true
+      else
+         getPlayer(i).up = false
+      end
+      if joysticks[i]:getHat(1) == 'd' and not inSequence then
+         getPlayer(i).down = true
+      else
+         getPlayer(i).down = false
+      end
+    end
+  end
 end
 
 function playerKeys()
@@ -74,6 +98,31 @@ function playerKeys()
     jump(getPlayer(2), dt)
   end
 end
+function love.joystickpressed(joystick,button)
+  local i = joystick:getID()
+  local joysticks = love.joystick.getJoysticks()
+  print(joysticks[1]:getHat(1))
+  if getPlayer(i) ~= nil then
+    if button == 2 then
+      jump(getPlayer(i))
+    end
+    if button == 1 then
+      shoot(i)
+    end
+    if button == "dpup" then
+      getPlayer(i).up = true
+    end
+    if button == "dpdown" then
+      getPlayer(i).down = true
+    end
+    if button == "dpleft" then
+      getPlayer(i).left = true
+    end
+    if button == "dpright" then
+      getPlayer(i).right = true
+    end
+  end
+end
 
 function love.gamepadpressed( joystick, button )
   local i = joystick:getID()
@@ -97,7 +146,7 @@ function love.gamepadpressed( joystick, button )
       getPlayer(i).right = true
     end
   end
-  print(button)
+  print("gamepad pressed")
 end
 
 function love.gamepadreleased( joystick, button )

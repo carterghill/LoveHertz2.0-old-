@@ -14,6 +14,7 @@ thing = {
   }
 function love.load()
 
+  joysticks = love.joystick.getJoysticks()
   getPlaceables()
   seqInit()
   dialInit()
@@ -69,6 +70,7 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
+  print(key)
   if key == "escape" then
     love.event.quit()
   end
