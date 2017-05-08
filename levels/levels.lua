@@ -67,6 +67,16 @@ function setLevel(x)
   end
 end
 
+function nextLevel()
+  setLevel(levelNum + 1)
+  for i=1, table.getn(players) do
+    getPlayer(i).up = false
+    getPlayer(i).right = false
+    getPlayer(i).left = false
+    getPlayer(i).down = false
+  end
+end
+
 function saveLevels()
   --table.save(levels,"levels/levels.txt")
   --print(Tserial.pack(levels, {}, true))

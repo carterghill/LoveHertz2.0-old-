@@ -59,6 +59,10 @@ function getPlaceables()
   dir = "images/tiles"
   files = love.filesystem.getDirectoryItems(dir)
   for k, file in ipairs(files) do
-    newPlaceable(dir.."/"..file, "Tile")
+    if file == "endLevel.png" then
+      newPlaceable(dir.."/"..file, "End Level")
+    else
+      newPlaceable(dir.."/"..file, "Tile")
+    end
   end
 end

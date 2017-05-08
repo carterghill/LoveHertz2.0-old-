@@ -1,5 +1,3 @@
--- Controls will be a 2D array
--- The first index is the player number
 controls = {}
 controlsEnabled = true
 

@@ -37,6 +37,13 @@ function drawObjects(dt)
       love.graphics.setColor(255,255,255,255)
     end
   end
+  for i = 1, table.getn(endLevelTiles) do
+    if endLevelTiles[i] ~= nil then
+      love.graphics.setColor(255,255,255,endLevelTiles[i].alpha)
+      love.graphics.draw(endLevelTiles[i].img, getx(endLevelTiles[i]), gety(endLevelTiles[i]), 0, endLevelTiles[i].scale)
+      love.graphics.setColor(255,255,255,255)
+    end
+  end
 end
 
 function createObject(mousex, mousey)

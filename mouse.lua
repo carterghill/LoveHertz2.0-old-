@@ -39,6 +39,8 @@ function onClick(button)
 		  createCameraCollider(x,y)
     elseif classText == "Enemy" then
 		  createEnemy(x,y, name)
+    elseif classText == "End Level" then
+      createEndLevelTile(x, y)
 		end
 	end
 	if button == 2 then

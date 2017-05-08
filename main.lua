@@ -6,6 +6,7 @@ require('entities/enemy')
 require('entities/player')
 require('controls')
 require('sequences')
+require('levels/endLevel')
 editMode = true
 
 function love.load()
@@ -17,6 +18,7 @@ function love.load()
   background = love.graphics.newImage("80's+City.jpg")
   newPlaceable("images/tiles/noCamera.png", "Camera Collider")
 	newCamera()
+  
 
 end
 
@@ -32,13 +34,15 @@ function love.draw()
       local x = levelNum-1
       love.graphics.print("Level: "..x.." / "..levels[1], 10, 30)
     end
-    love.graphics.print("Press P to save level\nPress L to load saved level\nT toggles Edit Mode\n\"Y\" Sets the level start\n\"U\" Sets the camera start position", 10, 50)
+    love.graphics.print("Press P to save level\nPress L to load saved level\nT toggles Edit Mode\n\"Y\" Sets the level start\n\"U\" Sets the camera start position\nEnd Level Tiles: "..table.getn(endLevelTiles).."\nCamera Colliders: "..table.getn(cameraColliders), 10, 50)
   end
   drawDialog()
 end
 
 
 function love.update(dt)
+
+  endLevel()
 
   if love.keyboard.isDown("f") then
     dt = dt/5
