@@ -1,6 +1,7 @@
 require('collision')
 require('entities/entities')
 
+
 players = {}
 bullets = {}
 
@@ -142,11 +143,19 @@ function bulletUpdate(dt)
   end
 end
 
+
+-- This function is called when the player comes in contact with an enemy or 
+-- anything that could damage him/her
 function onDamage(player, dt)
   
+  -- The player will flicker and be invincible for 2.25 seconds.
+  -- The player is vulnerable if the timer is set to 0
   if player.damageTimer > 2.25 then
     player.damageTimer = 0
     player.alpha = 255
+    
+  -- If the timer is above 0, but less than 2.25, the player will flicker
+  -- Switches between an alpha of 75 and 255 (translucent and opaque) 
   elseif player.damageTimer > 0 then
     player.damageTimer = player.damageTimer + dt
     player.flicker = player.flicker + dt
@@ -172,6 +181,9 @@ function onDamage(player, dt)
     end
     
   end
+  
+  -- Checks collision between the given player and the enemies.
+  -- Damage will not be taken if the damage timer on the player is not equal to 0
   for i = 1, table.getn(enemies) do
     if simpleCollision(player, getEnemy(i)) and player.damageTimer == 0 then
       takeDamage(player, dt)
@@ -179,6 +191,7 @@ function onDamage(player, dt)
   end
 end
 
+-- Adds damage to player, receives knockback, and trigger the damage boost
 function takeDamage(player, dt)
   player.damageTimer = player.damageTimer + dt
   player.health = player.health - 2

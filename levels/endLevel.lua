@@ -16,12 +16,23 @@ function createEndLevelTile(mousex, mousey)
 		scale = 1
 	}
   
-  x = x - ((x + cameras[cameraNum].x) % 64)
-  y = y - ((y + cameras[cameraNum].y) % 64)
+  endLevelTiles[num].x = x - ((x + cameras[cameraNum].x) % 64)
+  endLevelTiles[num].y = y - ((y + cameras[cameraNum].y) % 64)
 	
 	endLevelTiles[num].img = placeable[placeableNum].img
 	endLevelTiles[num].width = endLevelTiles[num].img:getWidth()
 	endLevelTiles[num].height = endLevelTiles[num].img:getHeight()
+  
+  if endLevelTiles[table.getn(endLevelTiles)].width == 128 then
+    endLevelTiles[table.getn(endLevelTiles)].scale = 0.5
+    endLevelTiles[table.getn(endLevelTiles)].width = endLevelTiles[table.getn(endLevelTiles)].width/2
+    endLevelTiles[table.getn(endLevelTiles)].height = endLevelTiles[table.getn(endLevelTiles)].height/2
+    endLevelTiles[table.getn(endLevelTiles)].x = endLevelTiles[table.getn(endLevelTiles)].x + 64
+    endLevelTiles[table.getn(endLevelTiles)].y = endLevelTiles[table.getn(endLevelTiles)].y + 64
+  else
+    endLevelTiles[table.getn(endLevelTiles)].x = endLevelTiles[table.getn(endLevelTiles)].x + 32
+    endLevelTiles[table.getn(endLevelTiles)].y = endLevelTiles[table.getn(endLevelTiles)].y + 32
+  end
 
 	if cameraNum > 0 then
 		endLevelTiles[num].x = endLevelTiles[num].x + cameras[cameraNum].x - endLevelTiles[num].img:getWidth()/2

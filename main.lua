@@ -42,7 +42,7 @@ end
 
 function love.update(dt)
 
-  endLevel()
+  endLevel() -- Checks whether the player has hit the endLevel tile
 
   if love.keyboard.isDown("f") then
     dt = dt/5

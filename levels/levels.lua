@@ -22,7 +22,8 @@ function levelsInit()
     objs = objects,
     plyrs = players,
     enems = enemies,
-    camCols = cameraColliders
+    camCols = cameraColliders,
+    endLvlTiles = endLevelTiles
   }
 end
 
@@ -49,19 +50,22 @@ function setLevel(x)
     levels[levelNum].objs = objects
     levels[levelNum].plyrs = players
     levels[levelNum].camCols = cameraColliders
+    levels[levelNum].endLvlTiles = endLevelTiles
     objects = {}
     players = {}
     enemies = {}
     cameraColliders = {}
+    endLevelTiles = {}
     levelNum = x
     if x > levels[1] then
-      levels[levelNum] = {objs = objects, plyrs = players, camCols = cameraColliders, enems = enemies }
+      levels[levelNum] = {objs = objects, plyrs = players, camCols = cameraColliders, enems = enemies, endLvlTiles = endLevelTiles }
       createPlayer()
       levels[1] = levels[1]+1
     else
       objects = levels[levelNum].objs
       players = levels[levelNum].plyrs
       cameraColliders = levels[levelNum].camCols
+      endLevelTiles = levels[levelNum].endLvlTiles
       enemies = levels[levelNum].enems
     end
   end
@@ -74,6 +78,9 @@ function nextLevel()
     getPlayer(i).right = false
     getPlayer(i).left = false
     getPlayer(i).down = false
+  end
+  if endLevelTiles == nil then
+    endLevelTiles = {}
   end
 end
 

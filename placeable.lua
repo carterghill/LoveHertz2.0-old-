@@ -15,7 +15,7 @@ end
 function drawPlaceable()
 	x, y = getMouse()
   love.graphics.setColor( 255, 255, 255, 150 )
-	if placeable[placeableNum].class == "Tile" or placeable[placeableNum].class == "Camera Collider" then 
+	if placeable[placeableNum].class == "Tile" or placeable[placeableNum].class == "End Level" or placeable[placeableNum].class == "Camera Collider" then 
     
     x = x - ((x + cameras[cameraNum].x) % 64) + 32
     y = y - ((y + cameras[cameraNum].y) % 64) + 32
