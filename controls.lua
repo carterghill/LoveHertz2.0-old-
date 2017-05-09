@@ -130,9 +130,18 @@ function love.keypressed(key)
   if key == "u" then
     setCameraStart(cameras[cameraNum].x, cameras[cameraNum].y)
   end
-   if key == "i" then
+  if key == "i" then
     createPlayer()
     --getPlayer(2).
+  end
+  if key == "1" then
+    placeable = "Tile"
+  end
+  if key == "2" then
+    placeable = "Static"
+  end
+  if key == "3" then
+    placeable = "Enemy"
   end
 end
 

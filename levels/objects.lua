@@ -52,7 +52,7 @@ function createObject(mousex, mousey)
     id = num,
     objType = "Static",
 		img = nil,
-    imagePath = placeable[placeableNum].imagePath,
+    imagePath = placeableStatic[placeableStaticNum].imagePath,
 		width = 0,
 		height = 0,
 		x = mousex,
@@ -62,7 +62,7 @@ function createObject(mousex, mousey)
 		scale = 1
 	}
 	
-	objects[num].img = placeable[placeableNum].img
+	objects[num].img = placeableStatic[placeableStaticNum].img
 	objects[num].width = objects[num].img:getWidth()
 	objects[num].height = objects[num].img:getHeight()
 	

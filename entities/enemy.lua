@@ -9,7 +9,7 @@ function createEnemy(mousex, mousey, namex)
 		gravity = 3000,
     name = namex,
 		img = nil,
-    imagePath = placeable[placeableNum].imagePath,
+    imagePath = placeableEnemies[placeableEnemyNum].imagePath,
 		id = num,
     objType = "Enemy",
 		x = mousex,
@@ -35,8 +35,9 @@ function createEnemy(mousex, mousey, namex)
 	}
 	
   enemyInit()
+  print(enemies[num].name)
   
-	enemies[num].img = placeable[placeableNum].img
+	enemies[num].img = placeableEnemies[placeableEnemyNum].img
 	enemies[num].width = enemies[num].img:getWidth()
 	enemies[num].height = enemies[num].img:getHeight()
 	

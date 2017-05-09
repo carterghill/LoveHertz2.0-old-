@@ -123,6 +123,7 @@ function shoot(i)
   end
 end
 
+
 function bulletUpdate(dt)
   count = 1
   while count <= table.getn(bullets) do
@@ -142,7 +143,6 @@ function bulletUpdate(dt)
     count = count + 1
   end
 end
-
 
 -- This function is called when the player comes in contact with an enemy or 
 -- anything that could damage him/her
@@ -201,5 +201,15 @@ function takeDamage(player, dt)
     player.xSpeed = -300
   else
     player.xSpeed = 300
+  end
+end
+
+function onDeath()
+  if getPlayer(1) ~= nil then
+    if getPlayer(1).health == nil then
+      getPlayer(1).health = 15
+    elseif getPlayer(1).health <= 0 then
+      loadLevels()
+    end
   end
 end
