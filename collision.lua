@@ -9,6 +9,17 @@ function simpleCollision(o1, o2)
   end
 end
 
+function pointInObject(x, y, o)
+  if o ~= nil then
+    return x < o.x+o.width and
+           x > o.x and
+           y < o.y+o.height and
+           y > o.y
+  else
+    return false
+  end
+end
+
 function collision( ent, dt )
   
   ent.grounded = false

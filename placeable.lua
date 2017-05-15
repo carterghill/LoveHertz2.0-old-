@@ -41,31 +41,33 @@ function newPlaceable(image, classx, namex)
 end
 
 function drawPlaceable()
-	x, y = getMouse()
-  love.graphics.setColor( 255, 255, 255, 150 )
-	if placeable == "Tile" then 
-    
-    x = x - ((x + cameras[cameraNum].x) % 64) + 32
-    y = y - ((y + cameras[cameraNum].y) % 64) + 32
-    
-    if placeableTiles[placeableTileNum].img:getWidth() == 128 then
-	   love.graphics.draw(placeableTiles[placeableTileNum].img, x - placeableTiles[placeableTileNum].img:getWidth()/4, y 
-        - placeableTiles[placeableTileNum].img:getHeight()/4 , 0, 0.5)
-    else 
-      love.graphics.draw(placeableTiles[placeableTileNum].img, x - placeableTiles[placeableTileNum].img:getWidth()/2, y 
-		    - placeableTiles[placeableTileNum].img:getHeight()/2)
-    end
-
-	elseif placeable == "Enemy" then
-    love.graphics.draw(placeableEnemies[placeableEnemyNum].img, x - placeableEnemies[placeableEnemyNum].img:getWidth()/2, y 
-		    - placeableEnemies[placeableEnemyNum].img:getHeight()/2)
+  if onUI == false then
+    x, y = getMouse()
+    love.graphics.setColor( 255, 255, 255, 150 )
+    if placeable == "Tile" then 
       
-  elseif placeable == "Static" then
-    love.graphics.draw(placeableStatic[placeableStaticNum].img, x - placeableStatic[placeableStaticNum].img:getWidth()/2, y 
-		    - placeableStatic[placeableStaticNum].img:getHeight()/2)
+      x = x - ((x + cameras[cameraNum].x) % 64) + 32
+      y = y - ((y + cameras[cameraNum].y) % 64) + 32
+      
+      if placeableTiles[placeableTileNum].img:getWidth() == 128 then
+       love.graphics.draw(placeableTiles[placeableTileNum].img, x - placeableTiles[placeableTileNum].img:getWidth()/4, y 
+          - placeableTiles[placeableTileNum].img:getHeight()/4 , 0, 0.5)
+      else 
+        love.graphics.draw(placeableTiles[placeableTileNum].img, x - placeableTiles[placeableTileNum].img:getWidth()/2, y 
+          - placeableTiles[placeableTileNum].img:getHeight()/2)
+      end
+
+    elseif placeable == "Enemy" then
+      love.graphics.draw(placeableEnemies[placeableEnemyNum].img, x - placeableEnemies[placeableEnemyNum].img:getWidth()/2, y 
+          - placeableEnemies[placeableEnemyNum].img:getHeight()/2)
+        
+    elseif placeable == "Static" then
+      love.graphics.draw(placeableStatic[placeableStaticNum].img, x - placeableStatic[placeableStaticNum].img:getWidth()/2, y 
+          - placeableStatic[placeableStaticNum].img:getHeight()/2)
+    end
+    
+    love.graphics.setColor( 255, 255, 255, 255 )
   end
-  
-  love.graphics.setColor( 255, 255, 255, 255 )
 end
 
 function getPlaceables()

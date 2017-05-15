@@ -27,24 +27,28 @@ function onClick(button)
 	-- If LEFT mouse button is clicked
 	if button == 1 then
 		x, y = love.mouse.getPosition( )
-		classText = placeable
-    if placeableEnemies ~= nil then
-      name = placeableEnemies[placeableEnemyNum].name
+    if onUI == true then
+      onClickUI(x, y)
+    else
+      classText = placeable
+      if placeableEnemies ~= nil then
+        name = placeableEnemies[placeableEnemyNum].name
+      end
+      --print(name)
+      if classText == "None" or classText == "Static" or classText == nil then
+        createObject(x,y)
+      elseif classText == "Player" then
+        createPlayer(x,y)
+      elseif classText == "Tile" then
+        createTile(x,y)
+      elseif classText == "Camera Collider" then
+        createCameraCollider(x,y)
+      elseif classText == "Enemy" then
+        createEnemy(x,y, name)
+      elseif classText == "End Level" then
+        createEndLevelTile(x, y)
+      end
     end
-    print(name)
-		if classText == "None" or classText == "Static" or classText == nil then
-			createObject(x,y)
-		elseif classText == "Player" then
-			createPlayer(x,y)
-		elseif classText == "Tile" then
-		  createTile(x,y)
-    elseif classText == "Camera Collider" then
-		  createCameraCollider(x,y)
-    elseif classText == "Enemy" then
-		  createEnemy(x,y, name)
-    elseif classText == "End Level" then
-      createEndLevelTile(x, y)
-		end
 	end
 	if button == 2 then
     deleteObject(x, y)
@@ -86,16 +90,33 @@ function love.wheelmoved(x, y)
       end
     elseif placeable == "Enemy" then
       placeableEnemyNum = placeableEnemyNum + 1
-      if placeableEnemyNum > table.getn(placeableEnemy) then
+      if placeableEnemyNum > table.getn(placeableEnemies) then
         placeableEnemyNum = 1
       end
       elseif y < 0 then
           placeableEnemyNum = placeableEnemyNum - 1
       if placeableEnemyNum < 1 then
-        placeableEnemyNum = table.getn(placeableEnemy)
+        placeableEnemyNum = table.getn(placeableEnemies)
       end
     end
-  
+    
+  elseif y < 0 then
+    if placeable == "Tile" or placeable == "End Level" then
+      placeableTileNum = placeableTileNum - 1
+      if placeableTileNum < 1 then
+        placeableTileNum = table.getn(placeableTiles)
+      end
+    elseif placeable == "Static" or placeable == "None" or placeable == nil then
+      placeableStaticNum = placeableStaticNum - 1
+      if placeableStaticNum < 1 then
+        placeableStaticNum = table.getn(placeableStatic)
+      end
+    elseif placeable == "Enemy" then
+      placeableEnemyNum = placeableEnemyNum - 1
+      if placeableEnemyNum < 1 then
+        placeableEnemyNum = table.getn(placeableEnemies)
+      end
+    end
   end
 end
 
