@@ -1,6 +1,6 @@
 require('collision')
 require('entities/entities')
-
+require('animation')
 
 players = {}
 bullets = {}
@@ -38,6 +38,7 @@ function createPlayer()
     damaged = false,
     alpha = 255,
     flicker = 0,
+    walkAnim = newAnim("images/characters/players/dudeguy/walk", 1/30)
 	}
 	
 	players[num].img = love.graphics.newImage(players[num].imagePath)
@@ -60,7 +61,7 @@ function playerUpdate(dt)
 	local count = 1
 	while count <= table.getn(players) do
 		player = getPlayer(count)
-
+    
     if count == 2 then
       print("player 2 jump")
       --jump(player, dt)
@@ -71,6 +72,12 @@ function playerUpdate(dt)
 		end
 		if player.right then
       moveRight(player, dt)
+      if player.walkAnim ~= nil then
+        --player.img = player.walkAnim:getFrame()
+        player.walkAnim:animate(dt)
+      else
+        player.walkAnim = newAnim("images/characters/players/dudeguy/walk", 1/30)
+      end
 		end
 		
 		if not player.right

@@ -33,7 +33,11 @@ function drawObjects(dt)
     if getPlayer(i) ~= nil then
       love.graphics.print(tostring(getPlayer(i).health), getx(getPlayer(i)), gety(getPlayer(i))-20)
       love.graphics.setColor(255,255,255,getPlayer(i).alpha)
-      love.graphics.draw(getPlayer(i).img, getx(getPlayer(i)), gety(getPlayer(i)), 0, getPlayer(i).scale)
+      if getPlayer(i).walkAnim:getFrame() ~= nil then
+        love.graphics.draw(getPlayer(i).walkAnim:getFrame(), getx(getPlayer(i)), gety(getPlayer(i)), 0, getPlayer(i).scale)
+      else
+        love.graphics.draw(getPlayer(i).img, getx(getPlayer(i)), gety(getPlayer(i)), 0, getPlayer(i).scale)
+      end
       love.graphics.setColor(255,255,255,255)
     end
   end

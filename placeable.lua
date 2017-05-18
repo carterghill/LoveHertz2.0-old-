@@ -46,16 +46,12 @@ function drawPlaceable()
     love.graphics.setColor( 255, 255, 255, 150 )
     if placeable == "Tile" then 
       
-      x = x - ((x + cameras[cameraNum].x) % 64) + 32
-      y = y - ((y + cameras[cameraNum].y) % 64) + 32
+      x = x - ((x + cameras[cameraNum].x) % 64) 
+      y = y - ((y + cameras[cameraNum].y) % 64) 
       
-      if placeableTiles[placeableTileNum].img:getWidth() == 128 then
-       love.graphics.draw(placeableTiles[placeableTileNum].img, x - placeableTiles[placeableTileNum].img:getWidth()/4, y 
-          - placeableTiles[placeableTileNum].img:getHeight()/4 , 0, 0.5)
-      else 
-        love.graphics.draw(placeableTiles[placeableTileNum].img, x - placeableTiles[placeableTileNum].img:getWidth()/2, y 
-          - placeableTiles[placeableTileNum].img:getHeight()/2)
-      end
+      local scale = 64/placeableTiles[placeableTileNum].img:getWidth()
+ 
+      love.graphics.draw(placeableTiles[placeableTileNum].img, x, y, 0, scale)
 
     elseif placeable == "Enemy" then
       love.graphics.draw(placeableEnemies[placeableEnemyNum].img, x - placeableEnemies[placeableEnemyNum].img:getWidth()/2, y 
