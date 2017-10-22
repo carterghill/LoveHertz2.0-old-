@@ -60,9 +60,11 @@ function drawUI()
     
 		drawPlaceable()
 		love.graphics.print("Edit mode Enabled", 10, 10)
-    if levels[1] ~= nil then
-      local x = levelNum-1
-      love.graphics.print("Level: "..x.." / "..levels[1], 10, 30)
+    if levels ~= nil then
+      if levels[1] ~= nil then
+        local x = levelNum-1
+        love.graphics.print("Level: "..x.." / "..levels[1], 10, 30)
+      end
     end
     text = "Press P to save level\n"
     text = text.."Press L to load saved level\n"
